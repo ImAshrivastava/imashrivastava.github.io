@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_975e9df654274179ab37ce151d644093 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_975e9df654274179ab37ce151d644093" ></div>
+        
+</body>
+<script>    
+    
+            var map_975e9df654274179ab37ce151d644093 = L.map(
+                "map_975e9df654274179ab37ce151d644093",
+                {
+                    center: [22.3511148, 78.6677428],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 4.8,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_463785873cae403185016da14f2d44db = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_975e9df654274179ab37ce151d644093);
+        
+    
+            var marker_fc6489b48c5e41948dadbc7f4460d54e = L.marker(
+                [29.865556716918945, 77.88972473144531],
+                {}
+            ).addTo(map_975e9df654274179ab37ce151d644093);
+        
+    
+        var popup_698704e47ed5445da47026c3bdd40fcf = L.popup({"maxWidth": "100%"});
+
+        
+            var html_414c3c7729264c1490f52c0f1bcf8c80 = $(`<div id="html_414c3c7729264c1490f52c0f1bcf8c80" style="width: 100.0%; height: 100.0%;">IIT Roorkee</div>`)[0];
+            popup_698704e47ed5445da47026c3bdd40fcf.setContent(html_414c3c7729264c1490f52c0f1bcf8c80);
+        
+
+        marker_fc6489b48c5e41948dadbc7f4460d54e.bindPopup(popup_698704e47ed5445da47026c3bdd40fcf)
+        ;
+
+        
+    
+    
+            var marker_f0f7aa664bd541ed8f5766d43e8dacaf = L.marker(
+                [26.51224708557129, 80.23226165771484],
+                {}
+            ).addTo(map_975e9df654274179ab37ce151d644093);
+        
+    
+        var popup_0bb372374847496298c4ea639665787c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5363fe6f158f448a8e34312cc4ab3e83 = $(`<div id="html_5363fe6f158f448a8e34312cc4ab3e83" style="width: 100.0%; height: 100.0%;">IIT Kanpur</div>`)[0];
+            popup_0bb372374847496298c4ea639665787c.setContent(html_5363fe6f158f448a8e34312cc4ab3e83);
+        
+
+        marker_f0f7aa664bd541ed8f5766d43e8dacaf.bindPopup(popup_0bb372374847496298c4ea639665787c)
+        ;
+
+        
+    
+    
+            var marker_2b854be8a29d4d75b177928a7f2c02a2 = L.marker(
+                [28.544889450073242, 77.19213104248047],
+                {}
+            ).addTo(map_975e9df654274179ab37ce151d644093);
+        
+    
+        var popup_37088783bce145b68cd1e64d3cd0068e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_eebe054f34d74fc08aad9a97f08be942 = $(`<div id="html_eebe054f34d74fc08aad9a97f08be942" style="width: 100.0%; height: 100.0%;">IIT Delhi</div>`)[0];
+            popup_37088783bce145b68cd1e64d3cd0068e.setContent(html_eebe054f34d74fc08aad9a97f08be942);
+        
+
+        marker_2b854be8a29d4d75b177928a7f2c02a2.bindPopup(popup_37088783bce145b68cd1e64d3cd0068e)
+        ;
+
+        
+    
+    
+            var marker_f6e8d52d871e4d46a763558ecffdc89e = L.marker(
+                [28.6271642, 77.2165642],
+                {}
+            ).addTo(map_975e9df654274179ab37ce151d644093);
+        
+    
+        var popup_91bb53cc2df648b3b75318c2b151fd9f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_54212944fc384c2d8a7409c8a7eb8c45 = $(`<div id="html_54212944fc384c2d8a7409c8a7eb8c45" style="width: 100.0%; height: 100.0%;">Jantar Mantar</div>`)[0];
+            popup_91bb53cc2df648b3b75318c2b151fd9f.setContent(html_54212944fc384c2d8a7409c8a7eb8c45);
+        
+
+        marker_f6e8d52d871e4d46a763558ecffdc89e.bindPopup(popup_91bb53cc2df648b3b75318c2b151fd9f)
+        ;
+
+        
+    
+    
+            var marker_68b207244a204444a18e3207c60947c1 = L.marker(
+                [28.6260675, 77.2250111],
+                {}
+            ).addTo(map_975e9df654274179ab37ce151d644093);
+        
+    
+        var popup_a4a77fdd973148ffbbedf8e4f3863a98 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_cc544ee568884ef9a676b09cb6ffc3f0 = $(`<div id="html_cc544ee568884ef9a676b09cb6ffc3f0" style="width: 100.0%; height: 100.0%;">Agrasen ki Baoli</div>`)[0];
+            popup_a4a77fdd973148ffbbedf8e4f3863a98.setContent(html_cc544ee568884ef9a676b09cb6ffc3f0);
+        
+
+        marker_68b207244a204444a18e3207c60947c1.bindPopup(popup_a4a77fdd973148ffbbedf8e4f3863a98)
+        ;
+
+        
+    
+    
+            var marker_d21cabe824624cc2902431f46db224e3 = L.marker(
+                [23.42564, 72.65739],
+                {}
+            ).addTo(map_975e9df654274179ab37ce151d644093);
+        
+    
+        var popup_4157d07542fc442ba66b2b7568eef92b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e3b34501faaf40f187bbca5a2ff19a0a = $(`<div id="html_e3b34501faaf40f187bbca5a2ff19a0a" style="width: 100.0%; height: 100.0%;">Gram Bharti Amrapur</div>`)[0];
+            popup_4157d07542fc442ba66b2b7568eef92b.setContent(html_e3b34501faaf40f187bbca5a2ff19a0a);
+        
+
+        marker_d21cabe824624cc2902431f46db224e3.bindPopup(popup_4157d07542fc442ba66b2b7568eef92b)
+        ;
+
+        
+    
+    
+            var marker_79891bd3cfbb4e55a9566ab6cc77688f = L.marker(
+                [23.0373068, 72.5447481],
+                {}
+            ).addTo(map_975e9df654274179ab37ce151d644093);
+        
+    
+        var popup_81ce32cacd574c6784fb37aed711cbc4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b7ae32c7fc1b40f78e1cac0320c1d356 = $(`<div id="html_b7ae32c7fc1b40f78e1cac0320c1d356" style="width: 100.0%; height: 100.0%;">Gujrat University</div>`)[0];
+            popup_81ce32cacd574c6784fb37aed711cbc4.setContent(html_b7ae32c7fc1b40f78e1cac0320c1d356);
+        
+
+        marker_79891bd3cfbb4e55a9566ab6cc77688f.bindPopup(popup_81ce32cacd574c6784fb37aed711cbc4)
+        ;
+
+        
+    
+    
+            var marker_020491d858194b4d9251c08eb1b1ef53 = L.marker(
+                [21.754098, 72.1417788],
+                {}
+            ).addTo(map_975e9df654274179ab37ce151d644093);
+        
+    
+        var popup_f873da76e75c477b9d7cf89d56cee6b9 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3d956a79aabf4ad0a76bdc5bc353e732 = $(`<div id="html_3d956a79aabf4ad0a76bdc5bc353e732" style="width: 100.0%; height: 100.0%;">Akshardham Temple</div>`)[0];
+            popup_f873da76e75c477b9d7cf89d56cee6b9.setContent(html_3d956a79aabf4ad0a76bdc5bc353e732);
+        
+
+        marker_020491d858194b4d9251c08eb1b1ef53.bindPopup(popup_f873da76e75c477b9d7cf89d56cee6b9)
+        ;
+
+        
+    
+    
+            var marker_537da233fb7e45388bf886fe0c9ade2b = L.marker(
+                [23.5, 72.41667],
+                {}
+            ).addTo(map_975e9df654274179ab37ce151d644093);
+        
+    
+        var popup_fdbb7e1207d14d5a983f0ed578a0f561 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_44337825c3bf4b81af99256afe7d7f7f = $(`<div id="html_44337825c3bf4b81af99256afe7d7f7f" style="width: 100.0%; height: 100.0%;">Amarnath Dham</div>`)[0];
+            popup_fdbb7e1207d14d5a983f0ed578a0f561.setContent(html_44337825c3bf4b81af99256afe7d7f7f);
+        
+
+        marker_537da233fb7e45388bf886fe0c9ade2b.bindPopup(popup_fdbb7e1207d14d5a983f0ed578a0f561)
+        ;
+
+        
+    
+    
+            var marker_9b7f003f63c142c18ed85e37804fb1ed = L.marker(
+                [23.02579, 72.58727],
+                {}
+            ).addTo(map_975e9df654274179ab37ce151d644093);
+        
+    
+        var popup_93ff84e424534c16ad5646395ac424b8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_fc439472b685418f89d76654471a51b1 = $(`<div id="html_fc439472b685418f89d76654471a51b1" style="width: 100.0%; height: 100.0%;">SRISTI</div>`)[0];
+            popup_93ff84e424534c16ad5646395ac424b8.setContent(html_fc439472b685418f89d76654471a51b1);
+        
+
+        marker_9b7f003f63c142c18ed85e37804fb1ed.bindPopup(popup_93ff84e424534c16ad5646395ac424b8)
+        ;
+
+        
+    
+    
+            var marker_1aafb75ce15a49dda356fe1f35d9319b = L.marker(
+                [19.1326186, 72.9149791],
+                {}
+            ).addTo(map_975e9df654274179ab37ce151d644093);
+        
+    
+        var popup_d5ac79bf4dfd40b189347083a062ab27 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_82301d7cdd264408ac3fd17dbb1ca2fd = $(`<div id="html_82301d7cdd264408ac3fd17dbb1ca2fd" style="width: 100.0%; height: 100.0%;">Indian Institute of Technology Bombay</div>`)[0];
+            popup_d5ac79bf4dfd40b189347083a062ab27.setContent(html_82301d7cdd264408ac3fd17dbb1ca2fd);
+        
+
+        marker_1aafb75ce15a49dda356fe1f35d9319b.bindPopup(popup_d5ac79bf4dfd40b189347083a062ab27)
+        ;
+
+        
+    
+    
+            var marker_818fa2042e814b1595ebdd1428246704 = L.marker(
+                [15.8572666, 74.5069343],
+                {}
+            ).addTo(map_975e9df654274179ab37ce151d644093);
+        
+    
+        var popup_9488291c2cff4224bb51f3e366496607 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e4abd6aa4161440c91018508a5e111b9 = $(`<div id="html_e4abd6aa4161440c91018508a5e111b9" style="width: 100.0%; height: 100.0%;">Belgaum</div>`)[0];
+            popup_9488291c2cff4224bb51f3e366496607.setContent(html_e4abd6aa4161440c91018508a5e111b9);
+        
+
+        marker_818fa2042e814b1595ebdd1428246704.bindPopup(popup_9488291c2cff4224bb51f3e366496607)
+        ;
+
+        
+    
+    
+            var marker_a288f174e126427593a54fab5351b82d = L.marker(
+                [22.5269276, 75.9262066],
+                {}
+            ).addTo(map_975e9df654274179ab37ce151d644093);
+        
+    
+        var popup_11400d9c50e34b049f65685a4b61f783 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_908eba77ba9a4a6bb3be8fc39f81aca5 = $(`<div id="html_908eba77ba9a4a6bb3be8fc39f81aca5" style="width: 100.0%; height: 100.0%;">IIM Indore</div>`)[0];
+            popup_11400d9c50e34b049f65685a4b61f783.setContent(html_908eba77ba9a4a6bb3be8fc39f81aca5);
+        
+
+        marker_a288f174e126427593a54fab5351b82d.bindPopup(popup_11400d9c50e34b049f65685a4b61f783)
+        ;
+
+        
+    
+    
+            var marker_10544abac7124ee99b99043c09ea5d6f = L.marker(
+                [26.1960159, 91.697398],
+                {}
+            ).addTo(map_975e9df654274179ab37ce151d644093);
+        
+    
+        var popup_850a6f699d514179a3ff201f99f74b0a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_47c64827061b46e39dff11832633c634 = $(`<div id="html_47c64827061b46e39dff11832633c634" style="width: 100.0%; height: 100.0%;">IIT Guwahati</div>`)[0];
+            popup_850a6f699d514179a3ff201f99f74b0a.setContent(html_47c64827061b46e39dff11832633c634);
+        
+
+        marker_10544abac7124ee99b99043c09ea5d6f.bindPopup(popup_850a6f699d514179a3ff201f99f74b0a)
+        ;
+
+        
+    
+    
+            var marker_f946da6c3cb4467e93dced2eaf4890ea = L.marker(
+                [12.991, 80.23295],
+                {}
+            ).addTo(map_975e9df654274179ab37ce151d644093);
+        
+    
+        var popup_b33cb73816594c4fbbaa7827dce0035b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_aeed913b8b094556b4152638d2daed3e = $(`<div id="html_aeed913b8b094556b4152638d2daed3e" style="width: 100.0%; height: 100.0%;">IIT Madras</div>`)[0];
+            popup_b33cb73816594c4fbbaa7827dce0035b.setContent(html_aeed913b8b094556b4152638d2daed3e);
+        
+
+        marker_f946da6c3cb4467e93dced2eaf4890ea.bindPopup(popup_b33cb73816594c4fbbaa7827dce0035b)
+        ;
+
+        
+    
+    
+            var marker_629658c24d954b32b1c75746780f07e1 = L.marker(
+                [17.4086181, 78.4898943],
+                {}
+            ).addTo(map_975e9df654274179ab37ce151d644093);
+        
+    
+        var popup_23a980e729044e9db8b7b15f8423157e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8b57d3fdfb6f480f9fb22a904d131c86 = $(`<div id="html_8b57d3fdfb6f480f9fb22a904d131c86" style="width: 100.0%; height: 100.0%;">IIT Hyderabad</div>`)[0];
+            popup_23a980e729044e9db8b7b15f8423157e.setContent(html_8b57d3fdfb6f480f9fb22a904d131c86);
+        
+
+        marker_629658c24d954b32b1c75746780f07e1.bindPopup(popup_23a980e729044e9db8b7b15f8423157e)
+        ;
+
+        
+    
+    
+            var marker_56ca9577624e4086a788f001459e82cf = L.marker(
+                [12.9791198, 77.5912997],
+                {}
+            ).addTo(map_975e9df654274179ab37ce151d644093);
+        
+    
+        var popup_3304f6ff66da42af90f497b27a53eb6b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e4b2b3374b4a4a32a4f045f57ad17fb1 = $(`<div id="html_e4b2b3374b4a4a32a4f045f57ad17fb1" style="width: 100.0%; height: 100.0%;">Bengaluru</div>`)[0];
+            popup_3304f6ff66da42af90f497b27a53eb6b.setContent(html_e4b2b3374b4a4a32a4f045f57ad17fb1);
+        
+
+        marker_56ca9577624e4086a788f001459e82cf.bindPopup(popup_3304f6ff66da42af90f497b27a53eb6b)
+        ;
+
+        
+    
+</script>
