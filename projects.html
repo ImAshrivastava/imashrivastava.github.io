@@ -54,6 +54,82 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" href="https://imashrivastava.github.io/assets/css/academicons.css"/>
   <!-- end custom head snippets -->
+  <style> * {
+    box-sizing: border-box;
+  }
+  .imgleft {
+    float: left;
+    width: 20%;
+    padding: 5px;
+  }
+  .imgright {
+    float: right;
+    width: 15%;
+    padding: 5px;
+  }
+
+  .flgtxt {
+    width: 100%;
+  }
+
+  .destinations {
+    float: left;
+    width: 50%;
+    padding: 5px;
+  }
+
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  .button {
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    }
+
+    .button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+    }
+
+    .button1:hover {
+    background-color: #4CAF50;
+    color: white;
+    }
+
+    .button2 {
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+    }
+
+    .button2:hover {
+    background-color: #008CBA;
+    color: white;
+    }
+
+    .button3 {
+    background-color: white;
+    color: black;
+    border: 2px solid #b0231e;
+    }
+
+    .button3:hover {
+    background-color: #b0231e;
+    color: white;
+    }
+  </style>
 </head>
 <body>
 
@@ -112,9 +188,13 @@
     </div>
 
     <div class="archive">
+
       <marquee width="100%" direction="left" height="50px" scrollamount="10">
           <font color="#02fa44"><b>WEBPAGE TO BE UPDATED</b></font>
       </marquee>
+
+      <b>MAJOR PROJECTS</b> | <button class="button button3" onclick="window.location.href='https://imashrivastava.github.io/makerportfolio'">Maker Portfolio</button>
+      <hr style="height:1px;border-width:0;color:gray;background-color:gray">
       <ul>
         <li>
           <p>
@@ -142,31 +222,6 @@
           </p>
         </li>
 
-
-        <li>
-          <p>
-            <strong>Peer Review System for Student Council Election</strong><br>
-            <img align="right" width="150px" height="170px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/files/makerportfolio/peerreview.png" alt="AudioOptic" class="inline"/>
-            <mark><font color="#000000">Independent Project</font></mark> |
-            <em><font color = "#048ede">Software Engineering</font></em> | Autumn 2020
-          </p>
-        </li>
-
-        <br><br>
-
-        <li>
-          <p>
-            <strong>Cipher: Personal Password Management and Protection Software</strong><br>
-            <img align="right" width="150px" height="170px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/files/makerportfolio/cipher.png" alt="AudioOptic" class="inline"/>
-            <mark><font color="#000000">Independent Project</font></mark> |
-            <em><font color = "#048ede">Software Engineering</font></em> | Summer 2020
-          </p>
-          <p>
-          </p>
-        </li>
-
-        <br><br>
-
         <li>
           <p>
             <strong>Paper-based Biosensing System for detection of Mastitis in Dairy Cattle</strong><br>
@@ -193,6 +248,109 @@
           running on system on chip computer for argumentative and alternative communication using novel ‘Blink-to-Speak’ language.
         </p>
         </li>
+
+        <li>
+          <p>
+            <strong>iThink: An Electroencephalography based Wearable Brain-Computer Interface</strong><br>
+            <img align="right" width="150px" height="170px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/files/makerportfolio/iThink.jpeg" alt="iThink" class="inline"/>
+            <mark><font color="#f54260">Advisor</font></mark>: <a href=""><strong>Dr. Varun Tiwari</strong></a> |
+            <em><font color = "#048ede">Human-Computer Interaction</font></em> | Autumn 2017
+          </p>
+          <p>
+          Proposed a novel algorithm and trained a neural network to process EEG raw data to devise a wearable
+          brain-computer interface for real-time brain-to-text, brain-to speech, and brain-to-command for
+          miscellaneous applications.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            <strong>P300 Speller for Brain-Computer Interfacing</strong><br>
+            <img align="right" width="150px" height="170px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/files/makerportfolio/p300.png" alt="AudioOptic" class="inline"/>
+            <mark><font color="#000000">Independent Project</font></mark> |
+            <em><font color = "#048ede">Human-Computer Interaction</font></em> | Autumn 2017
+          </p>
+          <p>
+            Devised a wearable brain-computer interface to interpret visually evoked p300 wave
+            for spelling alphabets in a word processor.
+          </p>
+        </li>
+
+        <br>
+
+        <li>
+          <p>
+            <strong>AudioOptic: A Computer Vision-based Wearable Visual Aid for Visually Challenged</strong><br>
+            <img align="right" width="150px" height="170px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/files/makerportfolio/AudioOptic%20IRIS%20Eastern%20Mentroing%20Camp.png" alt="AudioOptic" class="inline"/>
+            <mark><font color="#4ec782">Team Project</font></mark>:
+            <a href=""><strong>Aman Shrivastava</strong>,
+              <strong>Archit Patil</strong></a> |
+            <em><font color = "#048ede">Biomechatronics</font></em> | Autumn - Winter 2016
+          </p>
+          Embedded array of optical sensors and processors in a headgear to implement a wearable visual aid working on
+          parallel computing to detect, recognize and track objects, faces and text to translate them into speech for
+          navigation and applications in real-time using concurrent visual processing algorithms.
+          <p>
+          </p>
+        </li>
+
+        <li>
+          <p>
+            <strong>MedAssist: Internet of Things based Automated Medicine Dispenser</strong><br>
+            <img align="right" width="150px" height="170px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/files/makerportfolio/MedAssist.png" alt="AudioOptic" class="inline"/>
+            <mark><font color="#f54260">Advisor</font></mark>: <a href=""><strong>Dr. Varun Tiwari</strong></a>,
+            <a href=""><strong>Dr. Ashwin Kothari</strong></a> |
+            <em><font color = "#048ede">Embedded and Communication Systems</font></em> | Autumn 2015
+          </p>
+          <p align="justify">
+            Implemented a network of IoT-based automated medicine dispensers with real-time monitoring and configuration
+            system for personal use and hospitals to assist patients with their medication schedule and to prevent
+            medication non-adherence.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            <strong>Unmanned Ground Vehicle with Vision for Remote Security and Surveillance</strong><br>
+            <mark><font color="#000000">Independent Project</font></mark> |
+            <em><font color = "#048ede">Robotics Project</font></em> | Summer 2014
+          </p>
+          <p>
+            Implemented a continuous tracked, semi-autonomous unmanned ground vehicle with onboard six degrees of
+            freedom robotics arm and depth-sensing for remote security and Surveillance.
+          </p>
+        </li>
+      </ul>
+
+      <b>MINOR PROJECTS</b>
+      <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+
+      <ul>
+
+        <li>
+          <p>
+            <strong>Peer Review System for Student Council Election</strong><br>
+            <img align="right" width="150px" height="170px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/files/makerportfolio/peerreview.png" alt="AudioOptic" class="inline"/>
+            <mark><font color="#000000">Independent Project</font></mark> |
+            <em><font color = "#048ede">Software Engineering</font></em> | Autumn 2020
+          </p>
+        </li>
+
+        <br><br>
+
+        <li>
+          <p>
+            <strong>Cipher: Personal Password Management and Protection Software</strong><br>
+            <img align="right" width="150px" height="170px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/files/makerportfolio/cipher.png" alt="AudioOptic" class="inline"/>
+            <mark><font color="#000000">Independent Project</font></mark> |
+            <em><font color = "#048ede">Software Engineering</font></em> | Summer 2020
+          </p>
+          <p>
+          </p>
+        </li>
+
+        <br><br>
+
 
         <li>
           <p>
@@ -249,78 +407,6 @@
           <p align="justify">
             Designed and fabricated a multi-project motherboard with on-board general purpose timer, Opamp, H-bridge and ATtiny
             IC's for DIY projects and robotics.
-          </p>
-        </li>
-
-        <li>
-          <p>
-            <strong>iThink: An Electroencephalography based Wearable Brain-Computer Interface</strong><br>
-            <img align="right" width="150px" height="170px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/files/makerportfolio/iThink.jpeg" alt="iThink" class="inline"/>
-            <mark><font color="#f54260">Advisor</font></mark>: <a href=""><strong>Dr. Varun Tiwari</strong></a> |
-            <em><font color = "#048ede">Human-Computer Interaction</font></em>
-          </p>
-          <p>
-          Proposed a novel algorithm and trained a neural network to process EEG raw data to devise a wearable
-          brain-computer interface for real-time brain-to-text, brain-to speech, and brain-to-command for
-          miscellaneous applications.
-          </p>
-        </li>
-
-        <li>
-          <p>
-            <strong>P300 Speller for Brain-Computer Interfacing</strong><br>
-            <img align="right" width="150px" height="170px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/files/makerportfolio/p300.png" alt="AudioOptic" class="inline"/>
-            <mark><font color="#000000">Independent Project</font></mark> |
-            <em><font color = "#048ede">Human-Computer Interaction</font></em>
-          </p>
-          <p>
-            Devised a wearable brain-computer interface to interpret visually evoked p300 wave
-            for spelling alphabets in a word processor.
-          </p>
-        </li>
-
-        <br>
-
-        <li>
-          <p>
-            <strong>AudioOptic: A Computer Vision-based Wearable Visual Aid for Visually Challenged</strong><br>
-            <img align="right" width="150px" height="170px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/files/makerportfolio/AudioOptic%20IRIS%20Eastern%20Mentroing%20Camp.png" alt="AudioOptic" class="inline"/>
-            <mark><font color="#4ec782">Team Project</font></mark>:
-            <a href=""><strong>Aman Shrivastava</strong>,
-              <strong>Archit Patil</strong></a> |
-            <em><font color = "#048ede">Biomechatronics</font></em>
-          </p>
-          Embedded array of optical sensors and processors in a headgear to implement a wearable visual aid working on
-          parallel computing to detect, recognize and track objects, faces and text to translate them into speech for
-          navigation and applications in real-time using concurrent visual processing algorithms.
-          <p>
-          </p>
-        </li>
-
-        <li>
-          <p>
-            <strong>MedAssist: Internet of Things based Automated Medicine Dispenser</strong><br>
-            <img align="right" width="150px" height="170px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/files/makerportfolio/MedAssist.png" alt="AudioOptic" class="inline"/>
-            <mark><font color="#f54260">Advisor</font></mark>: <a href=""><strong>Dr. Varun Tiwari</strong></a>,
-            <a href=""><strong>Dr. Ashwin Kothari</strong></a> |
-            <em><font color = "#048ede">Embedded and Communication Systems</font></em>
-          </p>
-          <p align="justify">
-            Implemented a network of IoT-based automated medicine dispensers with real-time monitoring and configuration
-            system for personal use and hospitals to assist patients with their medication schedule and to prevent
-            medication non-adherence.
-          </p>
-        </li>
-
-        <li>
-          <p>
-            <strong>Unmanned Ground Vehicle with Vision for Remote Security and Surveillance</strong><br>
-            <mark><font color="#000000">Independent Project</font></mark> |
-            <em><font color = "#048ede">Robotics Project</font></em>
-          </p>
-          <p>
-            Implemented a continuous tracked, semi-autonomous unmanned ground vehicle with onboard six degrees of
-            freedom robotics arm and depth-sensing for remote security and Surveillance.
           </p>
         </li>
 
