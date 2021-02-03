@@ -54,6 +54,82 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" href="https://imashrivastava.github.io/assets/css/academicons.css"/>
   <!-- end custom head snippets -->
+  <style> * {
+    box-sizing: border-box;
+  }
+  .imgleft {
+    float: left;
+    width: 20%;
+    padding: 5px;
+  }
+  .imgright {
+    float: right;
+    width: 15%;
+    padding: 5px;
+  }
+
+  .flgtxt {
+    width: 100%;
+  }
+
+  .destinations {
+    float: left;
+    width: 50%;
+    padding: 5px;
+  }
+
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  .button {
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    }
+
+    .button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+    }
+
+    .button1:hover {
+    background-color: #4CAF50;
+    color: white;
+    }
+
+    .button2 {
+    background-color: white;
+    color: black;
+    border: 2px solid #048ede;
+    }
+
+    .button2:hover {
+    background-color: #048ede;
+    color: white;
+    }
+
+    .button3 {
+    background-color: white;
+    color: black;
+    border: 2px solid #b0231e;
+    }
+
+    .button3:hover {
+    background-color: #b0231e;
+    color: white;
+    }
+  </style>
 </head>
 <body>
   <div class="masthead">
@@ -110,10 +186,8 @@
     </div>
 
     <div class="archive">
-      <marquee width="100%" direction="left" height="50px" scrollamount="10">
-          <font color="#02fa44"><b>THIS WEBSITE IS GETTING UPDATED EVERYDAY.</b></font>
-      </marquee>
-      <h2>IN-PERSON COURSES</h2>
+      <h2>IN PERSON COURSES</h2>
+      <hr style="height:1px;border-width:0;color:gray;background-color:gray">
       <!--<hr>
       <img align="left" width="130px" height="50px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/images/shaastra.png" alt="shaastra" class="inline" />
       <img align="left" width="85px" height="50px" src="https://imashrivastava.github.io/images/techniche.png" alt="Techniche" class="inline" />
@@ -134,7 +208,7 @@
           <p>
             <strong><u>Machine Learning and Artificial Intelligence</u></strong> - <a href="https://www.iitg.ac.in"><em><font color = "#f5056d">Indian Institute of Technology Guwahati</font></em></a>
             <img align="right" width="70px" height="70px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/images/iitg.png" alt="IITD" class="inline" /><br />
-            <strong><font color = "#184e8f">RoboTech Labs Pvt. Ltd.</font></strong> | <em>ROBOTech Labs Certification</em> : <a href="">[<strong><font color = "#048ede">Certificate</font></strong>]</a>
+            <strong><font color = "#184e8f">RoboTech Labs Pvt. Ltd.</font></strong> | <em>ROBOTech Labs Certification</em> | <button class="button button2" onclick="window.location.href='https://drive.google.com/file/d/1Xi1GYIr8qbmW-ijA5SB6hFxgiLzFlQLg/view?usp=sharing'">Certificate</button></h2>
           </p>
         </li>
 
@@ -142,7 +216,7 @@
           <p>
             <strong><u>Sixth Sense Robotics</u></strong> - <a href="https://www.iitg.ac.in"><em><font color = "#f5056d">Indian Institute of Technology Guwahati</font></em></a>
             <img align="right" width="70px" height="70px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/images/iitg.png" alt="IITD" class="inline" /><br />
-            <strong><font color = "#184e8f">RoboTech Labs Pvt. Ltd.</font></strong> | <em>ROBOTech Labs Certification</em> : <a href="">[<strong><font color = "#048ede">Certificate</font></strong>]</a>
+            <strong><font color = "#184e8f">RoboTech Labs Pvt. Ltd.</font></strong> | <em>ROBOTech Labs Certification</em> | <button class="button button2" onclick="window.location.href='https://drive.google.com/file/d/1gZxbqx29XGIvenNK5mVPskJcxFYKSx_n/view?usp=sharing'">Certificate</button></h2>
           </p>
         </li>
 
@@ -150,7 +224,7 @@
           <p>
             <strong><u>MATLAB</u></strong> - <a href="https://home.iitd.ac.in"><em><font color = "#f5056d">Indian Institute of Technology Delhi</font></em></a>
             <img align="right" width="70px" height="70px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/images/iitd.png" alt="IITD" class="inline" /><br />
-            <strong><font color = "#184e8f">Robosapiens India Publications</font></strong> | <em>Robotholon Certification</em> : <a href="">[<strong><font color = "#048ede">Certificate</font></strong>]</a>
+            <strong><font color = "#184e8f">Robosapiens India Publications</font></strong> | <em>Robotholon Certification</em> | <button class="button button2" onclick="window.location.href='https://drive.google.com/file/d/1LqPWQf4hokU2q5SNjkCVbtUqFwD_zSIK/view?usp=sharing'">Certificate</button></h2>
           </p>
         </li>
 
@@ -158,7 +232,7 @@
           <p>
             <strong><u>Cloud Computing with Big Data and Hadoop</u></strong> - <a href="https://home.iitd.ac.in"><em><font color = "#f5056d">Indian Institute of Technology Delhi</font></em></a>
             <img align="right" width="70px" height="70px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/images/iitd.png" alt="IITD" class="inline" /><br />
-            <strong><font color = "#184e8f">Robosapiens India Publications</font></strong> | <em>Robotholon Certification</em> : <a href="">[<strong><font color = "#048ede">Certificate</font></strong>]</a>
+            <strong><font color = "#184e8f">Robosapiens India Publications</font></strong> | <em>Robotholon Certification</em> | <button class="button button2" onclick="window.location.href=''">Certificate</button></h2>
           </p>
         </li>
 
@@ -166,7 +240,7 @@
           <p>
             <strong><u>Raspberry Pi and Python based Automation System Design</u></strong> - <a href="https://home.iitd.ac.in"><em><font color = "#f5056d">Indian Institute of Technology Delhi</font></em></a>
             <img align="right" width="70px" height="70px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/images/iitd.png" alt="IITD" class="inline" /><br />
-            <strong><font color = "#184e8f">Robosapiens India Publications</font></strong> | <em>Robotholon Certification</em> : <a href="">[<strong><font color = "#048ede">Certificate</font></strong>]</a>
+            <strong><font color = "#184e8f">Robosapiens India Publications</font></strong> | <em>Robotholon Certification</em> | <button class="button button2" onclick="window.location.href=''">Certificate</button></h2>
           </p>
         </li>
 
@@ -174,7 +248,7 @@
           <p>
             <strong><u>Humanoid Robotics with IoT</u></strong> - <a href="https://www.iith.ac.in"><em><font color = "#f5056d">Indian Institute of Technology Hyderabad</font></em></a>
             <img align="right" width="70px" height="70px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/images/iith.png" alt="IITH" class="inline" /><br />
-            <strong><font color = "#184e8f">Techobyte Technologies</font></strong> | <em>E-Cell IIT Hyderabad Certification</em> : <a href="">[<strong><font color = "#048ede">Certificate</font></strong>]</a>
+            <strong><font color = "#184e8f">Techobyte Technologies</font></strong> | <em>E-Cell IIT Hyderabad Certification</em> | <button class="button button2" onclick="window.location.href=''">Certificate</button></h2>
           </p>
         </li>
 
@@ -182,7 +256,7 @@
           <p>
             <strong><u>Ethical Hacking</u></strong> - <a href="https://www.iitr.ac.in"><em><font color = "#f5056d">Indian Institute of Technology Roorkee</font></em></a>
             <img align="right" width="70px" height="70px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/images/iitr.png" alt="IITR" class="inline" /><br />
-            <strong><font color = "#184e8f">RoboTech Labs Pvt. Ltd.</font></strong> | <em>ROBOTech Labs Certification</em> : <a href="">[<strong><font color = "#048ede">Certificate</font></strong>]</a>
+            <strong><font color = "#184e8f">RoboTech Labs Pvt. Ltd.</font></strong> | <em>ROBOTech Labs Certification</em> | <button class="button button2" onclick="window.location.href=''">Certificate</button></h2>
           </p>
         </li>
 
@@ -190,7 +264,7 @@
           <p>
             <strong><u>Web Development</u></strong> - <a href="https://www.iiti.ac.in"><em><font color = "#f5056d">Indian Institute of Technology Indore</font></em></a>
             <img align="right" width="70px" height="70px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/images/iiti.png" alt="IITI" class="inline" /><br />
-            <strong><font color = "#184e8f">RoboTech Labs Pvt. Ltd.</font></strong> | <em>ROBOTech Labs Certification</em> : <a href="">[<strong><font color = "#048ede">Certificate</font></strong>]</a>
+            <strong><font color = "#184e8f">RoboTech Labs Pvt. Ltd.</font></strong> | <em>ROBOTech Labs Certification</em> | <button class="button button2" onclick="window.location.href=''">Certificate</button></h2>
           </p>
         </li>
 
@@ -198,7 +272,7 @@
           <p>
             <strong><u>Manual Robotics</u></strong> - <a href="http://vnit.ac.in"><em><font color = "#f5056d">Visvesvaraya National Institute Of Technology</font></em></a>
             <img align="right" width="70px" height="70px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/images/vnit.png" alt="IITI" class="inline" /><br />
-            <strong><font color = "#184e8f">RoboTech Labs Pvt. Ltd.</font></strong> | <em>ROBOTech Labs Certification</em> : <a href="">[<strong><font color = "#048ede">Certificate</font></strong>]</a>
+            <strong><font color = "#184e8f">RoboTech Labs Pvt. Ltd.</font></strong> | <em>ROBOTech Labs Certification</em> | <button class="button button2" onclick="window.location.href=''">Certificate</button></h2>
           </p>
         </li>
 
@@ -206,14 +280,15 @@
           <p>
             <strong><u>C/C++ Programming</u></strong> - <a href=""><em><font color = "#f5056d">Infologic</font></em></a>
             <img align="right" width="100px" height="70px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/images/Infologic.png" alt="Infologic" class="inline" /><br />
-            <strong><font color = "#184e8f">Infologic Pvt. Ltd.</font></strong> | <em>Infologic Certification</em> : <a href="">[<strong><font color = "#048ede">Certificate</font></strong>]</a>
+            <strong><font color = "#184e8f">Infologic Pvt. Ltd.</font></strong> | <em>Infologic Certification</em> | <button class="button button2" onclick="window.location.href=''">Certificate</button></h2>
           </p>
         </li>
       </ul>
 
       <hr>
       <h2>E-Learning</h2>
-      <h3>National Programme on Technology Enhanced Learning(NPTEL)</h3>
+      <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+      <h3>National Programme on Technology Enhanced Learning</h3>
       <img align="left" width="140px" height="80px" src="https://imashrivastava.github.io/images/nptel.png" alt="NPTEL" class="inline" /><br />
       <ul style="list-style-type:square;">
         <li>
