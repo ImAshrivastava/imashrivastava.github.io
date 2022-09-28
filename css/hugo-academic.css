@@ -630,13 +630,16 @@ article {
 }
 
 #projects.home-section .project-title {
+  font-family: 'Merriweather', serif;
+  font-size: 11px;
   display: inline-block;
   margin-bottom: 6px;
 }
 
 #projects.home-section .project-summary {
-  font-size: 0.9rem;
-  font-style: normal;
+  font-family: 'Merriweather', serif;
+  font-size: 9px;
+  color: #171716;
   margin-bottom: 0.2rem;
 }
 
