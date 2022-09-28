@@ -646,21 +646,21 @@ article {
 
 #container-projects {
   display: block;
-  width=30em;
+  /*width=30em;*/
   position: relative;
   /*margin-top: 5rem;*/
   overflow: hidden;
 }
 
 
-#container-projects li {
+/*#container-projects li {
     float: left;
   width: 10em;  /* accommodate the widest item */
-  }
+  /*}*/
   
 
 .project-toolbar{
-  align-content: center;
+  /*align-content: center;*/
   margin-bottom: 2rem;
 }
 
