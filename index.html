@@ -9,13 +9,14 @@
  -->
 <html lang="en-us">
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P8JYGFF61H"></script>
+  <script async="" src="//www.google-analytics.com/analytics.js"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-P8JYGFF61H');
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'G-P8JYGFF61H', 'auto');
+    ga('require', 'eventTracker');
+    ga('require', 'outboundLinkTracker');
+    ga('require', 'urlChangeTracker');
+    ga('send', 'pageview');
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
