@@ -1,76 +1,683 @@
-<!doctype html>
-<!--
-  ██╗    ██╗    ██╗ █████╗ ███████╗    ███████╗██╗  ██╗██████╗ ███████╗ ██████╗████████╗██╗███╗   ██╗ ██████╗     ██╗   ██╗ ██████╗ ██╗   ██╗    ██╗
-  ██║    ██║    ██║██╔══██╗██╔════╝    ██╔════╝╚██╗██╔╝██╔══██╗██╔════╝██╔════╝╚══██╔══╝██║████╗  ██║██╔════╝     ╚██╗ ██╔╝██╔═══██╗██║   ██║    ██║
-  ██║    ██║ █╗ ██║███████║███████╗    █████╗   ╚███╔╝ ██████╔╝█████╗  ██║        ██║   ██║██╔██╗ ██║██║  ███╗     ╚████╔╝ ██║   ██║██║   ██║    ██║
-  ██║    ██║███╗██║██╔══██║╚════██║    ██╔══╝   ██╔██╗ ██╔═══╝ ██╔══╝  ██║        ██║   ██║██║╚██╗██║██║   ██║      ╚██╔╝  ██║   ██║██║   ██║    ╚═╝
-  ██║    ╚███╔███╔╝██║  ██║███████║    ███████╗██╔╝ ██╗██║     ███████╗╚██████╗   ██║   ██║██║ ╚████║╚██████╔╝       ██║   ╚██████╔╝╚██████╔╝    ██╗
-  ╚═╝     ╚══╝╚══╝ ╚═╝  ╚═╝╚══════╝    ╚══════╝╚═╝  ╚═╝╚═╝     ╚══════╝ ╚═════╝   ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝        ╚═╝    ╚═════╝  ╚═════╝     ╚═╝
- -->
+<!DOCTYPE html>
 <html lang="en-us">
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P8JYGFF61H"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-P8JYGFF61H');
-var s ="";
-
-while (s!= "password")
-{
-s=prompt("please enter your password");
-if (s=="password")
-{
-window.location.href="https://imashrivastava.com"; //page to redirect if password entered is correct
-
-}
-else
-{
-alert("Incorrect password-Try again");
-
-}
-}
-  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="cleartype" content="on">
-  <meta property="og:locale" content="en-GB">
-  <meta property="og:site_name" content="Aman Shrivastava">
-  <meta property="og:title" content="Aman Shrivastava">
-  <meta property="og:url" content="https://imashrivastava.github.io/">
-  <meta property="og:url" content="https://imashrivastava.com">
-  <meta property="og:description" content="Undergraduate Researcher at UBC and Founder of Ingenuitive.">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.49" />
   <meta name="author" content="Aman Shrivastava">
-  <meta name="description" content="Undergraduate Researcher at UBC and Founder of Ingenuitive.">
+  <meta name="description" content="Student Researcher">
 
+  <link rel="stylesheet" href="/css/highlight.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+   integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.0/css/academicons.min.css"
+   integrity="sha512-GGGNUPDhnG8LEAEDsjqYIQns+Gu8RBs4j5XGlxl7UfRaZBhCCm5jenJkeJL8uPuOXGqgl8/H1gjlWQDRjd3cUQ==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+   integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather%7CRoboto+Mono">
+  <link rel="stylesheet" href="/css/hugo-academic.css">
+  <link rel="alternate" href="https://imashrivastava.github.io/index.xml" type="application/rss+xml" title="Aman Shrivastava">
+  <link rel="feed" href="https://imashrivastava.github.io/index.xml" type="application/rss+xml" title="Aman Shrivastava">
+
+  <link rel="icon" type="image/png" href="/img/icon.png"> <!-- This is the icon on top of the website -->
+  <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
   <link rel="canonical" href="https://imashrivastava.github.io/">
-  <link rel="canonical" href="https://imashrivastava.com">
-  <link rel="stylesheet" href="https://imashrivastava.github.io/css/csoon.css">
-  <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap">
+  <title>Aman Shrivastava</title>
 
-  <script> document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js '; </script>
+<style>
+  .logdate {
+	font-size: 1rem;
+	color: #0095eb;	
+	font-weight: bold;
+}
+table.markup { border:2px dotted #ccf; width:90%; }
+td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+table.vert td.markup1 { border-bottom:1px solid #ccf; }
+table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+table.markup caption { text-align:left; }
+</style>
 
-  <title>Aman Shrivastava | Home</title>
 </head>
 
-<body>
-  <main>
-    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="70" viewBox="0 0 100 68">
-      <g id="large">
-        <path fill="none" stroke="#F44" d="M55.8 38.5l6.2-1.2c0-1.8-.1-3.5-.4-5.3l-6.3-.2c-.5-2-1.2-4-2.1-6l4.8-4c-.9-1.6-1.9-3-3-4.4l-5.6 3c-1.3-1.6-3-3-4.7-4.1l2-6A30 30 0 0 0 42 8l-3.3 5.4c-2-.7-4.2-1-6.2-1.2L31.3 6c-1.8 0-3.5.1-5.3.4l-.2 6.3c-2 .5-4 1.2-6 2.1l-4-4.8c-1.6.9-3 1.9-4.4 3l3 5.6c-1.6 1.3-3 3-4.1 4.7l-6-2A32.5 32.5 0 0 0 2 26l5.4 3.3c-.7 2-1 4.2-1.2 6.2L0 36.7c0 1.8.1 3.5.4 5.3l6.3.2c.5 2 1.2 4 2.1 6l-4.8 4c.9 1.6 1.9 3 3 4.4l5.6-3c1.4 1.6 3 3 4.7 4.1l-2 6A30.5 30.5 0 0 0 20 66l3.4-5.4c2 .7 4 1 6.1 1.2l1.2 6.2c1.8 0 3.5-.1 5.3-.4l.2-6.3c2-.5 4-1.2 6-2.1l4 4.8c1.6-.9 3-1.9 4.4-3l-3-5.6c1.6-1.3 3-3 4.1-4.7l6 2A32 32 0 0 0 60 48l-5.4-3.3c.7-2 1-4.2 1.2-6.2zm-13.5 4a12.5 12.5 0 1 1-22.6-11 12.5 12.5 0 0 1 22.6 11z"/>
-        <animateTransform attributeName="transform" begin="0s" dur="3s" from="0 31 37" repeatCount="indefinite" to="360 31 37" type="rotate"/>
-      </g>
-      <g id="small">
-        <path fill="none" stroke="#F44" d="M93 19.3l6-3c-.4-1.6-1-3.2-1.7-4.8L90.8 13c-.9-1.4-2-2.7-3.4-3.8l2.1-6.3A21.8 21.8 0 0 0 85 .7l-3.6 5.5c-1.7-.4-3.4-.5-5.1-.3l-3-5.9c-1.6.4-3.2 1-4.7 1.7L70 8c-1.5 1-2.8 2-3.9 3.5L60 9.4a20.6 20.6 0 0 0-2.2 4.6l5.5 3.6a15 15 0 0 0-.3 5.1l-5.9 3c.4 1.6 1 3.2 1.7 4.7L65 29c1 1.5 2.1 2.8 3.5 3.9l-2.1 6.3a21 21 0 0 0 4.5 2.2l3.6-5.6c1.7.4 3.5.5 5.2.3l2.9 5.9c1.6-.4 3.2-1 4.8-1.7L86 34c1.4-1 2.7-2.1 3.8-3.5l6.3 2.1a21.5 21.5 0 0 0 2.2-4.5l-5.6-3.6c.4-1.7.5-3.5.3-5.1zM84.5 24a7 7 0 1 1-12.8-6.2 7 7 0 0 1 12.8 6.2z"/>
-        <animateTransform attributeName="transform" begin="0s" dur="2s" from="0 78 21" repeatCount="indefinite" to="-360 78 21" type="rotate"/>
-      </g>
-    </svg>
-    <h1>I'm coming soon! :)</h1>
-  </main>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+  <div id="nav-placeholder"></div>
+  <script src="//code.jquery.com/jquery.min.js"></script>
+  <script> $.get("/nav.html", function(data){$("#nav-placeholder").replaceWith(data);});</script>
+  <span id="homepage" style="display: none"></span>
+
+  <section id="about" class="home-section">
+<div class="container">
+	<div class="row">
+      <div class="col-xs-12 col-md-4 section-heading">
+        <table width="1020" border="0" align="center" cellpadding="0" cellspacing="10">
+          <tr>
+            <td colspan="2" valign="top" id='wikibody'>
+              <div id='wikitext'>
+                <p><em>Last updated: October 2021</em></p>
+              </div>
+          </tr>
+        </table>
+      </div>
+    </div>
+	
+      <div class="row" itemprop="author" itemscope itemtype="http://schema.org/Person" itemref="person-email person-telephone person-address">
+
+        <div class="col-xs-12 col-md-4">
+          <div id="profile">
+            <div class="portrait" style="background-image: url('https://raw.githubusercontent.com/imashrivastava/imashrivastava.github.io/main/img/AS.png');"></div>
+            <meta itemprop="image" content="https://raw.githubusercontent.com/imashrivastava/imashrivastava.github.io/main/img/AS.jpeg">
+            <div class="portrait-title">
+              <h2 itemprop="name">Aman Shrivastava</h2>
+              <h3 itemprop="jobTitle">Undergraduate Researcher</h3>
+              <h3 itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
+              <a href="https://stanford.edu/" target="_blank" itemprop="url"><span itemprop="name">
+		      University of Alberta
+		      </span></a>
+              </h3>
+            </div>
+            <link itemprop="url" href="https://imashrivastava.github.io/">
+            <ul class="social-icon" aria-hidden="true">
+              <li>
+                <a itemprop="sameAs" href="" target="_blank">
+                <i class="fa fa-file-pdf-o big-icon"></i>
+                <!-- why not updated -->
+                </a>
+              </li>
+
+              <li>
+                <a itemprop="sameAs" href="mailto:imashrivastava23042001.as@gmail.com" target="_blank">
+                <i class="fa fa-envelope big-icon"></i>
+                </a>
+              </li>
+
+              <li>
+                <a itemprop="sameAs" href="https://www.linkedin.com/in/imashrivastava" target="_blank">
+                <i class="fa fa-linkedin big-icon"></i>
+                </a>
+              </li>
+
+              <li>
+                <a itemprop="sameAs" href="//github.com/imashrivastava" target="_blank">
+                <i class="fa fa-github big-icon"></i>
+                </a>
+              </li>
+              <li>
+                <a itemprop="sameAs" href="" target="_blank">
+                <i class="fa fa-google big-icon"></i>
+                </a>
+              </li>
+            </ul>
+
+            <p align="justify">
+                    Influenced by - 
+		    		    <a href="" target="_blank" onclick="window.open(''); window.open('');">Dr. Aatish Daryapurkar</a>,
+		                    <a href="" target="_blank" onclick="window.open(''); window.open('');">Dr. Mayur Parate</a>,
+		                    <a href="" target="_blank" onclick="window.open(''); window.open('');">Dr. Richa Makhijani</a>,
+		    	            <a href="" target="_blank" onclick="window.open(''); window.open('');">Dr. Hemangi Sane</a>,
+		    		    <a href="" target="_blank" onclick="window.open(''); window.open('');">Dr. Alok Sharma</a>,
+		    		    <a href="https://www.iiitn.ac.in/profile/electronics-&-communication-engg/38/" target="_blank" onclick="window.open('https://scholar.google.co.in/citations?user=JTjvu8UAAAAJ&hl=en'); window.open('https://www.linkedin.com/in/ashwin-kothari-6b518b154/?originalSubdomain=in');">Dr. Ashwin Kothari</a>,
+                                    <a href="https://varunetrx.blogspot.com/p/home.html" target="_blank" onclick="window.open('https://scholar.google.co.in/citations?user=PYYg23gAAAAJ&hl=en'); window.open('https://www.linkedin.com/in/varun-tiwari-b3623018/?originalSubdomain=in'); ">Dr. Varun Tiwari</a>,
+                                    <a href="https://sites.google.com/site/researchwithrakeshjha/" target="_blank" onclick="window.open('http://faculty.iiitdmj.ac.in/faculty/jharakesh'); window.open('https://smvdu.ac.in/images/faculty_profile/doece/profile_pdf/rkjhaCV.pdf'); window.open('https://www.linkedin.com/in/dr-rakesh-jha-42522222/?originalSubdomain=in');">Dr. Rakesh Jha</a>, 
+                                    <a href="https://scholar.google.com/citations?user=kzlSG9sAAAAJ&hl=en&oi=sra" target="_blank" onclick="window.open('https://www.linkedin.com/in/haneet-kour-69b283112/');">Dr. Haneet Kaur</a>,
+        			    <a href="" target="_blank" onclick="window.open(''); window.open('');">Dr. Renuka Angole</a>,
+        			    <a href="" target="_blank" onclick="window.open(''); window.open('');">Dr. A. S. Kiran Kumar</a>,
+        			    <a href="" target="_blank" onclick="window.open(''); window.open('');">Dr. Anil Gupta</a>,
+        			    <a href="" target="_blank" onclick="window.open(''); window.open('');">Dr. Priti Gosavi</a>,
+        			    <a href="" target="_blank" onclick="window.open(''); window.open('');">Mr. Jawwad Lodhi</a>,
+        			    <a href="" target="_blank" onclick="window.open(''); window.open('');">Mr. Shrikant Bhandarkar</a>,
+        			    <a href="" target="_blank" onclick="window.open(''); window.open('');">Mrs. Prity Gupta</a>,
+        			    <a href="" target="_blank" onclick="window.open(''); window.open('');">Mrs. Poonam Karunakaran</a>, 
+		                    <a href="" target="_blank" onclick="window.open(''); window.open('');">Mrs. Aparna Pillai</a>,
+		                    <a href="" target="_blank" onclick="window.open(''); window.open('');">Mr. Raja Mohanraj</a>,
+		                    <a href="" target="_blank" onclick="window.open(''); window.open('');">Mrs. Anupama Tiwari</a>,
+		                    <a href="" target="_blank" onclick="window.open(''); window.open('');">Mrs. Liji Menon</a>,
+		                    <a href="" target="_blank" onclick="window.open(''); window.open('');">Mrs. Dhanashree Waikar</a>,
+		                    <a href="" target="_blank" onclick="window.open(''); window.open('');">Mrs. Anu Sabhu</a>,
+		                    <a href="" target="_blank" onclick="window.open(''); window.open('');">Mrs. Supriya </a>,  
+		                    <a href="" target="_blank" onclick="window.open(''); window.open('');">Mrs. Padma Kaitware</a>,
+		                    <a href="" target="_blank" onclick="window.open(''); window.open('');">Mrs. Asha Pillai</a>, 
+		                    <a href="" target="_blank" onclick="window.open(''); window.open('');">Mrs. Vaishali Raut</a>, 
+        			    <a href="" target="_blank" onclick="window.open(''); window.open('');">Mrs. Mala Chembath</a>, 
+        			    <a href="" target="_blank" onclick="window.open(''); window.open('');">Col. U. K. Chembath</a>.
+                  </p>
+            
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-md-8" itemprop="description">
+          <div class="typewriter"><h1>Hi, I'm Aman. ;)</h1></div><br>
+
+		<p align="justify">
+			In the present, I’m transitioning through post-high school sabbatical years while travelling across India for exploring my 
+			academic and research interests. Recently, I visited 
+			<a href="https://www.iitg.ac.in" target="_blank" onclick="window.open('https://en.wikipedia.org/wiki/IIT_Guwahati'); window.open('https://techniche.org/?mode=dark'); window.open('https://en.wikipedia.org/wiki/Techniche');">IIT Guwahati</a>, <a href="">IIT Indore</a>, 
+			<a href="https://iith.ac.in" target="_blank" onclick="window.open('https://en.wikipedia.org/wiki/IIT_Hyderabad');">IIT Hyderabad</a>, 
+			<a href="https://www.iitr.ac.in" target="_blank" onclick="window.open('https://en.wikipedia.org/wiki/IIT_Roorkee');">IIT Roorkee</a> and 
+			<a href="https://home.iitd.ac.in/" target="_blank" onclick="window.open('https://en.wikipedia.org/wiki/IIT_Delhi'); window.open('https://en.wikipedia.org/wiki/Rendezvous_(festival)');">IIT Delhi</a> to attend some of the largest technical and cultural festivals. 
+			I was also able to witness <a href="https://hyderabad.makerfaire.com">Maker Faire Hyderabad</a> where I volunteered to deliver a workshop to the visiting public. 
+			I was one among the forty candidates selected to attend <a href="https://www.sristi.org/biis/">Biotech Innovation Ignition School</a> by 
+			<a href="https://www.birac.nic.in">BIRAC</a>, 
+			where I was fortunate to come across and work with <a href="https://en.wikipedia.org/wiki/Anil_Kumar_Gupta" target="_blank" onclick="window.open('https://niperahm.ac.in/anil-gupta.htm'); window.open('https://www.sristi.org/about-us/anil-k-gupta/');">Dr. Anil K. Gupta</a> and <a href="">Dr. Megha Barot</a>. 
+			I was announced as the winner of <a href="http://www.sciencesociety.in">Indian Science and Engineering Fair</a> Regional Fair and I consecutively secured 
+			an award at the National Fair qualifying for <a href="https://geniusolympiad.org" target="_blank" onclick="window.open('');">Genius Olympiad</a>, USA.
+			I will be considering to closely work with a neurorehabilitation centre to integrate AAC and speech-generating devices which could be useful for motor neuron diseases such as Amyotrophic Lateral Sclerosis or other medical conditions where there is need for assistive technology.
+		</p>
+
+          <div class="row">
+            <div class="col-sm-8">
+              <h3>Education</h3>
+              <ul class="ul-edu fa-ul">
+		<li style = "background-image: url('../img/stpaul.png'); ">
+                  <i class="fa-li fa"></i>
+                  <div class="description">
+                    <p class="course">High School Diploma, 2017-2019</p>
+                    <p class="institution">St. Paul Junior College, Nagpur, India</p>
+                  </div>
+                </li>
+		<li style = "background-image: url('../img/nv.png'); ">
+                  <i class="fa-li fa"></i>
+                  <div class="description">
+                    <p class="course">Secondary School Certificate, 2015-2017</p>
+                    <p class="institution">Narayana Vidyalayam, Nagpur, India</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="col-sm-4">
+              <h3>Research Interests</h3>
+              <ul class="ul-interests">
+		<li>Human-Computer Interaction</li>
+		<li>Robotics</li>
+                <li>Computer Vision</li>
+                <li>Satellite Systems</li>
+		<li>Communication Systems</li>
+		<li>Combedded Systems</li>
+              </ul>
+              </div>
+              
+		   <div class="col-sm-4"> 
+	     <h3>Other Interests</h3>
+	      <ul class="ul-interests">
+	       <li>Precision-guided munition</li>
+	       <li>Einstein Field Equations</li>
+	       <li>Quantum Field Theory</li>
+	       <li>Instrumentation Design</li>
+	       <li>Biomedical Devices</li> 
+	      </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--<section id="projects" class="home-section">
+        <div class="container">
+
+
+
+
+            <div class="row">
+              <div class="section-heading">
+                  <h1 style="text-align:center">High-School Projects</h1>
+                  <p style="text-align:center"><a href="https://varununayak.github.io/pdf/cv.pdf" target="_blank">Curriculum Vitae</a></p>
+              </div>
+                <div>
+                    <br> <br>
+
+                    <div id="container-projects" class="row isotope">
+
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
+                            <div class="card">
+
+                                <a href="https://varunnayak3101.wixsite.com/varununayak/projects#comp-j8q76szj4balata" title=""
+                                    class="card-image hover-overlay">
+                                    <img src="/img/Missile.jpeg" alt="" class="img-responsive">
+                                </a>
+
+                                <div class="card-text">
+                                    <h4><a href="https://varunnayak3101.wixsite.com/varununayak/projects#comp-j8q76szj4balata">Prototype of a Missile for Low-Intensity Bombing and Smoke Generation</a></h4>
+                                    <div class="card-description">
+                                        <p>Designed and fabricated a short-range, solid-propellant, air-to-surface missile controlled using wireless command guidance system for disintegration of riots and remote execution using unmanned combat aerial vehicle.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
+                            <div class="card">
+
+                                <a href="https://varunnayak3101.wixsite.com/varununayak/projects#comp-jx5hek00" title=""
+                                    class="card-image hover-overlay">
+                                    <img  src= "/img/" alt="" class="img-responsive">
+                                </a>
+
+                                <div class="card-text">
+                                    <h4><a href="https://varunnayak3101.wixsite.com/varununayak/projects#comp-jx5hek00">Paper-based Biosensing System for detection of Mastitis in Dairy Cattle</a></h4>
+                                    <div class="card-description">
+                                        <p>Devised a novel low-cost paper-based biosensor to detect increase in electrical conductance and count of somatic cells in milk using bibulous paper and current sensor for early prevention of mastitis in dairy cattle</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
+                            <div class="card">
+
+                                <a href="https://varunnayak3101.wixsite.com/varununayak/projects#comp-jtaxpnry" title=""
+                                    class="card-image hover-overlay">
+                                    <img src="/img/EOG.jpeg" alt="" class="img-responsive">
+                                </a>
+
+                                <div class="card-text">
+                                    <h4>Eyelink: A Low-cost Electrooculography based Human-Computer Interface</h4>
+                                    <div class="card-description">
+                                        <p>Developed an analog-to-digital circuit to acquire electrooculography data for controlling graphical user interface integrated with text-to-speech engine running on system on chip computer for argumentative and alternative communication using novel ‘Blink-to-Speak’ language.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
+                            <div class="card">
+
+                                <a href="https://github.com/varununayak/aerial_manipulation" title=""
+                                    class="card-image hover-overlay">
+                                    <img src="/img/aerialman.png" alt="" class="img-responsive">
+                                </a>
+
+                                <div class="card-text">
+                                    <h4>iThink: An Electroencephalography based Wearable Brain-Computer Interface</h4>
+                                    <div class="card-description">
+                                        <p>Proposed a novel algorithm and trained a neural network to process EEG raw data to devise a wearable brain-computer interface for real-time brain-to-text, brain-to speech, and brain-to-command for miscellaneous applications.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
+                            <div class="card">
+
+                                <a href="https://varununayak.github.io/project/me218b/" title=""
+                                    class="card-image hover-overlay">
+                                    <img src="/img/p300.png" alt="" class="img-responsive">
+                                </a>
+
+                                <div class="card-text">
+                                    <h4>P300 Speller for Brain-Computer Interfacing</h4>
+                                    <div class="card-description">
+                                        <p>Devised a brain-computer interface to interpret visually evoked p300 signal using support vector machine for spelling words in a custom word processor.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
+                            <div class="card">
+
+                                <a href="https://github.com/varununayak/sideslip_estimation_aa273" title=""
+                                    class="card-image hover-overlay">
+                                    <img src="/img/AudioOptic IRIS Eastern Mentroing Camp.png" alt="" class="img-responsive">
+                                </a>
+
+                                <div class="card-text">
+                                    <h4>AudioOptic: A Computer Vision-based Wearable Visual Aid for Visually Challenged</h4>
+                                    <div class="card-description">
+                                        <p>Embedded array of optical sensors and processors in a headgear to implement a wearable visual aid working on parallel computing to detect, recognize and track objects, faces and text to translate them into speech for navigation and applications in real-time using concurrent visual processing algorithms.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
+                            <div class="card">
+
+                                <a href="https://github.com/varununayak/autonomous_offroading_aa228_project" title=""
+                                    class="card-image hover-overlay">
+                                    <img src="/img/MedAssist.png" alt="" class="img-responsive">
+                                </a>
+
+                                <div class="card-text">
+                                    <h4>MedAssist: Internet of Things based Automated Medicine Dispenser</h4>
+                                    <div class="card-description">
+                                        <p>Implemented a network of IoT-based automated medicine dispensers with real-time monitoring and configuration system for personal use and hospitals to assist patients with their medication schedule and to prevent medication non-adherence.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
+                            <div class="card">
+
+                                <a href="https://www.youtube.com/watch?v=R5IdwELFCHM" title=""
+                                    class="card-image hover-overlay">
+                                    <img src="/img/" alt="" class="img-responsive">
+                                </a>
+
+                                <div class="card-text">
+                                    <h4>Unmanned Ground Vehicle with Vision for Remote Security and Surveillance</h4>
+                                    <div class="card-description">
+                                        <p>Implemented a continuous tracked, semi-autonomous unmanned ground vehicle with onboard six degrees of freedom robotics arm and depth-sensing for remote security and Surveillance.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </div>
+    </section>-->
+	  
+<!--<section id="awardsandhonors" class="home-section">
+    <div class="container">
+
+<div class="row">
+  <div class="col-xs-12 col-md-4 section-heading">
+    <h1>Awards and Honors</h1>
+  </div>
+	
+  <div class="col-xs-12 col-md-8">
+	  <table width='100%'>	
+                       <tr>
+                            <td class=col1 align='left'><a href="" target="_blank">Indian Science and Engineering Fair</a> National Fair 3<sup>rd</sup> Award in Computer Science Category</td>
+			    <td class=col2 align='left'><span class='logdate'>2020</span></td>
+			       
+		       </tr>
+		       <tr>
+				
+                            <td class=col1 align='left'><a href="" target="_blank">Indian Science and Engineering Fair</a> Regional Fair Gold Medal in Computer Science Category</td>
+		            <td class=col2 align='left'><span class='logdate'>2019</span></td>
+				
+                       </tr>
+		      <tr>
+				
+                            <td class=col1 align='left'><a href="" target="_blank">Raman Science Centre and Planetarium</a> Appreciation Award</td>
+		            <td class=col2 align='left'><span class='logdate'>2018</span></td>
+				
+                       </tr>
+		       <tr>
+				
+                            <td class=col1 align='left'><a href="" target="_blank">University of Toronto</a> Da Vinci Engineering Enrichment Summer Scholarship</td>
+		            <td class=col2 align='left'><span class='logdate'>2017</span></td>
+				
+                       </tr>
+		       <tr>
+				
+                            <td class=col1 align='left'><a href="" target="_blank">CBSE National Science Fair</a> Top 18 Best Project Award Transport and Communication Category</a></td>
+		            <td class=col2 align='left'><span class='logdate'>2017</span></td>
+				
+                       </tr>
+		       <tr>
+				
+                            <td class=col1 align='left'><a href="" target="_blank">CBSE Regional Science Fair</a> Top 18 Best Project Award Transport and Communication Category</td>
+		            <td class=col2 align='left'><span class='logdate'>2016</span></td>
+				
+                       </tr>
+	               <tr>
+				
+                            <td class=col1 align='left'><a href="" target="_blank">AXIS Junior Scientist</a> 3<sup>rd</sup> Award Model-o-Thon Working Model Category</td>
+		            <td class=col2 align='left'><span class='logdate'>2014</span></td>
+				
+                       </tr>
+   </table>
+	    <br>
+   <table width='100%'>
+	               <tr>
+				
+                            <td class=col1 align='left'><a href="" target="_blank"><font color="#383838">View complete..</font></a></td>
+				
+                       </tr>
+	
+
+    </table>
+  </div>
+
+</div>
+
+    </div>
+  </section>-->
+	  
+	      <!--<section id="onlinecoursework" class="home-section">
+    <div class="container">
+
+<div class="row">
+  <div class="col-xs-12 col-md-4 section-heading">
+    <h1>Online Coursework</h1>
+  </div>
+	  <div class="col-xs-12 col-md-8">
+	  
+	  	      <table width='100%'>
+			     
+                        <tr>
+                            <td class=col1 align='left'>MITx's Computational Thinking using Python XSeries - <a href="" target="_blank">MIT</a></td>
+                            <td class=col2 align='left'><img width="150px" height="150px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/images/mit.png" alt="MIT" /></td>
+                        </tr>
+				<ul>    
+		        <tr>
+                            <td class=col1 align='left'><li>Introduction to Computer Science and Programming Using Python</li></td>
+                            <td class=col2 align='left'></td>
+                        </tr>
+			<tr>
+                            <td class=col1 align='left'><li>Introduction to Computational Thinking and Data Science</li></td>
+                            <td class=col2 align='left'></td>
+                        </tr>
+			      </ul>
+			
+			<tr>
+                            <td class=col1 align='left'>Algorithms Specialization - <a href="" target="_blank">Stanford University</a></td>
+                            <td class=col2 align='left'><img width="150px" height="150px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/images/stanford.png" alt="Stanford" /></td>
+                        </tr>
+			      <ul>    
+		        <tr>
+                            <td class=col1 align='left'><li>Divide and Conquer, Sorting and Searching, and Randomized Algorithms</li></td>
+                            <td class=col2 align='left'></td>
+                        </tr>
+			<tr>
+                            <td class=col1 align='left'><li>Graph Search, Shortest Paths, and Data Structures</li></td>
+                            <td class=col2 align='left'></td>
+                        </tr>
+		        <tr>
+                            <td class=col1 align='left'><li>Greedy Algorithms, Minimum Spanning Trees, and Dynamic Programming</li></td>
+                            <td class=col2 align='left'></td>
+                        </tr>
+                        <tr>
+                            <td class=col1 align='left'><li>Shortest Paths Revisited, NP-Complete Problems and What To Do</li></td>
+                            <td class=col2 align='left'></td>
+                        </tr>
+			      </ul>
+			
+			<tr>
+                            <td class=col1 align='left'>HarvardX's CS and Mobile Apps Professional Certificate - <a href="" target="_blank">Harvard University</a></td>
+                            <td class=col2 align='left'><img width="150px" height="150px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/images/harvard.png" alt="Harvard" /></td>
+                        </tr>   
+			     <ul>    
+		        <tr>
+                            <td class=col1 align='left'><li>CS50's Introduction to Computer Science</li></td>
+                            <td class=col2 align='left'></td>
+                        </tr>
+			<tr>
+                            <td class=col1 align='left'><li>CS50's Mobile App Development with React Native</li></td>
+                            <td class=col2 align='left'></td>
+                        </tr>
+			      </ul>
+			  
+			<tr>
+                            <td class=col1 align='left'>The Science of the Solar System - <a href="" target="_blank">CalTech</a><br>
+				The Evolving Universe - <a href="" target="_blank">CalTech</a></td>
+			    <td class=col2 align='left'><img width="150px" height="150px" src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/master/images/caltech.png" alt="CalTech" /></td>
+                        </tr>
+
+
+    </table>
+		  <br>
+   <table width='100%'>
+	               <tr>
+				
+                            <td class=col1 align='left'><a href="" target="_blank"><font color="#383838">View complete..</font></a></td>
+				
+                       </tr>
+	
+
+    </table>
+  </div>
+	</div>
+    </div>
+  </section>-->
+	  
+<!--<section id="microblogging" class="home-section">
+    <div class="container">
+
+<div class="row">
+  <div class="col-xs-12 col-md-4 section-heading">
+    <h1>Microblogging</h1>
+  </div>
+  <div class="col-xs-12 col-md-8">
+	      <table width='100%'>
+                      <tr>
+                            <td class=col1 align='left'>
+                                <span class='logdate'>March 27</span>
+                            </td>
+                            <td class=col2 align='left'>I don't know what to reply when someone asks me about the place that I come from.</td>
+                        </tr>  
+		      
+		      <tr>
+                            <td class=col1 align='left'>
+                                <span class='logdate'>March 25</span>
+                            </td>
+                            <td class=col2 align='left'>The Regular Decesions are just around the corner. Nervous! : (</td>
+                        </tr>
+    </table>
+  </div>
+</div>
+
+    </div>
+  </section>-->
+	  
+	  <!--<section id="travel" class="home-section">
+    <div class="container">
+
+<div class="row">
+  <div class="col-xs-12 col-md-4 section-heading">
+    <h1>Travel</h1>
+  </div>
+  <div class="col-xs-12 col-md-8">
+	  <p align="center"><iframe frameborder="0" src="https://imashrivastava.github.io/travmap" width="100%" height="715" title="Map | ImAshrivastava"></iframe></p>
+         </div>
+  </div>
+</div>
+
+    </div>
+  </section>-->
+	  
+	  
+    
+ <section id="contact" class="home-section">
+    <div class="container">
+      
+
+
+
+
+<div class="row">
+  <div class="col-xs-12 col-md-4 section-heading">
+    <h1>Contact</h1>
+    <p>Please feel free to reach to me for any query</p>
+  </div>
+  <div class="col-xs-12 col-md-8">
+    
+
+    <ul class="fa-ul" itemscope>      
+      <li>
+        <i class="fa-li fa fa-envelope fa-2x" aria-hidden="true"></i>
+        <span id="person-email" itemprop="email"><a href="mailto:imashrivastava23042001.as@gmail.com,%20Aman%20Shrivastava">imashrivastava23042001.as@gmail.com, Aman Shrivastava</a></span>
+      </li>
+      
+      <li>
+        <i class="fa-li fa fa-phone fa-2x" aria-hidden="true"></i>
+        <span id="person-telephone" itemprop="telephone"><a href="tel:&#43;91%7385844954">&#43;91 7385844954</a></span>
+      </li>
+      
+      <li>
+        <i class="fa-li fa fa-linkedin fa-2x" aria-hidden="true"></i>
+        <span id="person-linkedin" itemprop="linkedin" href="https://www.linkedin.com/in/imashrivastava"><a href="https://www.linkedin.com/in/imashrivastava">linkedin.com/in/imashrivastava</a></span>
+      </li>
+          
+      <li>
+        <i class="fa-li fa fa-map-marker fa-2x" aria-hidden="true"></i>
+        <span id="person-address" itemprop="address">Kanhaiya Sadan, Gandhinagar, Nagpur - 440010, Maharashtra India</span>
+      </li>
+
+    </ul>
+
+  </div>
+</div>
+
+    </div>
+  </section>
+
+
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="powered-by">
+
+                &copy;  <script>document.write(new Date().getFullYear());</script> Aman Shrivastava. &middot;
+
+                <span class="pull-right" aria-hidden="true">
+                    <a href="#" id="back_to_top">
+                        <span class="button_icon">
+                            <i class="fa fa-chevron-up fa-2x"></i>
+                        </span>
+                    </a>
+                </span>
+
+            </p>
+        </div>
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+        integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.2/imagesloaded.pkgd.min.js"
+        integrity="sha512-iHzEu7GbSc705hE2skyH6/AlTpOfBmkx7nUqTLGzPYR+C1tRaItbRlJ7hT/D3YQ9SV0fqLKzp4XY9wKulTBGTw=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"
+        integrity="sha512-Z5heTz36xTemt1TbtbfXtTq5lMfYnOkXM2/eWcTTiLU01+Sw4ku1i7vScDc8fWhrP2abz9GQzgKH5NGBLoYlAw=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js"
+        integrity="sha512-CDeU7pRtkPX6XJtF/gcFWlEwyaX7mcAp5sO3VIu/ylsdR74wEw4wmBpD5yYTrmMAiAboi9thyBUr1vXRPA7t0Q=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js"
+        integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ=="
+        crossorigin="anonymous"></script>
+
+    <script src="/js/hugo-academic.js"></script>
+
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+
+
+
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
 </body>
+
 </html>
