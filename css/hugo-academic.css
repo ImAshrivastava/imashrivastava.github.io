@@ -224,7 +224,7 @@ blockquote p:last-child {
  .typewriter h1 {
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     border-right: .15em solid orange; /* The typwriter cursor */
-    white-space: normal; /* Keeps the content on a single line */
+    white-space: pre; /* Keeps the content on a single line */
     margin: auto 0; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .08em; /* Adjust as needed */
     animation: 
