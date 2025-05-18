@@ -1213,10 +1213,11 @@ body::before {
   content: "";
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: url("/img/lightning.png") center/cover no-repeat;
+  background: url("/img/lightening.png") center/cover no-repeat;
   opacity: 0.3;
-  z-index: -1;
+  z-index: 0;
   animation: pulse 6s ease-in-out infinite;
+  pointer-events: none;
 }
 
 @keyframes pulse {
@@ -1224,6 +1225,6 @@ body::before {
     opacity: 0.3;
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.4;
   }
 }
