@@ -40,9 +40,11 @@
 }
 
 html {
+  /*Removed Original
+  color: rgba(0,0,0,0.8);
+   */
   font-family: 'Merriweather', serif;
   font-size: 11px;
-  color: rgba(0,0,0,0.8);
   line-height: 1.65;
 }
 @media screen and (min-width: 58em) {
@@ -59,7 +61,11 @@ body {
   margin-top: 71px; /* Offset body content by navbar height. */
   padding-top: 0;
   counter-reset: captions;
-  
+  background-image: url("/img/lightening.png"); /*Added*/
+  background-size: cover; /*Added*/
+  background-repeat: no-repeat; /*Added*/
+  background-position: center; /*Added*/
+  background-attachment: fixed; /*Added*/
 }
 
 @media screen and (max-width: 1200px) { /* Match max-width of .nav-bar query. */
@@ -94,7 +100,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   margin-bottom: .5rem;
   line-height: 1.25;
-  color: #313131;
+  color: #ffffff; /*Changed from color: #313131;*/
   text-rendering: optimizeLegibility;
 }
 h1 {
@@ -124,7 +130,7 @@ h3.article-title a:hover {
 
 a:hover,
 a:focus {
-  color: #005181;
+  color: #FF671F; /*Changed from #005181*/
 }
 
 img,
@@ -241,7 +247,7 @@ blockquote p:last-child {
   /* The typewriter cursor effect */
   @keyframes blink-caret {
     from, to { border-color: transparent }
-    50% { border-color: white; }
+    50% { border-color: none; /*Changed to None*/}
   }
  
 
@@ -255,10 +261,17 @@ blockquote p:last-child {
 }
 
 .home-section {
+  /*Original Removed
   background-color: rgb(255, 255, 255);
+   */
   padding: 110px 0 110px 0;
   animation: intro 0.75s both;
   animation-delay: 0.3s;
+  background-image: url("/img/lightening.png"); /*Added*/
+  background-size: cover; /*Added*/
+  background-repeat: no-repeat; /*Added*/
+  background-position: center; /*Added*/
+  background-attachment: fixed;/*Added*/
 }
 
 .home-section:first-of-type {
@@ -352,6 +365,7 @@ blockquote p:last-child {
 ul.ul-interests li {
   font-size: 0.9rem;
   margin-left: -2em;
+  color: ghostwhite;
 }
 
 ul.ul-edu {
@@ -373,11 +387,12 @@ ul.ul-edu li .description p {
 
 ul.ul-edu li .description p.course {
   font-size: 1.0rem;
+  color: ghostwhite;/
 }
 
 ul.ul-edu li .description p.institution {
   font-size: 0.8rem;
-  color: rgba(0,0,0,0.6);
+  color: #cccccc;/*Changed from rgba(0,0,0,0.6);*/
 }
 
 /*************************************************
@@ -814,7 +829,7 @@ footer p {
 
 .site-footer,
 footer a#back_to_top i {
-  color: #899596;
+  color: antiquewhite;
 }
 
 /*************************************************
@@ -910,8 +925,12 @@ footer a#back_to_top i {
 }
 
 .navbar-default {
+  /*Original
   background: rgba(255, 255, 255, 0.931);
   box-shadow: 0 0.125rem 1rem 0 rgba(0, 0, 0, 0.295);
+   */
+  background: #000000;
+  box-shadow: 0 0.125rem 1rem 0 rgba(255, 255, 255);
 }
 
 nav#navbar-main li {
@@ -971,7 +990,10 @@ nav#navbar-main li {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1.7em;
+  /*Original
   color: #2b2b2b;
+   */
+  color: #ffffff;
 }
 
 @media screen and (max-width: 1200px) {
@@ -1182,4 +1204,26 @@ div.alert a:hover {
   color: #fff;
   background-color: #f44336; /* Material Red500 */
   border-color: #ebccd1;
+}
+
+/*Added
+  The following effect was added
+ */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("/img/lightning.png") center/cover no-repeat;
+  opacity: 0.3;
+  z-index: -1;
+  animation: pulse 0.1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
