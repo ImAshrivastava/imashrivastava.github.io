@@ -37,41 +37,62 @@
 
   <title>Awards | Aman Shrivastava</title>
 
-  <style type='text/css'>
-    table.markup { border:2px dotted #ccf; width:90%; }
-    td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
-    table.vert td.markup1 { border-bottom:1px solid #ccf; }
-    table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
-    table.markup caption { text-align:left; }
-    th, td {color: #cccccc;}
+  <style>
+      h2 {
+          color: #00c3ff;
+          border-bottom: 1px solid #00c3ff;
+          padding-bottom: 0.5rem;
+          margin-top: 5rem;
+      }
 
-    .vspace { margin-top:1.33em; }
-    .vspacee { margin-top:1em; }
+      .award-card {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 12px;
+          padding: 0.5rem 0.5rem;
+          margin-bottom: 10px;
+          box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+          position: relative;
+          color: #ffffff;
+      }
 
-    .logdate {
-      font-size: 1rem;
-	    color: #0095eb;
-	    font-weight: bold;
-    }
+      .award-card:hover {
+          box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+          background-color: rgba(255, 255, 255, 0.15);
+      }
 
-    #wikibody {
-      padding: 0px 0px 20px 0px;
-      font-family: 'Merriweather', serif;
-      color: #000000;
-      font-size: 1rem;
-    }
+      .award-title {
+          font-size: 1rem;
+          margin: 0;
+      }
 
-    #wikitext {
-      margin-top:38px;
-      line-height:1.33em;
-      font-family: 'Merriweather', serif;
-      color: #000000;
-      font-size: 1rem;
-    }
+      .award-date {
+          position: absolute;
+          right: 20px;
+          top: 1rem;
+          color: #00c3ff;
+          font-weight: bold;
+      }
 
-    #wikitext table {
-      line-height:1.33em;
-    }
+      .award-description {
+          margin-top: 0.75rem;
+          font-size: 1rem;
+          color: #e0e0e0;
+          display: none;
+      }
+
+      .award-card.expanded .award-description {
+          display: block;
+      }
+
+      @media (max-width: 768px) {
+          .award-date {
+              position: static;
+              display: block;
+              margin-top: 0.5rem;
+          }
+      }
   </style>
 
 </head>
@@ -98,356 +119,233 @@
           <li class="nav-item"><a href="https://imashrivastava.github.io/projects"><span>Projects</span></a></li>
           <!--<li class="nav-item"><a href="https://imashrivastava.github.io/travel"><span>Travel</span></a></li>-->
           <li class="nav-item"><a href="https://imashrivastava.github.io/files/Aman - curriculum-vitae.pdf"><span>CV</span></a></li>
-          <!--<li class="nav-item"><a href="https://imashrivastava.github.io/miscellany"><span>Miscellany</span></a></li>-->
         </ul>
       </div>
     </div>
   </nav>
 
   <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-md-4 section-heading">
-        <table width="1020" border="0" align="center" cellpadding="0" cellspacing="10">
-          <tr>
-            <td colspan="2" valign="top" id='wikibody'>
-              <div id='wikitext'>
-                <p><em>Last Updated: September 2022</em></p>
-                <div class='vspace'></div>
-
-                <p style="font-size:20px" align='left'><font color="#000000">Research & Development</font></p>
-
-                <!--<table width='100%'>
-                  <tr>
-                    <th class=col1 align='left'>Undergraduate</th>
-                    <td class=col2>&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td class=col1 align='left'><a href="" target="_blank">The Diana Award</a> | Nominated</td>
-                    <td class=col2 align='right'><span class='logdate'>2022</span></td>
-                  </tr>
-                  <tr>
-                    <td class=col1 align='left'>SRISTI DST Government of India<a href="" target="_blank">Gandhian Young Technological Innovation Award</a> | Nominated</td>
-                    <td class=col2 align='right'><span class='logdate'>2022</span></td>
-                  </tr>
-                </table>-->
-
-                <div class='vspacee'></div>
-
-                <table width='100%'>
-                  <tr>
-                    <th class=col1 align='left'>Post-High School</th>
-                    <td class=col2>&nbsp;</td>
-                  </tr>
-
-                  <tr>
-                    <td class=col1 align='left'>Qualified MSME Idea Hackathon to receive <b><a href="" target="_blank">INR 15,00,000 Grant</a></b> from MSME, Government of India.</td>
-                    <td class=col2 align='right'><span class='logdate'>2022</span></td>
-                  </tr>
-
-                  <tr>
-                    <td class=col1 align='left'>Indian Science and Engineering Fair <b><a href="" target="_blank">National Science Fair Bronze Medal</a></b> in Computer Science Category.</td>
-                    <td class=col2 align='right'><span class='logdate'>2020</span></td>
-                  </tr>
-
-                  <tr>
-                    <td class=col1 align='left'>Indian Science and Engineering Fair <b><a href="" target="_blank">Regional Science Fair Gold Medal</a></b> in Computer Science Category.</td>
-                    <td class=col2 align='right'><span class='logdate'>2019</span></td>
-                  </tr>
-
-                </table>
-
-                <div class='vspacee'></div>
-
-                <table width='100%'>
-
-                  <tr>
-                    <th class=col1 align='left'>High School</th>
-                    <td class=col2>&nbsp;</td>
-                  </tr>
-
-                  <tr>
-                    <td class=col1 align='left'>Raman Science Centre and Planetarium <b><a href="" target="_blank">Appreciation Award</a></b> at Raman Festival of Innovation.</td>
-                    <td class=col2 align='right'><span class='logdate'>2018</span></td>
-                  </tr>
-
-                  <tr>
-                    <td class=col1 align='left'>University of Toronto <b><a href="" target="_blank">Special Award: DEEP Summer Academy Scholarship</a></b> at IRIS National Science Fair.</td>
-                    <td class=col2 align='right'><span class='logdate'>2017</span></td>
-                  </tr>
-
-                  <tr>
-                    <td class=col1 align='left'>NCERT 44<sup>th</sup> Jawaharlal Nehru National Science, Mathematics and Environment Exhibition <b><a href="" target="_blank">CBSE Nominee</a></b>.</td>
-                    <td class=col2 align='right'><span class='logdate'>2017</span></td>
-                  </tr>
-
-                  <tr>
-                    <td class=col1 align='left'>Initiative for Research and Innovation in Science(IRIS) Eastern Mentoring Camp <b><a href="" target="_blank">CBSE Nominee</a></b>.</td>
-                    <td class=col2 align='right'><span class='logdate'>2017</span></td>
-                  </tr>
-
-                  <tr>
-                    <td class=col1 align='left'><b><a href="" target="_blank">Winning Team School Award</a></b> in Transport and Communication Category at CBSE National Science Fair.</td>
-                    <td class=col2 align='right'><span class='logdate'>2017</span></td>
-                  </tr>
-
-                  <tr>
-                    <td class=col1 align='left'>CBSE National Science Fair <b><a href="" target="_blank">Top 18 Best Project Award</a></b> in Transport and Communication Category.</td>
-                    <td class=col2 align='right'><span class='logdate'>2017</span></td>
-                  </tr>
-
-                  <tr>
-                    <td class=col1 align='left'>CBSE Regional Science Fair <b><a href="" target="_blank">Top 18 Best Project Award</a></b> in Transport and Communication Category.</td>
-                    <td class=col2 align='right'><span class='logdate'>2017</span></td>
-                  </tr>
-
-                  <tr>
-                    <td class=col1 align='left'>Graduating Class Top 1% <b><a href="" target="_blank">Award of Appreciation</a></b> at Narayana Vidyalayam.</td>
-                    <td class=col2 align='right'><span class='logdate'>2017</span></td>
-                  </tr>
-
-                  <tr>
-                    <td class=col1 align='left'>Extraordinary Service <b><a href="" target="_blank">Golden Certificate of Excellence</a></b> at Narayana Vidyalayam.</td>
-                    <td class=col2 align='right'><span class='logdate'>2016</span></td>
-                  </tr>
-
-                  <tr>
-                    <td class=col1 align='left'>Essence International School Inter-school Science Fair Competition <b><a href="" target="_blank">Highest Achieving School Trophy</a></b>.</td>
-                    <td class=col2 align='right'><span class='logdate'>2016</span></td>
-                  </tr>
-
-                  <tr>
-                    <td class=col1 align='left'>STEM Competitions <b><a href="" target="_blank">INR 65000 Grant Award</a></b> by Exemplary Record of Achievements at Narayana Vidyalayam.</td>
-                    <td class=col2 align='right'><span class='logdate'>2014</span></td>
-                  </tr>
-                </table>
-
-                <div class='vspacee'></div>
-
-                <table width='100%'>
-
-                  <tr>
-                    <th class=col1 align='left'>Middle School</th>
-                    <td class=col2>&nbsp;</td>
-                  </tr>
-
-                  <tr>
-                    <td class=col1 align='left'>AXIS VNIT Junior Scientist <b><a href="" target="_blank">Model-o-Thon 3<sup>rd</sup>Award</a></b> in Working Model Category.</td>
-                    <td class=col2 align='right'><span class='logdate'>2014</span></td>
-                  </tr>
-
-                </table>
-
-                <p class='vspace'>
-                  <br/>
-                  <br/>
-                </p>
-
-                <p style="font-size:20px" align='left'><font color="#000000">Visual Arts</font></p>
-
-                <table width='100%'>
-                  <tr>
-                    <th class=col1 align='left'>Qualifications</th>
-                    <td class=col2>&nbsp;</td>
-                  </tr>
-
-                  <tr>
-                    <td class=col1 align='left'><b><a href="" target="_blank">Intermediate Grade Drawing Examination</a></b>, Government of Maharashtra, India<br></td>
-                    <td class=col2 align='right'><span class='logdate'>2014</span></td>
-                  </tr>
-
-                  <tr>
-                    <td class=col1 align='left'><b><a href="" target="_blank">Elementary Grade Drawing Examination</a></b>, Government of Maharashtra, India</td>
-                    <td class=col2 align='right'><span class='logdate'>2014</span></td>
-                  </tr>
-		  
-                </table>
-
-                <div class='vspacee'></div>
-
-                <table width='100%'>
-
-                  <tr>
-                    <th class=col1 align='left'>High School</th>
-                    <td class=col2>&nbsp;</td>
-                  </tr>
-		  
-		              <tr>
-                    <td class=col1 align='left'><b><a href="" target="_blank">First Prize</a></b> Punjab National Bank Drawing and Painting Competition.</td>
-                    <td class=col2 align='right'><span class='logdate'>2015</span></td>
-                  </tr>
-			
-		              <tr>
-                    <td class=col1 align='left'><b><a href="" target="_blank">First Prize</a></b> Lokmat Space Book Drawing Competition.</td>
-	                  <td class=col2 align='right'><span class='logdate'>2015</span></td>    
-		              </tr>
-
-                  <tr>
-                    <td class=col1 align='left'><b><a href="" target="_blank">First Prize</a></b> Shreemati Mandakini Kashikar Memorial Painting Competition.</td>
-                    <td class=col2 align='right'><span class='logdate'>2015</span></td>    
-		              </tr>
-                </table>
-
-                <div class='vspacee'></div>
-
-                <table width='100%'>
-
-                  <tr>
-                    <th class=col1 align='left'>Middle School</th>
-                    <td class=col2>&nbsp;</td>
-                  </tr>
-
-                  <tr>
-	                  <td class=col1 align='left'><b><a href="" target="_blank">First Prize</a></b> Shreemati Mandakini Kashikar Memorial Painting Competition.</td>
-	                  <td class=col2 align='right'><span class='logdate'>2014</span></td>    
-		              </tr>
-		
-		              <tr>
-                    <td class=col1 align='left'><b><a href="" target="_blank">First Prize</a></b> Shreemati Mandakini Kashikar Memorial Painting Competition.</td>
-	                  <td class=col2 align='right'><span class='logdate'>2013</span></td>    
-		              </tr>
-		  
-		              <tr>
-	                  <td class=col1 align='left'><b><a href="" target="_blank">Third Prize</a></b> Young Men’s Christian Association Painting Competition.</td>
-	                  <td class=col2 align='right'><span class='logdate'>2013</span></td>    
-		              </tr>
-		  
-		              <tr>
-	                  <td class=col1 align='left'><b><a href="" target="_blank">Second Prize</a></b> Bharat Petroleum Mega Drawing and Painting Competition.</td>
-	                  <td class=col2 align='right'><span class='logdate'>2012</span></td>    
-                  </tr>
-		  
-		              <tr>
-	                  <td class=col1 align='left'><b><a href="" target="_blank">Consolation Prize</a></b> Vidarbha Talent Search and Painting Scholarship.</td>
-	                  <td class=col2 align='right'><span class='logdate'>2012</span></td>    
-		              </tr>
-			
-		              <tr>
-	                  <td class=col1 align='left'><b><a href="" target="_blank">First Prize</a></b> All India Camel Colour Contest.</td>
-	                  <td class=col2 align='right'><span class='logdate'>2011</span></td>    
-		              </tr>
-		  
-		              <tr>
-	                  <td class=col1 align='left'><b><a href="" target="_blank">First Prize</a></b> Narayana Vidyalayam Colouring Contest.</td>
-	                  <td class=col2 align='right'><span class='logdate'>2010</span></td>    
-		              </tr>
-
-                </table>
-		      
-		 <p class='vspace'>
-                  <br/>
-                  <br/>
-                </p>
-		
-		<p style="font-size:20px" align='left'><font color="#000000">Taekwondo</font></p>
-		
-		<table width='100%'>
-
-                  <tr>
-                    <th class=col1 align='left'>High School</th>
-                    <td class=col2>&nbsp;</td>
-                  </tr>
-		  
-		  <tr>
-	            <td class=col1 align='left'><b><a href="" target="_blank">Gold Medal</a></b> Inter-district Taekwondo Championship, Extreme Taekwondo Academy.</td>
-                    <td class=col2 align='right'><span class='logdate'>2017</span></td>
-                  </tr>
-			
-		  <tr>
-	            <td class=col1 align='left'><b><a href="" target="_blank">Gold Medal</a></b> Inter-district Taekwondo Championship, Extreme Taekwondo Academy.</td>
-	            <td class=col2 align='right'><span class='logdate'>2016</span></td>    
-		  </tr>
-
-                  <tr>
-	            <td class=col1 align='left'><b><a href="" target="_blank">Silver Medal</a></b> Inter-district Poomsae Championship, Extreme Taekwondo Academy.</td>
-                    <td class=col2 align='right'><span class='logdate'>2016</span></td>    
-		  </tr>
-		  
-		  <tr>
-	            <td class=col1 align='left'><b><a href="" target="_blank">Gold Medal</a></b> Inter-district Taekwondo Championship, Extreme Taekwondo Academy.</td>
-                    <td class=col2 align='right'><span class='logdate'>2015</span></td>    
-		  </tr>
-			
-		</table>
-
-                <div class='vspacee'></div>
-		
-		<table width='100%'>
-
-                  <tr>
-                    <th class=col1 align='left'>Middle School</th>
-                    <td class=col2>&nbsp;</td>
-                  </tr>
-			
-	          <tr>
-	            <td class=col1 align='left'><b><a href="" target="_blank">Third Position</a></b> CBSE Open National Taekwondo Trials, School Games Federation of India.</td>
-                    <td class=col2 align='right'><span class='logdate'>2014</span></td>    
-		  </tr>
-	          
-	          <tr>
-	            <td class=col1 align='left'><b><a href="" target="_blank">Silver Medal</a></b> Divisional Level Taekwondo Qualifiers, Vidarbha.</td>
-                    <td class=col2 align='right'><span class='logdate'>2013</span></td>    
-		  </tr>
-	          
-		  <tr>
-	            <td class=col1 align='left'><b><a href="" target="_blank">Gold Medal</a></b> Nagpur District Taekwondo Qualifiers, District Sports Office, Nagpur.</td>
-                    <td class=col2 align='right'><span class='logdate'>2013</span></td>    
-		  </tr>
-		  
-	          <tr>
-	            <td class=col1 align='left'><b><a href="" target="_blank">Third Position</a></b> State Taekwondo Qualifiers, Ministry of Youth Affairs and Sports, Government of Maharashtra.</td>
-                    <td class=col2 align='right'><span class='logdate'>2012</span></td>    
-		  </tr>
-	          
-	          <tr>
-	            <td class=col1 align='left'><b><a href="" target="_blank">Gold Medal</a></b> Divisional Level Taekwondo Qualifiers, Vidarbha.</td>
-                    <td class=col2 align='right'><span class='logdate'>2012</span></td>    
-		  </tr>
-		  
-	          <tr>
-	            <td class=col1 align='left'><b><a href="" target="_blank">Gold Medal</a></b> Nagpur District Taekwondo Qualifiers, District Sports Office, Nagpur.</td>
-                    <td class=col2 align='right'><span class='logdate'>2012</span></td>    
-		  </tr>
-	 
-			   
-		  <tr>
-	            <td class=col1 align='left'><b><a href="" target="_blank">Silver Medal</a></b> Nagpur District Taekwondo Qualifiers, District Sports Office, Nagpur.</td>
-                    <td class=col2 align='right'><span class='logdate'>2011</span></td>    
-		  </tr>
-			    
-		  <tr>
-	            <td class=col1 align='left'><b><a href="" target="_blank">Bronze Medal</a></b> Inter-district Taekwondo Championship.</td>
-                    <td class=col2 align='right'><span class='logdate'>2011</span></td>    
-		  </tr>
-	          
-	 	  <tr>
-		    <td class=col1 align='left'><b><a href="" target="_blank">Silver Medal</a></b> Taekwondo Competition, Narayana Vidyalayam.</td>
-                    <td class=col2 align='right'><span class='logdate'>2011</span></td>    
-		  </tr>
-                </table>
-		      
-		<p class='vspace'>
-                  <br/>
-                  <br/>
-		  <br/>
-                </p>
-		      
-		<!--<p style="font-size:22px" align='left'><font color="#000000">Partcipations</font></p>
-		
-		<table width='100%'> 
-		</table>-->
-
-
-        </div>
+    <h2>Research & Development</h2>
+    <div class="award-card" onclick="this.classList.toggle('expanded')">
+      <div class="award-title">Qualified MSME Idea Hackathon to receive <b><a href="" target="_blank">INR 15,00,000 Grant</a></b> from MSME, Government of India.</div>
+      <div class="award-date">2022</div>
+      <div class="award-description">
+        The MSME Idea Hackathon is an initiative launched by the Ministry of Micro, Small and Medium Enterprises, Government of India,
+        to foster innovation and entrepreneurship among students, startups, and individual innovators. It invites original and impactful
+        ideas from across the country, offering selected participants funding support, incubation, and mentorship to transform their
+        ideas into viable business ventures. The program aims to empower youth, encourage self-reliance under the Atmanirbhar Bharat
+        mission, and strengthen the startup ecosystem by supporting the early stages of innovation through recognized incubation centers
+        at leading institutions.
       </div>
     </div>
+
+    <div class="award-card" onclick="this.classList.toggle('expanded')">
+      <div class="award-title">Indian Science and Engineering Fair <b><a href="" target="_blank">National Science Fair Bronze Medal</a></b> in Computer Science Category.</div>
+      <div class="award-date">2020</div>
+      <div class="award-description">
+        The Indian Science & Engineering Fair (INSEF) is a national-level science competition organized by the Science Society of India
+        (SSI). It provides a platform for students across India to showcase innovative projects in science, technology, and engineering.
+        The competition begins with regional fairs, and top performers advance to the national fair. Outstanding projects from the
+        national fair may qualify for international competitions like the Genius Olympiad in the USA. INSEF emphasizes hands-on learning
+        and encourages young minds to engage in scientific research and innovation.
+      </div>
+    </div>
+
+    <div class="award-card" onclick="this.classList.toggle('expanded')">
+      <div class="award-title">Indian Science and Engineering Fair <b><a href="" target="_blank">Regional Science Fair Gold Medal</a></b> in Computer Science Category.</div>
+      <div class="award-date">2019</div>
+      <div class="award-description">
+        The Indian Science & Engineering Fair (INSEF) is a national-level science competition organized by the Science Society of India
+        (SSI). It provides a platform for students across India to showcase innovative projects in science, technology, and engineering.
+        The competition begins with regional fairs, and top performers advance to the national fair. Outstanding projects from the
+        national fair may qualify for international competitions like the Genius Olympiad in the USA. INSEF emphasizes hands-on learning
+        and encourages young minds to engage in scientific research and innovation.
+      </div>
+    </div>
+
+    <div class="award-card" onclick="this.classList.toggle('expanded')">
+      <div class="award-title">Raman Science Centre and Planetarium <b><a href="" target="_blank">Appreciation Award</a></b> at Raman Festival of Innovation.</div>
+      <div class="award-date">2018</div>
+      <div class="award-description">
+        The Raman Festival of Innovation is an annual science and technology event organized by the Raman Science Centre & Planetarium
+        in Nagpur, under the aegis of the National Council of Science Museums (NCSM), Ministry of Culture, Government of India. This
+        festival serves as a platform for students, innovators, and technologists to showcase their creative projects and working
+        models across various disciplines of science and engineering.<br>
+        <br>
+        Participants from schools, colleges, and universities present innovative solutions and prototypes addressing real-world
+        challenges. The event typically includes live demonstrations, interactive exhibits, and workshops aimed at fostering a spirit
+        of inquiry and innovation among young minds. Notable features of past festivals have included exhibitions of fire safety and
+        rescue vehicles, artisan demonstrations, and educational workshops on topics like innovative methods of teaching physics.<br>
+        <br>
+        The festival is open to the public, encouraging community engagement and providing an opportunity for attendees to interact
+        directly with innovators and educators. By promoting hands-on learning and creative problem-solving, the Raman Festival of
+        Innovation plays a significant role in nurturing the next generation of scientists and engineers in India.
+      </div>
+    </div>
+
+    <div class="award-card" onclick="this.classList.toggle('expanded')">
+      <div class="award-title">University of Toronto <b><a href="" target="_blank">Special Award: DEEP Summer Academy Scholarship</a></b> at IRIS National Science Fair.</div>
+      <div class="award-date">2017</div>
+      <div class="award-description">
+        The University of Toronto Special Award: DEEP Summer Academy Scholarship is a prestigious recognition presented at the IRIS
+        National Science Fair (Initiative for Research and Innovation in STEM). This award is granted to exceptional student innovators
+        whose projects demonstrate outstanding scientific merit and innovation. Recipients of this award are offered the opportunity to
+        attend the DEEP (Da Vinci Engineering Enrichment Program) Summer Academy at the University of Toronto, a renowned pre-university
+        program that immerses high school students in advanced engineering and science topics through lectures, hands-on projects, and
+        mentorship.<br>
+        <br>
+        The IRIS National Science Fair serves as a platform for young Indian students from classes 5 to 12 to present their
+        research-based projects in science and engineering. It not only recognizes and rewards outstanding projects but also provides
+        avenues for winners to represent India at international competitions like the International Science and Engineering Fair
+        (ISEF). The inclusion of the University of Toronto's DEEP Summer Academy Scholarship as a special award underscores the fair's
+        commitment to fostering global academic collaborations and providing students with opportunities to further their scientific
+        pursuits on an international stage.
+      </div>
+    </div>
+
+    <div class="award-card" onclick="this.classList.toggle('expanded')">
+      <div class="award-title">NCERT 44<sup>th</sup> Jawaharlal Nehru National Science, Mathematics and Environment Exhibition <b><a href="" target="_blank">CBSE Nominee</a></b>.</div>
+      <div class="award-date">2017</div>
+      <div class="award-description">
+        The Jawaharlal Nehru National Science, Mathematics and Environment Exhibition (JNNSMEE) is annual exhibition serves as a
+        platform for students across India to showcase innovative projects in science, mathematics, and environmental studies.<br>
+        <br>
+        The Central Board of Secondary Education (CBSE) nominates outstanding projects from its affiliated schools to participate in
+        JNNSMEE. Being selected as a CBSE nominee is a significant achievement, reflecting a student's dedication to scientific
+        inquiry and innovation.<br>
+        <br>
+        The 44<sup>th</sup> edition of JNNSMEE focused on the theme "Science, Technology and Mathematics for Nation Building", encompassing
+        sub-themes such as health, industry, transport and communication, innovations in renewable resources for sustainable
+        environment, innovations in food production and food security, and mathematical solutions in everyday life .
+      </div>
+    </div>
+
+    <div class="award-card" onclick="this.classList.toggle('expanded')">
+      <div class="award-title">Initiative for Research and Innovation in Science(IRIS) Eastern Mentoring Camp <b><a href="" target="_blank">CBSE Nominee</a></b>.</div>
+      <div class="award-date">2017</div>
+      <div class="award-description">
+        The Initiative for Research and Innovation in Science (IRIS) Eastern Mentoring Camp is a regional program designed to nurture
+        promising student innovators in science and engineering. Organized by IRIS, a collaborative effort supported by the Department
+        of Science & Technology (DST), Government of India, the Indo-U.S. Science and Technology Forum (IUSSTF), and Intel India, the
+        camp aims to prepare students for participation in the IRIS National Fair.<br>
+        <br>
+        As a CBSE nominee, a student selected through the Central Board of Secondary Education's science exhibition, participation in
+        the Eastern Mentoring Camp signifies recognition of exceptional research potential. The camp provides intensive guidance from
+        scientific mentors, helping students refine their projects, enhance presentation skills, and align their work with
+        international research standards. This experience not only prepares participants for national-level competition but also fosters
+        a deeper understanding of scientific inquiry and innovation.
+      </div>
+    </div>
+
+    <div class="award-card" onclick="this.classList.toggle('expanded')">
+      <div class="award-title">Graduating Class Top 1% <b><a href="" target="_blank">Award of Appreciation</a></b> at Narayana Vidyalayam.</div>
+      <div class="award-date">2017</div>
+      <div class="award-description">
+        The Award of Appreciation for being in the Top 1% of the Graduating Class at Narayana Vidyalayam is a prestigious academic
+        honor recognizing outstanding scholastic achievement. This award is given to students who have consistently demonstrated
+        exceptional academic performance, discipline, and dedication throughout their schooling years. Being in the top 1% reflects
+        not only high grades but also a commitment to excellence and intellectual growth, setting a strong foundation for future
+        academic and professional success.
+      </div>
+    </div>
+
+    <div class="award-card" onclick="this.classList.toggle('expanded')">
+      <div class="award-title"><b><a href="" target="_blank">Winning Team School Award</a></b> in Transport and Communication Category at CBSE National Science Fair.</div>
+      <div class="award-date">2017</div>
+      <div class="award-description">
+        The CBSE National Science Exhibition is a prestigious platform where students from across India showcase innovative projects
+        across various scientific themes. Teams that win top honors not only receive individual recognition but also bring home a
+        Winning Team School Award, which is presented to their school in acknowledgment of its support and contribution.
+        This award celebrates the institution’s role in nurturing scientific inquiry and innovation among its students, reinforcing
+        the importance of academic encouragement and mentorship in shaping future innovators.
+      </div>
+    </div>
+
+    <div class="award-card" onclick="this.classList.toggle('expanded')">
+      <div class="award-title">CBSE National Science Fair <b><a href="" target="_blank">Top 18 Best Project Award</a></b> in Transport and Communication Category.</div>
+      <div class="award-date">2017</div>
+      <div class="award-description">
+        The CBSE National Science Exhibition is one of the most prestigious platforms in India for school students to showcase their
+        innovative scientific projects. The journey begins at the regional level, where thousands of entries are submitted across
+        various themes. Only a select few exceptional projects make it past the regional stage to be invited to the National Fair,
+        representing the best young minds in the country.<br>
+        <br>
+        In the Transport and Communication category, securing a Top 18 Best Project Award at the national level is a significant
+        achievement. This award recognizes projects that not only demonstrate originality and technical competence but also offer
+        practical solutions to real-world challenges. Out of the many teams participating nationally, only a very small handful
+        receive this honor, highlighting the intense competition and the high standards maintained by the judging panel.
+      </div>
+    </div>
+
+
+    <div class="award-card" onclick="this.classList.toggle('expanded')">
+      <div class="award-title">CBSE Regional Science Fair <b><a href="" target="_blank">Top 18 Best Project Award</a></b> in Transport and Communication Category.</div>
+      <div class="award-date">2016</div>
+      <div class="award-description">
+        The CBSE Regional Science Exhibition is a competitive platform organized by the Central Board of Secondary Education (CBSE) to
+        foster scientific curiosity, creativity, and innovation among school students. It serves as the first major qualifying round in
+        the journey toward national-level recognition.<br>
+        <br>
+        Each year, students from CBSE-affiliated schools submit projects based on predefined themes such as health, environment, energy,
+        or transport and communication. These projects are evaluated regionally through exhibitions held across various zones in India.
+        Only a select group of top-performing teams from these regional fairs—those that demonstrate originality, scientific validity,
+        and practical relevance—are shortlisted to advance to the CBSE National Science Exhibition.
+      </div>
+    </div>
+
+    <div class="award-card" onclick="this.classList.toggle('expanded')">
+      <div class="award-title">Extraordinary Service <b><a href="" target="_blank">Golden Certificate of Excellence</a></b> at Narayana Vidyalayam.</div>
+      <div class="award-date">2016</div>
+      <div class="award-description">
+        The Extraordinary Service Golden Certificate of Excellence at Narayana Vidyalayam is a distinguished honor awarded to students
+        who have demonstrated exceptional dedication, leadership, and contribution beyond academics. This recognition celebrates
+        individuals who have gone above and beyond in areas such as community service, school representation, event organization, or
+        mentoring peers. Receiving this certificate highlights a student’s holistic development and unwavering commitment to the
+        values of service, responsibility, and excellence upheld by the institution.
+      </div>
+    </div>
+
+    <div class="award-card" onclick="this.classList.toggle('expanded')">
+      <div class="award-title">Essence International School Inter-school Science Fair Competition <b><a href="" target="_blank">Highest Achieving School Trophy</a></b>.</div>
+      <div class="award-date">2016</div>
+      <div class="award-description">
+        The Highest Achieving School Trophy at the Essence International School Inter-school Science Fair Competition is awarded to the
+        school whose students collectively demonstrate exceptional performance across various scientific categories. This trophy
+        recognizes the institution’s commitment to fostering innovation, research, and scientific thinking among its students.
+        Winning this honor signifies that the school not only produced multiple high-ranking projects but also cultivated an
+        environment that encourages creativity, teamwork, and academic excellence in science education.
+      </div>
+    </div>
+
+    <div class="award-card" onclick="this.classList.toggle('expanded')">
+      <div class="award-title">STEM Competitions <b><a href="" target="_blank">INR 65000 Grant Award</a></b> by Exemplary Record of Achievements at Narayana Vidyalayam.</div>
+      <div class="award-date">2016</div>
+      <div class="award-description">
+        The STEM Competitions INR 65,000 Grant Award at Narayana Vidyalayam is a prestigious recognition bestowed upon students who
+        have demonstrated exceptional dedication and achievement in science and engineering. This grant is awarded to support students
+        in developing and presenting research projects for various science fair competitions over the years. It reflects the school's
+        commitment to fostering a culture of scientific inquiry and innovation, providing both financial assistance and encouragement
+        to young researchers. Recipients of this grant have utilized the funds to create impactful projects that have garnered
+        accolades at regional and national levels, underscoring the importance of sustained support in nurturing scientific talent.
+      </div>
+    </div>
+
+    <div class="award-card" onclick="this.classList.toggle('expanded')">
+      <div class="award-title">AXIS VNIT Junior Scientist <b><a href="" target="_blank">Model-o-Thon 3<sup>rd</sup>Award</a></b> in Working Model Category.</div>
+      <div class="award-date">2014</div>
+      <div class="award-description">
+        The AXIS VNIT Junior Scientist Model-o-Thon is a flagship event organized by Visvesvaraya National Institute of Technology
+        (VNIT), Nagpur, as part of its annual technical festival, AXIS. This competition invites school students to design and present
+        innovative working models that address real-world challenges across various scientific and engineering domains.
+      </div>
+    </div>
+
+  </div>
 
     <footer class="site-footer">
       <div class="container">
         <p class="powered-by">
           &copy; <script>document.write(new Date().getFullYear());</script> Aman Shrivastava &middot;
-
-          Powered by the <a href="https://github.com/gcushen/hugo-academic" target="_blank">Academic
-            theme</a> for <a href="http://gohugo.io" target="_blank">Hugo</a>.
 
           <span class="pull-right" aria-hidden="true">
             <a href="#" id="back_to_top">
@@ -468,7 +366,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
     <script src="/js/hugo-academic.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-
 </body>
 </html>
