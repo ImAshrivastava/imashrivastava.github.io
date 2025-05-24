@@ -37,39 +37,73 @@
 
   <title>Research | Aman Shrivastava</title>
 
-  <style type='text/css'>
-    table.markup { border:2px dotted #ccf; width:90%; }
-    td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
-    table.vert td.markup1 { border-bottom:1px solid #ccf; }
-    table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
-    table.markup caption { text-align:left; }
-
-    .vspace { margin-top:1.33em; }
-    .vspacee { margin-top:1em; }
-
-    .logdate {
-      font-size: 1rem;
-	    color: #0095eb;
-	    font-weight: bold;
+  <style>
+    h2 {
+      color: #00c3ff;
+      border-bottom: 1px solid #00c3ff;
+      padding-bottom: 0.5rem;
+      margin-top: 4rem;
     }
-
-    #wikibody {
-      padding: 0px 0px 20px 0px;
-      font-family: 'Merriweather', serif;
-      color: #000000;
-      font-size: 1rem;
+    .pub-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 1rem 1rem 0.5rem;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px rgba(255,255,255,0.12);
+      cursor: pointer;
+      transition: all 0.25s ease-in-out;
+      position: relative;
     }
-
-    #wikitext {
-      margin-top:38px;
-      line-height:1.33em;
-      font-family: 'Merriweather', serif;
-      color: #000000;
-      font-size: 1rem;
+    .pub-card:hover {
+      box-shadow: 0 4px 14px rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.10);
     }
-
-    #wikitext table {
-      line-height:1.33em;
+    .pub-title {
+      color: #ffffff;
+      font-size:1.05rem;
+      font-weight:700;
+      margin:0;
+    }
+    .pub-authors {
+      font-style:italic;
+      color:#cccccc;
+      margin:0.25rem 0 0;
+    }
+    .pub-venue {
+      font-weight:600;
+      color:#00c3ff;
+    }
+    .pub-year {
+      position:absolute;
+      right:20px;
+      top:1rem;
+      color:#00c3ff;
+      font-weight:bold;
+    }
+    .pub-links {
+      margin-top:0.5rem;
+    }
+    .pub-links a {
+      color:#00c3ff;
+      margin-right:0.75rem;
+      text-decoration:none;
+    }
+    .pub-abstract {
+      margin-top:0.75rem;
+      font-size:0.95rem;
+      line-height:1.5rem;
+      color:#d0d0d0;
+      display:none;
+    }
+    .pub-card.expanded .pub-abstract {
+      display:block;
+    }
+    @media(max-width:768px) {
+      .pub-year{
+        position:static;
+        display:block;
+        margin-top:0.25rem;
+      }
     }
   </style>
 
@@ -97,62 +131,127 @@
           <li class="nav-item"><a href="https://imashrivastava.github.io/projects"><span>Projects</span></a></li>
           <!--<li class="nav-item"><a href="https://imashrivastava.github.io/travel"><span>Travel</span></a></li>-->
           <li class="nav-item"><a href="https://imashrivastava.github.io/files/Aman - curriculum-vitae.pdf"><span>CV</span></a></li>
-          <!--<li class="nav-item"><a href="https://imashrivastava.github.io/miscellany"><span>Miscellany</span></a></li>-->
         </ul>
       </div>
     </div>
   </nav>
 
   <div class="container">
-    <div id='wikitext'><p><em style="color: antiquewhite;">Currently updating. Come back soon!</p></div>
-    <div class="row">
-      <div class="col-xs-12 col-md-4 section-heading">
-        <table width="1220" border="0" align="center" cellpadding="0" cellspacing="10">
-          <tr>
-            <td colspan="2" valign="top" id='wikibody'>
+    <!-- =================== PUBLISHED PAPERS =================== -->
+   <!-- <h2>Selected Publications</h2>-->
 
-              <!--<div class="project-toolbar">
-                <div id="filters">
-                  <div class="btn-toolbar">
-                    <div class="btn-group">
-
-                      <a href="#" data-filter="*" class="btn btn-primary btn-large active">All</a>
-                      <a href="#" data-filter=".asp" class="btn btn-primary btn-large">Astroparticle Physics</a>
-                      <a href="#" data-filter=".rob" class="btn btn-primary btn-large">Robotics</a>
-                      <a href="#" data-filter=".hci" class="btn btn-primary btn-large">Human-Computer Interaction</a>
-                      <a href="#" data-filter=".uga" class="btn btn-primary btn-large">Undergraduate Admissions</a>
-                      <a href="#" data-filter=".gra" class="btn btn-primary btn-large">Graduate Admissions</a>
-                      <a href="#" data-filter=".rhi" class="btn btn-primary btn-large">Research Internships</a>
-                      <a href="#" data-filter=".vis" class="btn btn-primary btn-large">Visiting Student</a>
-                      <a href="#" data-filter=".cor" class="btn btn-primary btn-large">Course Recommendations</a>
-
-                    </div>
-                  </div>
-                </div>
-              </div>-->
-
-              <div id="container-projects" class="isotope">
-                <!--<ul class="fa-ul" style="position: relative">-->
-                <div class="project-item isotope-item uga">
-                  
-                </div>
-              </div>
-	      
-	      
-            </td>
-          </tr>
-        </table>
+    <!-- Sample publication card -->
+    <!--<div class="pub-card" onclick="this.classList.toggle('expanded')">
+      <div class="pub-title">Smart Digital Pen with Dual-Factor Biometric Authentication</div>
+      <div class="pub-authors">Aman Shrivastava, John Doe, Jane Smith</div>
+      <div class="pub-venue">IEEE Internet of Things Journal</div>
+      <div class="pub-year">2025</div>
+      <div class="pub-links">
+        <a href="/files/smart-pen.pdf" target="_blank"><i class="fa fa-file-pdf-o"></i> PDF</a>
+        <a href="https://doi.org/10.1109/JIOT.2025.123456" target="_blank"><i class="ai ai-doi"></i> DOI</a>
+        <a href="https://github.com/imashrivastava/smart-pen" target="_blank"><i class="fa fa-github"></i> Code</a>
       </div>
+      <div class="pub-abstract">We present a novel stylus-shaped device ...</div>
     </div>
+
+    <div class="pub-card" onclick="this.classList.toggle('expanded')">
+      <div class="pub-title">Low‑Cost Four‑Channel Bio‑AMP for EMG & EEG Wearables</div>
+      <div class="pub-authors">Aman Shrivastava, Michael Nguyen</div>
+      <div class="pub-venue">Sensors (MDPI)</div>
+      <div class="pub-year">2024</div>
+      <div class="pub-links"><a href="/files/bioamp.pdf" target="_blank"><i class="fa fa-file-pdf-o"></i> PDF</a></div>
+      <div class="pub-abstract">This paper details the design of ...</div>
+    </div>-->
+
+    <!-- =================== COMING SOON =================== -->
+    <h2>Coming Soon</h2>
+    <div class="pub-card" onclick="this.classList.toggle('expanded')">
+      <div class="pub-title">Integrated Security, Access Control, and Asset Management System for Automated Library<br> of Borrowed Things</div>
+      <div class="pub-authors">Shrivastava A.</div>
+      <div class="pub-venue">Manuscript in preparation</div>
+      <div class="pub-year">2025</div>
+      <div class="pub-links"><span class="label label-default">Pre‑print expected Q3 2025</span></div>
+      <div class="pub-abstract"></div>
+    </div>
+
+    <!-- =================== THESES =================== -->
+    <!--<h2>Theses</h2>
+    <div class="pub-card" onclick="this.classList.toggle('expanded')">
+      <div class="pub-title">Implementing Scalable UHF‑RFID for Community Libraries</div>
+      <div class="pub-authors">Undergraduate Honors Thesis — University of British Columbia</div>
+      <div class="pub-venue">Department of Physics & Computer Science</div>
+      <div class="pub-year">2024</div>
+      <div class="pub-links"><a href="/files/aman_thesis.pdf" target="_blank"><i class="fa fa-file-pdf-o"></i> PDF</a></div>
+      <div class="pub-abstract">The thesis evaluates EPC C1G2 v2.0 tags across 11 shelving layouts, presenting a hybrid RSSI + phase‑angle algorithm that reduces mis‑reads by 37 %.</div>
+    </div>-->
+
+    <!-- =================== PATENTS =================== -->
+    <!--<h2>Patents</h2>
+    <div class="pub-card" onclick="this.classList.toggle('expanded')">
+      <div class="pub-title">Stylus‑Based Biometric Signature Verification System</div>
+      <div class="pub-authors">India IPO Application No. 202341012345</div>
+      <div class="pub-venue">Filed — Esaathy Digitals Pvt. Ltd.</div>
+      <div class="pub-year">2025</div>
+      <div class="pub-links"><a href="/files/patent_stylus.pdf" target="_blank"><i class="fa fa-file-text-o"></i> Spec</a></div>
+      <div class="pub-abstract">A pressure‑sensitive pen tip co‑located with an optical fingerprint sensor provides two‑factor identity verification for digital ink workflows.</div>
+    </div>-->
+
+    <!-- =================== DESIGNS =================== -->
+    <h2>Industrial Designs</h2>
+    <div class="pub-card" onclick="this.classList.toggle('expanded')">
+      <div class="pub-title">iThink: A Wearable Brain Computer Interface</div>
+      <div class="pub-authors">Indian Design Application No. 358765‑001</div>
+      <div class="pub-venue">Registered</div>
+      <div class="pub-year">2025</div>
+      <div class="pub-links"><a href="" target="_blank"><i class="fa fa-file-text-o"></i> Certificate of Registration</a></div>
+      <div class="pub-abstract"></div>
+    </div>
+
+    <!-- =================== TRADEMARKS =================== -->
+    <h2>Trademarks</h2>
+    <div class="pub-card" onclick="this.classList.toggle('expanded')">
+      <div class="pub-title">INGENUITIVE®</div>
+      <div class="pub-authors">Indian Trademark Application No. 5817700</div>
+      <div class="pub-venue">Device Mark</div>
+      <div class="pub-year">2024</div>
+      <div class="pub-links"><a href="" target="_blank"><i class="fa fa-file-text-o"></i> Certificate of Registration</a></div>
+      <div class="pub-abstract"></div>
+    </div>
+
+    <div class="pub-card" onclick="this.classList.toggle('expanded')">
+      <div class="pub-title">INGENUITIVE®</div>
+      <div class="pub-authors">Indian Trademark Application No. 5817703</div>
+      <div class="pub-venue">Device Mark</div>
+      <div class="pub-year">2024</div>
+      <div class="pub-links"><a href="" target="_blank"><i class="fa fa-file-text-o"></i> Certificate of Registration</a></div>
+      <div class="pub-abstract"></div>
+    </div>
+
+    <div class="pub-card" onclick="this.classList.toggle('expanded')">
+      <div class="pub-title">INGENUITIVE®</div>
+      <div class="pub-authors">Indian Trademark Application No. 5817702</div>
+      <div class="pub-venue">Word Mark</div>
+      <div class="pub-year">2024</div>
+      <div class="pub-links"><a href="" target="_blank"><i class="fa fa-file-text-o"></i> Certificate of Registration</a></div>
+      <div class="pub-abstract"></div>
+    </div>
+
+    <div class="pub-card" onclick="this.classList.toggle('expanded')">
+      <div class="pub-title">INGENUITIVE®</div>
+      <div class="pub-authors">Indian Trademark Application No. 5817701</div>
+      <div class="pub-venue">Word Mark</div>
+      <div class="pub-year">2023</div>
+      <div class="pub-links"><a href="" target="_blank"><i class="fa fa-file-text-o"></i> Certificate of Registration</a></div>
+      <div class="pub-abstract"></div>
+    </div>
+
   </div>
+
 
   <footer class="site-footer">
     <div class="container">
       <p class="powered-by">
         &copy; <script>document.write(new Date().getFullYear());</script> Aman Shrivastava &middot;
-
-        Powered by the <a href="https://github.com/gcushen/hugo-academic" target="_blank">Academic
-        theme</a> for <a href="http://gohugo.io" target="_blank">Hugo</a>.
 
         <span class="pull-right" aria-hidden="true">
           <a href="#" id="back_to_top"><span class="button_icon"><i class="fa fa-chevron-up fa-2x"></i></span></a>
