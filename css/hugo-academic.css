@@ -53,6 +53,19 @@ html {
   }
 }
 
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  box-shadow:
+          inset 0 0 60px 30px rgba(255, 255, 255, 0.2); /* Inner white glow */
+}
+
 body {
   font-family: inherit;
   font-size: 1rem;
@@ -66,13 +79,6 @@ body {
   background-repeat: no-repeat; /*Added*/
   background-position: center; /*Added*/
   background-attachment: fixed; /*Added*/
-  border: 6px solid white;
-  border-radius: 50%;
-  box-shadow:
-          0 0 10px white,
-          0 0 20px white,
-          0 0 30px #00c3ff,
-          0 0 40px #00c3ff;
 }
 
 @media screen and (max-width: 1200px) { /* Match max-width of .nav-bar query. */
