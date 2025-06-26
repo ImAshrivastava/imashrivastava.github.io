@@ -66,9 +66,13 @@ body {
   background-repeat: no-repeat; /*Added*/
   background-position: center; /*Added*/
   background-attachment: fixed; /*Added*/
-  border: 4px solid white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  border-radius: 8px;">
+  border: 6px solid white;
+  border-radius: 50%;
+  box-shadow:
+          0 0 10px white,
+          0 0 20px white,
+          0 0 30px #00c3ff,
+          0 0 40px #00c3ff;
 }
 
 @media screen and (max-width: 1200px) { /* Match max-width of .nav-bar query. */
