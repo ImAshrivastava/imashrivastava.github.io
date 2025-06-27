@@ -91,7 +91,6 @@
       font-size:0.95rem;
       line-height:1.5rem;
       color:#d0d0d0;
-      display:none;
     }
     .pub-card.expanded .pub-abstract {
       display:block;
@@ -286,19 +285,6 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
 <script src="/js/hugo-academic.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-
-<script>
-  // Make each pub-card expandable on click
-  document.addEventListener('DOMContentLoaded', function () {
-    const pubCards = document.querySelectorAll('.pub-card');
-
-    pubCards.forEach(function (card) {
-      card.addEventListener('click', function () {
-        card.classList.toggle('expanded');
-      });
-    });
-  });
-</script>
 
 </body>
 </html>
