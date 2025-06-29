@@ -109,14 +109,29 @@
       color: #000000;
       font-size: 1rem;
     }
+    #popup {
+      display: none;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #1e1e1e;
+      color: #39ff14;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 255, 100, 0.6);
+      font-weight: bold;
+      z-index: 1000;
+    }
   </style>
 
 </head>
 
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
-<div id="welcome-message" style="display: flex; background: #00c3ff; color: #FFFFFF; text-align: center; padding: 10px; font-weight: bold;">
+<div id="popup">Welcome to Aman Shrivastava's Website!</div>
+<!--<div id="welcome-message" style="display: flex; background: #00c3ff; color: #FFFFFF; text-align: center; padding: 10px; font-weight: bold;">
   Welcome to Aman Shrivastava's Website!
-</div>
+</div>-->
 <nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
   <div class="container">
     <div class="navbar-header">
@@ -489,7 +504,7 @@
 <script src="/js/hugo-academic.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script>
+<!--<script>
   window.onload = function() {
     var message = document.getElementById('welcome-message');
     message.style.display = 'block';
@@ -497,6 +512,18 @@
     // Optional: Hide the message after 5 seconds
     setTimeout(function() {
       message.style.display = 'none';
+    }, 5000);
+  };
+</script>-->
+
+<script>
+  window.onload = function () {
+    var popup = document.getElementById('popup');
+    popup.style.display = 'block';
+
+    // Hide after 5 seconds
+    setTimeout(function () {
+      popup.style.display = 'none';
     }, 5000);
   };
 </script>
