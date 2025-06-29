@@ -486,5 +486,17 @@
 <script src="/js/hugo-academic.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
+<script>
+  window.onload = function() {
+    var message = document.getElementById('welcome-message');
+    message.style.display = 'block';
+
+    // Optional: Hide the message after 5 seconds
+    setTimeout(function() {
+      message.style.display = 'none';
+    }, 5000);
+  };
+</script>
+
 </body>
 </html>
