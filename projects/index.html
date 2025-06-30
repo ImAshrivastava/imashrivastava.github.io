@@ -36,39 +36,78 @@
   <link rel="canonical" href="https://imashrivastava.github.io/projects">
 
   <title>Projects | Aman Shrivastava</title>
-
-  <style type='text/css'>
-    table.markup { border:2px dotted #ccf; width:90%; }
-    td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
-    table.vert td.markup1 { border-bottom:1px solid #ccf; }
-    table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
-    table.markup caption { text-align:left; }
-
-    .vspace { margin-top:1.33em; }
-
-    .logdate {
-      font-size: 1rem;
-	    color: #0095eb;
-	    font-weight: bold;
+  <style>
+    h2 {
+      color: #00c3ff;
+      border-bottom: 1px solid #00c3ff;
+      padding-bottom: 0.5rem;
+      margin-top: 4rem;
     }
-
-    #wikibody {
-      padding: 0px 0px 20px 0px;
-      font-family: 'Merriweather', serif;
-      color: #000000;
-      font-size: 1rem;
+    .pub-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 1rem 1rem 0.5rem;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px rgba(255,255,255,0.12);
+      cursor: pointer;
+      transition: all 0.25s ease-in-out;
+      position: relative;
     }
-
+    .pub-card:hover {
+      box-shadow: 0 4px 14px rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.10);
+    }
+    .pub-title {
+      color: #ffffff;
+      font-size:1.05rem;
+      margin:0;
+    }
+    .pub-authors {
+      font-style:italic;
+      color:#cccccc;
+      margin:0.25rem 0 0;
+    }
+    .pub-venue {
+      font-weight:600;
+      color:#00c3ff;
+    }
+    .pub-year {
+      position:absolute;
+      right:20px;
+      top:1rem;
+      color:#00c3ff;
+      font-weight:bold;
+    }
+    .pub-links {
+      margin-top:0.5rem;
+    }
+    .pub-links a {
+      color:#00c3ff;
+      margin-right:0.75rem;
+      text-decoration:none;
+    }
+    .pub-abstract {
+      margin-top:0.75rem;
+      font-size:0.95rem;
+      line-height:1.5rem;
+      color:#d0d0d0;
+    }
+    .pub-card.expanded .pub-abstract {
+      display:block;
+    }
+    @media(max-width:768px) {
+      .pub-year{
+        position:static;
+        display:block;
+        margin-top:0.25rem;
+      }
+    }
     #wikitext {
-      margin-top:38px;
+      margin-top:5px;
       line-height:1.33em;
       font-family: 'Merriweather', serif;
       color: #000000;
       font-size: 1rem;
-    }
-
-    #wikitext table {
-      line-height:1.33em;
     }
   </style>
 
@@ -103,446 +142,18 @@
     </div>
   </nav>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-md-4 section-heading">
-        <table width="1020" border="0" align="center" cellpadding="0" cellspacing="10">
-          <tr>
-            <td colspan="2" valign="top" id='wikibody'>
-              <div id='wikitext'>
-                <p><em>Webpage to be updated..</em></p>
-                <div class='vspace'></div>
-              </div>
-          </tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="section-heading">
-        <h1 style="text-align:left">Major Projects</h1>
-      </div>
-
-      <br/>
-      <br/>
-      
-      <div id="container-projects" class="row isotope">
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="2FAB Authenticator" class="card-image hover-overlay">
-              <img src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/main/projects/2fab-authenticator/images/2fab-auth-dp.png" alt="2FAB Authenticator Application" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">2FAB Authenticator</a></h4>
-              <div class="card-description">
-                <p>Designed and developed “Authenticator: Two-Factor Biometric Authentication Desktop Application” in processing.python(front-end) and python (backend) communicating over socket communication, to perform fingerprint matching using KNearest Neighbour(KNN) and handwritten signature matching using Structural Similarity Index(SSIM) for verifying individual identity.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="eSignature: Handwritten Signature Acquisition Application" class="card-image hover-overlay">
-              <img src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/main/projects/esignature/images/esignature-dp.png" alt="Signature Application" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">eSignature: Handwritten Signature Acquisition Application</a></h4>
-              <div class="card-description">
-                <p>Designed and developed “eSignature” in processing.python for acquiring handwritten signatures using display tablets.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-          
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="FIST: Fingerprint Imaging Software Technology" class="card-image hover-overlay">
-              <img src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/main/projects/fist/images/fist-dp.png" alt="FIST Application" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">FIST: Fingerprint Imaging Software Technology</a></h4>
-              <div class="card-description">
-                <p>Designed and developed “FIST: Fingerprint Imaging Software Technology”, a cross-platform desktop application in processing.python (front-end) and python (backend) communicating over socket communication, to implement serial communication between desktop application and biometric stylus for activating I/O functionality of ID809 capacitive fingerprint sensor with complete or restricted control over GET-SET parameters including fingerprint template extraction and fingerprint image acquisition function.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-          
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="2FAB Stylus" class="card-image hover-overlay">
-              <img src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/main/projects/2fab-stylus/images/2fab-stylus-dp.png" alt="2FAB Stylus" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">2FAB Stylus</a></h4>
-              <div class="card-description">
-                <p>Integrated ID809 fingerprint sensor and RP2040 microcontroller in a stylus for concurrently acquiring fingerprint image and handwritten signature image drawn on graphic display tablet for Two-Factor Biometric Authentication System.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-          
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="Aerial Bomb/Missle" class="card-image hover-overlay">
-              <img src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/main/projects/aerial-bomb/images/aerial-bomb-dp.gif" alt="Aerial Bomb Explosion" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">Aerial Bomb/Aerial Missile</a></h4>
-              <div class="card-description">
-                <p>Fabricated low-intensity, air-to-surface missile and aerial bomb made using gunpowder as the primary explosive component ignited at specific altitude or by using wireless command system for the purpose of disintegration of riots or remote execution using unmanned combat aerial vehicle.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-          
-        <!--<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="Eyelink: A low-cost Electrooculography-based Human-Computer Interface" class="card-image hover-overlay">
-              <img src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/main/projects/eyelink/images/eyelink-dp.jpeg" alt="Eyelink Device" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">Eyelink: A low-cost Electrooculography-based Human-Computer Interface</a></h4>
-              <div class="card-description">
-                <p>Developed a novel headgear integrated with biosensors to monitor electrooculography data for controlling graphical user interface with multiple functions such as word processor and web services for argumentative and alternative communication similar to the one used by Sir Stephen Hawkins.</p>
-              </div>
-            </div>
-          </div>
-        </div>-->
-          
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="Paper-based Biosensing System for Detection of Mastitis in Dairy Cattle" class="card-image hover-overlay">
-              <img src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/main/projects/paperbiosensor/images/mastitis-dp.png" alt="Mastitis Biosensor" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">Paper-based Biosensing System for Detection of Mastitis in Dairy Cattle</a></h4>
-              <div class="card-description">
-                <p>Devised a novel low-cost paper-based biosensor to detect increase in electrical conductance and count of somatic cells in milk using bibulous paper and current sensor for prevention of mastitis in dairy cattle.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-          
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="iThink: An Electroencephalography-based Brain Computer Interface" class="card-image hover-overlay">
-              <img src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/main/projects/ithink/images/ithink-dp.jpeg" alt="iThink Device" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">iThink: An Electroencephalography-based Brain Computer Interface</a></h4>
-              <div class="card-description">
-                <p>Proposed a novel algorithm and trained a neural network to process EEG raw data for real-time brain-to-text, brain-tospeech and brain-to-command using wearable brain-computer interface.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-          
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="P300 Speller" class="card-image hover-overlay">
-              <img src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/main/projects/p300-speller/images/p300-speller-dp.gif" alt="P300 Speller Application" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">P300 Speller for Brain Computer Interface</a></h4>
-              <div class="card-description">
-                <p>Devised a brain-computer interface to interpret visually evoked p300 signal using support vector machine for spelling words in a custom word processor.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-          
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="AudioOptic: A Computer Vision-based Wearable Visual Aid for Visually Challenged" class="card-image hover-overlay">
-              <img src="https://github.com/ImAshrivastava/imashrivastava.github.io/raw/main/projects/audiooptic/images/audiooptic-dp.png" alt="AudioOptic Device" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">AudioOptic: A Computer Vision-based Wearable Visual Aid for Visually Challenged</a></h4>
-              <div class="card-description">
-                <p>Embedded array of optical sensors and processors in a headgear to implement a wearable visual aid working on parallel computing to detect, recognize and track objects, faces and text to translate them into speech for navigation and real-time application using concurrent visual processing algorithms.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-          
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="MedAssist: An Automated Medicine Dispenser" class="card-image hover-overlay">
-              <img src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/main/projects/medassist/images/medassist-dp.png" alt="MedAssist Medicine Dispenser" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">MedAssist: An Automated Medicine Dispenser</a></h4>
-              <div class="card-description">
-                <p>Developed an Internet of Things-based automated medicine dispenser system using Zigbee network for personal use and for hospitals.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-          
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="Unmanned Ground Vehicle" class="card-image hover-overlay">
-              <img src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/main/projects/ugv/images/ugv.jpg" alt="Unmanned Ground Vehicle" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">Unmanned Ground Vehicle with Vision for Remote Security and Surveillance</a></h4>
-              <div class="card-description">
-                <p>Implemented a continuous tracked, semi-autonomous unmanned ground vehicle with six degrees of freedom robotics arm for remote security and surveillance.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-          <!--<div class="card">
-            <a href="" title="" class="card-image hover-overlay">
-              <img src="" alt="" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href=""></a>
-              </h4>
-              <div class="card-description">
-                <p></p>
-              </div>
-            </div>
-          </div>-->
-      </div>
-      
-      <!--<div class="section-heading">
-        <h1 style="text-align:left">Minor Projects</h1>
-      </div>-->
-      
-      <!--<div id="container-projects" class="row isotope">
-	      
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="" class="card-image hover-overlay">
-              <img src="" alt="" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">Wireless Improvised Explosive Device</a></h4>
-              <div class="card-description">
-                <p>Developed improvised explosive device using potassium nitrate, sulphur and charcoal triggered with wireless command system activating detonating mechanism built using nichrome wire.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-	      
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="" class="card-image hover-overlay">
-              <img src="" alt="" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">Timer-based Improvised Explosive Device</a></h4>
-              <div class="card-description">
-                <p>Developed improvised explosive device using potassium nitrate, sulphur, charcoal and gasoline triggered using timer-based circuit activating detonating mechanism built using tungsten filament.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-	      
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="" class="card-image hover-overlay">
-              <img src="" alt="" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">Smoke Bomb</a></h4>
-              <div class="card-description">
-                <p>Developed smoke bomb using potassium nitrate, sucrose and powdered dye for the purpose of disintegration of riots.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-	      
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="" class="card-image hover-overlay">
-              <img src="" alt="" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">Peer Review System for Student Government Election</a></h4>
-              <div class="card-description">
-                <p>Developed a standalone desktop application in processing.py for voting, nominating and recommending selective students for council positions based of set of holistic criteria and peer review system to evaluate student’s leadership abilities using data driven approach and natural language processing.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-	      
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="" class="card-image hover-overlay">
-              <img src="" alt="" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">Cipher: Personal Password Management and Protection Software</a></h4>
-              <div class="card-description">
-                <p>Developed a standalone desktop application in processing.py which uses symmetric encryption for password management and steganography for storage and protection.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-	      
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="" class="card-image hover-overlay">
-              <img src="" alt="" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">Dataglove for Sign Language to Speech Conversion</a></h4>
-              <div class="card-description">
-                <p>Fabricated a 3D printed wearable glove and embedded custom copper-based flex sensors for sensing finger movements to weave standard sign language for sign to speech conversion using Single Board Computer and onboard TTS Engine.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-	
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="" class="card-image hover-overlay">
-              <img src="" alt="" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">Touch-less Scrolling based on Limb Electromyography</a></h4>
-              <div class="card-description">
-                <p>Developed a wearable wrist band for controlling desktop application through forearm electromyography and finger movements.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-	
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="Touch Tracking for Paper using Velostat" class="card-image hover-overlay">
-              <img src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/main/projects/ttpapervelostat/images/ttpapervelostat-dp.jpeg" alt="Touch Tracking for Paper" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">Touch Tracking for Paper using Velostat</a></h4>
-              <div class="card-description">
-                <p>Crafted a novel paper based touch tracking trackpad with Velostat embedded in-between copper tape grid of rows and columns to control on screen applications on laptop/desktop.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-	      
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="" class="card-image hover-overlay">
-              <img src="" alt="" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">Unmanned Underwater Vehicle for Aqua Robotics Challenges</a></h4>
-              <div class="card-description">
-                <p>Engineered an underwater vehicle using PVC pipes and high density foam controlled using DPDT switches.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-	      
-	      
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="" class="card-image hover-overlay">
-              <img src="" alt="" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">Wireless Unmanned Surface Vehicle for Aqua Robotic Challenges</a></h4>
-              <div class="card-description">
-                <p>Engineered a bluetooth controlled surface vehicle with four degrees of freedom robotic arm.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-	      
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="M^3: Multipurpose Multi-project Motherboard" class="card-image hover-overlay">
-              <img src="https://raw.githubusercontent.com/ImAshrivastava/imashrivastava.github.io/main/projects/mcube/images/mcube-dp.png" alt="M Cube" class="img-responsive">
-            </a>
-            <div class="card-text">
-	      <h4><a href="">M<sup>3</sup>: Multipurpose Multi-project Motherboard</a></h4>
-              <div class="card-description">
-                <p>Soldered layers of berg strip around general purpose IC’s, voltage regulators, switches and indicators on a perfboard for DIY electronics and robotics project.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-	      
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="" class="card-image hover-overlay">
-              <img src="" alt="" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href="">BCI Controlled Robot</a></h4>
-              <div class="card-description">
-                <p>Assembled a four wheel bluetooth robot and controlled it using OpenBCI Focus Widget based on focus detection algorithm detecting increase in alpha and theta brain waves.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-	      
-	      
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="" class="card-image hover-overlay">
-              <img src="" alt="" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4><a href=""></a></h4>
-              <div class="card-description">
-                <p></p>
-              </div>
-            </div>
-          </div>
-        </div>
-	      
-      </div>-->
-	    
-      <!--<div class="section-heading">
-        <h1 style="text-align:left">Mini Projects</h1>
-      </div>-->
-      
-      <!--<div id="container-projects" class="row isotope">
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 project-item isotope-item ml">
-          <div class="card">
-            <a href="" title="" class="card-image hover-overlay">
-              <img src="" alt="" class="img-responsive">
-            </a>
-            <div class="card-text">
-              <h4>
-                <a href="">
-                  Prototype of a Missile for Low-Intensity Bombing and Smoke Generation
-                </a>
-              </h4>
-              <div class="card-description">
-                <p>Designed and fabricated a short-range, solid-propellant, air-to-surface missile controlled using wireless command guidance system for disintegration of riots and remote execution using unmanned combat aerial vehicle.</p>
-              </div>
-            </div>
-          </div>
-        </div>-->
-      </div>
-      
-    </div>
-  </div>
 
   <footer class="site-footer">
     <div class="container">
       <p class="powered-by">
-        &copy; <script>document.write(new Date().getFullYear());</script> Aman Shrivastava &middot;
-
-        Powered by the <a href="https://github.com/gcushen/hugo-academic" target="_blank">Academic
-        theme</a> for <a href="http://gohugo.io" target="_blank">Hugo</a>.
-
+        &copy;  <script>document.write(new Date().getFullYear());</script> Aman Shrivastava.
         <span class="pull-right" aria-hidden="true">
-          <a href="#" id="back_to_top">
-            <span class="button_icon">
-              <i class="fa fa-chevron-up fa-2x"></i>
-            </span>
-          </a>
-        </span>
+           <a href="#" id="back_to_top">
+             <span class="button_icon">
+               <i class="fa fa-chevron-up fa-2x"></i>
+             </span>
+           </a>
+         </span>
       </p>
     </div>
   </footer>
