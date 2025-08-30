@@ -939,7 +939,7 @@ nav#navbar-main li {
 .navbar-default .navbar-nav>.active>a:hover {
   color: #0095eb;
   font-weight: 700;
-  background-color: transparent !important; /* Override Bootstrap. */
+  background-color: #0095eb !important; /* Override Bootstrap. */
 }
 
 .navbar-brand,
@@ -980,7 +980,7 @@ nav#navbar-main li {
   /*Original
   color: #2b2b2b;
    */
-  color: #0095eb;
+  color: #ffffff;
 }
 
 @media screen and (max-width: 1200px) {
