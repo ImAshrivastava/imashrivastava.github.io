@@ -917,7 +917,7 @@ footer a#back_to_top i {
   box-shadow: 0 0.125rem 1rem 0 rgba(0, 0, 0, 0.295);
    */
   background: #000000;
-  box-shadow: 0 0.125rem 1rem 0 rgba(255, 255, 255);
+  box-shadow: 0 0.125rem 1rem 0 rgba(0, 0, 0);
 }
 
 nav#navbar-main li {
@@ -930,7 +930,7 @@ nav#navbar-main li {
   white-space: nowrap;
   -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
-  color: #34495e;
+  color: #ffffff;
   font-weight: 600;
 }
 
