@@ -939,7 +939,7 @@ nav#navbar-main li {
 .navbar-default .navbar-nav>.active>a:hover {
   color: #0095eb;
   font-weight: 700;
-  background-color: #0095eb !important; /* Override Bootstrap. */
+  background-color: transparent !important; /* Override Bootstrap. */
 }
 
 .navbar-brand,
