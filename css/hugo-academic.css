@@ -930,7 +930,7 @@ nav#navbar-main li {
   white-space: nowrap;
   -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
-  color: #cccccc;
+  color: #0095eb !important;
   font-weight: 600;
 }
 
