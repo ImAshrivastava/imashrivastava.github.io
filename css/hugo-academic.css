@@ -930,14 +930,14 @@ nav#navbar-main li {
   white-space: nowrap;
   -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
-  color: #0095eb !important;
+  color: #cccccc;
   font-weight: 600;
 }
 
 .navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a:focus,
 .navbar-default .navbar-nav>.active>a:hover {
-  color: #0095eb;
+  color: #0095eb !important;
   font-weight: 700;
   background-color: transparent !important; /* Override Bootstrap. */
 }
