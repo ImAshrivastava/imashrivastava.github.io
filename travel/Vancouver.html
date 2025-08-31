@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_4a57802a8dbf968181b4ab99504c1599 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_4a57802a8dbf968181b4ab99504c1599" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_4a57802a8dbf968181b4ab99504c1599 = L.map(
+                "map_4a57802a8dbf968181b4ab99504c1599",
+                {
+                    center: [49.140698, -123.021804],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_dc876c9c9da59f10b174008c7bc47995 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_dc876c9c9da59f10b174008c7bc47995.addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+            var marker_af6f9e2b6f96fa4f7e79448497aecb75 = L.marker(
+                [49.2606, -123.246],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_baee1da1171340d799165a5320a98b76 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8c9a11e8788ab7b6ae4eb5c6ed5639c4 = $(`<div id="html_8c9a11e8788ab7b6ae4eb5c6ed5639c4" style="width: 100.0%; height: 100.0%;">UBC</div>`)[0];
+                popup_baee1da1171340d799165a5320a98b76.setContent(html_8c9a11e8788ab7b6ae4eb5c6ed5639c4);
+            
+        
+
+        marker_af6f9e2b6f96fa4f7e79448497aecb75.bindPopup(popup_baee1da1171340d799165a5320a98b76)
+        ;
+
+        
+    
+    
+            var marker_a27e6c518747a110930deef7f2386192 = L.marker(
+                [49.2247, -123.1091],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_a546c3c622a5bb298cc375e34e9eadf4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_40b73370ae5e38822d5feb41dbec7ee8 = $(`<div id="html_40b73370ae5e38822d5feb41dbec7ee8" style="width: 100.0%; height: 100.0%;">Langara College</div>`)[0];
+                popup_a546c3c622a5bb298cc375e34e9eadf4.setContent(html_40b73370ae5e38822d5feb41dbec7ee8);
+            
+        
+
+        marker_a27e6c518747a110930deef7f2386192.bindPopup(popup_a546c3c622a5bb298cc375e34e9eadf4)
+        ;
+
+        
+    
+    
+            var marker_9c006dee932848d65b29275fa840c32c = L.marker(
+                [49.19919781860912, -123.14223596925949],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_b5f0d79f39cf82c7318c6b7513881680 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b36b9f60e82b7773f767904b2ec7a1e6 = $(`<div id="html_b36b9f60e82b7773f767904b2ec7a1e6" style="width: 100.0%; height: 100.0%;">McArthur Glen</div>`)[0];
+                popup_b5f0d79f39cf82c7318c6b7513881680.setContent(html_b36b9f60e82b7773f767904b2ec7a1e6);
+            
+        
+
+        marker_9c006dee932848d65b29275fa840c32c.bindPopup(popup_b5f0d79f39cf82c7318c6b7513881680)
+        ;
+
+        
+    
+    
+            var marker_402f9d52697f33c077ec9fec4540e753 = L.marker(
+                [49.2319, -123.1784],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_a31f7a66b1c13162e1230227f5d1e6a1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6f5a3641bbc9e19a6ce82e9c2b3a4f79 = $(`<div id="html_6f5a3641bbc9e19a6ce82e9c2b3a4f79" style="width: 100.0%; height: 100.0%;">6249 Balaclava Street</div>`)[0];
+                popup_a31f7a66b1c13162e1230227f5d1e6a1.setContent(html_6f5a3641bbc9e19a6ce82e9c2b3a4f79);
+            
+        
+
+        marker_402f9d52697f33c077ec9fec4540e753.bindPopup(popup_a31f7a66b1c13162e1230227f5d1e6a1)
+        ;
+
+        
+    
+    
+            var marker_8359cf8cb2834c6bbf917c71af961064 = L.marker(
+                [49.25104935621117, -123.0771896220904],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_b333de48973d581fd1c689ff33b3bed5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8e564cd15d00a0c3bb348db6b05eaf28 = $(`<div id="html_8e564cd15d00a0c3bb348db6b05eaf28" style="width: 100.0%; height: 100.0%;">Dosa Factory</div>`)[0];
+                popup_b333de48973d581fd1c689ff33b3bed5.setContent(html_8e564cd15d00a0c3bb348db6b05eaf28);
+            
+        
+
+        marker_8359cf8cb2834c6bbf917c71af961064.bindPopup(popup_b333de48973d581fd1c689ff33b3bed5)
+        ;
+
+        
+    
+    
+            var marker_232600d76d2f93139913f8ef030b1d54 = L.marker(
+                [49.22860542446283, -123.09088801934104],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_7010f18bf0eae67f2557d675101246f8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ce68b74e42d1d803284c67bf4c145ae9 = $(`<div id="html_ce68b74e42d1d803284c67bf4c145ae9" style="width: 100.0%; height: 100.0%;">Dosa Corner</div>`)[0];
+                popup_7010f18bf0eae67f2557d675101246f8.setContent(html_ce68b74e42d1d803284c67bf4c145ae9);
+            
+        
+
+        marker_232600d76d2f93139913f8ef030b1d54.bindPopup(popup_7010f18bf0eae67f2557d675101246f8)
+        ;
+
+        
+    
+    
+            var marker_b0a134cd61d93ed26fa4ea0283c889cf = L.marker(
+                [49.2811, -123.1206],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_c15da5b7aca2e7c4e10e6b78ed1603a6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c6a86b0d35bf171a4ffa523c57670cec = $(`<div id="html_c6a86b0d35bf171a4ffa523c57670cec" style="width: 100.0%; height: 100.0%;">Scotia Bank Theatre</div>`)[0];
+                popup_c15da5b7aca2e7c4e10e6b78ed1603a6.setContent(html_c6a86b0d35bf171a4ffa523c57670cec);
+            
+        
+
+        marker_b0a134cd61d93ed26fa4ea0283c889cf.bindPopup(popup_c15da5b7aca2e7c4e10e6b78ed1603a6)
+        ;
+
+        
+    
+    
+            var marker_a0c336fe7bc57bd5663aebeb46490cd6 = L.marker(
+                [49.2891, -123.1417],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_845cb93d6fe729fafb1dda1789461902 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b47cb9af3cf26c2f4bffcba8604cac11 = $(`<div id="html_b47cb9af3cf26c2f4bffcba8604cac11" style="width: 100.0%; height: 100.0%;">English Bay Beach</div>`)[0];
+                popup_845cb93d6fe729fafb1dda1789461902.setContent(html_b47cb9af3cf26c2f4bffcba8604cac11);
+            
+        
+
+        marker_a0c336fe7bc57bd5663aebeb46490cd6.bindPopup(popup_845cb93d6fe729fafb1dda1789461902)
+        ;
+
+        
+    
+    
+            var marker_e82d888a8b65606a3e29879e56ea19ac = L.marker(
+                [49.2718, -123.1554],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_4b2a15c05cd531a44107c473f39444b0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e0d74f0abfded17408353e64e26e5349 = $(`<div id="html_e0d74f0abfded17408353e64e26e5349" style="width: 100.0%; height: 100.0%;">Kitsilano Beach</div>`)[0];
+                popup_4b2a15c05cd531a44107c473f39444b0.setContent(html_e0d74f0abfded17408353e64e26e5349);
+            
+        
+
+        marker_e82d888a8b65606a3e29879e56ea19ac.bindPopup(popup_4b2a15c05cd531a44107c473f39444b0)
+        ;
+
+        
+    
+    
+            var marker_54d1662f899ddbcd581b3d923424d3f1 = L.marker(
+                [49.2614, -123.2646],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_006d9c90a9b4bf1dd2d3f1c700162130 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a4e893278da6429f257fb01965c78376 = $(`<div id="html_a4e893278da6429f257fb01965c78376" style="width: 100.0%; height: 100.0%;">Wreck Beach</div>`)[0];
+                popup_006d9c90a9b4bf1dd2d3f1c700162130.setContent(html_a4e893278da6429f257fb01965c78376);
+            
+        
+
+        marker_54d1662f899ddbcd581b3d923424d3f1.bindPopup(popup_006d9c90a9b4bf1dd2d3f1c700162130)
+        ;
+
+        
+    
+    
+            var marker_d6f54e84ab7c5aae1dfce15845f2f88b = L.marker(
+                [49.1863, -122.849],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_ae4c6c1bb549e4bd3e268b5e05182050 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bed5144759c64dfec88a7dc675dac9f4 = $(`<div id="html_bed5144759c64dfec88a7dc675dac9f4" style="width: 100.0%; height: 100.0%;">Surrey</div>`)[0];
+                popup_ae4c6c1bb549e4bd3e268b5e05182050.setContent(html_bed5144759c64dfec88a7dc675dac9f4);
+            
+        
+
+        marker_d6f54e84ab7c5aae1dfce15845f2f88b.bindPopup(popup_ae4c6c1bb549e4bd3e268b5e05182050)
+        ;
+
+        
+    
+    
+            var marker_aad72f1a455e8f3cb15a434273205f54 = L.marker(
+                [49.231, -123.0039],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_97bde15dc17805a410fbb4b76eb0d947 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_df3233effc95fb6ee23f81d3439e4424 = $(`<div id="html_df3233effc95fb6ee23f81d3439e4424" style="width: 100.0%; height: 100.0%;">Metrotown Mall</div>`)[0];
+                popup_97bde15dc17805a410fbb4b76eb0d947.setContent(html_df3233effc95fb6ee23f81d3439e4424);
+            
+        
+
+        marker_aad72f1a455e8f3cb15a434273205f54.bindPopup(popup_97bde15dc17805a410fbb4b76eb0d947)
+        ;
+
+        
+    
+    
+            var marker_c7cc7d36f52bef2ee1484b71fdced442 = L.marker(
+                [49.2748, -123.0906],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_119baf86c8832e61e4c053d0768dbbd3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dd50b265789adc718a6f3bdcc8eed0c6 = $(`<div id="html_dd50b265789adc718a6f3bdcc8eed0c6" style="width: 100.0%; height: 100.0%;">AbCellera Biologics</div>`)[0];
+                popup_119baf86c8832e61e4c053d0768dbbd3.setContent(html_dd50b265789adc718a6f3bdcc8eed0c6);
+            
+        
+
+        marker_c7cc7d36f52bef2ee1484b71fdced442.bindPopup(popup_119baf86c8832e61e4c053d0768dbbd3)
+        ;
+
+        
+    
+    
+            var marker_f299b82f659ef0b4526cc3bc6afeed6d = L.marker(
+                [49.2723, -123.1117],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_45e10d13548e464cb3257a5c357cf3d7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2d1362a918cd95aa343e47536e784434 = $(`<div id="html_2d1362a918cd95aa343e47536e784434" style="width: 100.0%; height: 100.0%;">STEMCELL Technologies</div>`)[0];
+                popup_45e10d13548e464cb3257a5c357cf3d7.setContent(html_2d1362a918cd95aa343e47536e784434);
+            
+        
+
+        marker_f299b82f659ef0b4526cc3bc6afeed6d.bindPopup(popup_45e10d13548e464cb3257a5c357cf3d7)
+        ;
+
+        
+    
+    
+            var marker_3db521b68eef26ed2fc6fee163092730 = L.marker(
+                [49.2638, -123.2488],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_de62d8b10a4df02fa0c1ba4018857603 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7fc729ba66a88daab6a0636fc0a2a737 = $(`<div id="html_7fc729ba66a88daab6a0636fc0a2a737" style="width: 100.0%; height: 100.0%;">Shoppers Drug Mart UBC</div>`)[0];
+                popup_de62d8b10a4df02fa0c1ba4018857603.setContent(html_7fc729ba66a88daab6a0636fc0a2a737);
+            
+        
+
+        marker_3db521b68eef26ed2fc6fee163092730.bindPopup(popup_de62d8b10a4df02fa0c1ba4018857603)
+        ;
+
+        
+    
+    
+            var marker_7df857ef7ea85e10828f33f78c90e675 = L.marker(
+                [49.2827, -123.1167],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_be4bc605f946ddf0c96c362df5cf957b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9cdccfdaefa7c3733ae3daeb8e93a8bf = $(`<div id="html_9cdccfdaefa7c3733ae3daeb8e93a8bf" style="width: 100.0%; height: 100.0%;">Downtown Vancouver</div>`)[0];
+                popup_be4bc605f946ddf0c96c362df5cf957b.setContent(html_9cdccfdaefa7c3733ae3daeb8e93a8bf);
+            
+        
+
+        marker_7df857ef7ea85e10828f33f78c90e675.bindPopup(popup_be4bc605f946ddf0c96c362df5cf957b)
+        ;
+
+        
+    
+    
+            var marker_88d3aa3a02ed3362658887e5cfd2e314 = L.marker(
+                [49.228159995260434, -123.09089112388232],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_6c09ba1f6db45a6e71c115e6c9fb13d8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_34c0861286fe90ab04798e6b7213f48b = $(`<div id="html_34c0861286fe90ab04798e6b7213f48b" style="width: 100.0%; height: 100.0%;">Hyderabadi Biryani House</div>`)[0];
+                popup_6c09ba1f6db45a6e71c115e6c9fb13d8.setContent(html_34c0861286fe90ab04798e6b7213f48b);
+            
+        
+
+        marker_88d3aa3a02ed3362658887e5cfd2e314.bindPopup(popup_6c09ba1f6db45a6e71c115e6c9fb13d8)
+        ;
+
+        
+    
+    
+            var marker_54fb4d6703343c379ed6e1f46b6efc79 = L.marker(
+                [49.0069, -123.1481],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_72f8f9769a5d970fd29fb02d469e7921 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c6c3c76b12498b7bfde643a41de5c0ca = $(`<div id="html_c6c3c76b12498b7bfde643a41de5c0ca" style="width: 100.0%; height: 100.0%;">Tsawwassen Ferry</div>`)[0];
+                popup_72f8f9769a5d970fd29fb02d469e7921.setContent(html_c6c3c76b12498b7bfde643a41de5c0ca);
+            
+        
+
+        marker_54fb4d6703343c379ed6e1f46b6efc79.bindPopup(popup_72f8f9769a5d970fd29fb02d469e7921)
+        ;
+
+        
+    
+    
+            var marker_d09aa8f59e933daac880cc9ce0ac5b22 = L.marker(
+                [49.1963, -123.0934],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_eda82da9a114850ce691309e967cc793 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_091322264122d0bb8eb1324d0671bc0e = $(`<div id="html_091322264122d0bb8eb1324d0671bc0e" style="width: 100.0%; height: 100.0%;">IKEA Richmond</div>`)[0];
+                popup_eda82da9a114850ce691309e967cc793.setContent(html_091322264122d0bb8eb1324d0671bc0e);
+            
+        
+
+        marker_d09aa8f59e933daac880cc9ce0ac5b22.bindPopup(popup_eda82da9a114850ce691309e967cc793)
+        ;
+
+        
+    
+    
+            var marker_d00b2a9ca1899c11a6262310153003ee = L.marker(
+                [49.22566478455931, -123.11239566820544],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_95328f0b705815e2cf0e6a9e60f2db28 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_20256e1287ed4468e5ea37e9bd9194db = $(`<div id="html_20256e1287ed4468e5ea37e9bd9194db" style="width: 100.0%; height: 100.0%;">YMCA Langara</div>`)[0];
+                popup_95328f0b705815e2cf0e6a9e60f2db28.setContent(html_20256e1287ed4468e5ea37e9bd9194db);
+            
+        
+
+        marker_d00b2a9ca1899c11a6262310153003ee.bindPopup(popup_95328f0b705815e2cf0e6a9e60f2db28)
+        ;
+
+        
+    
+    
+            var marker_ddcd9ad0889cbc35ae7c3dac711ccd66 = L.marker(
+                [49.19567138309573, -123.17499054238162],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_cbfc59034c6d2877b9dc44a1988a2d12 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1cfaf1450678a8764ae6ab89e27c4a5b = $(`<div id="html_1cfaf1450678a8764ae6ab89e27c4a5b" style="width: 100.0%; height: 100.0%;">Vancouver International Airport</div>`)[0];
+                popup_cbfc59034c6d2877b9dc44a1988a2d12.setContent(html_1cfaf1450678a8764ae6ab89e27c4a5b);
+            
+        
+
+        marker_ddcd9ad0889cbc35ae7c3dac711ccd66.bindPopup(popup_cbfc59034c6d2877b9dc44a1988a2d12)
+        ;
+
+        
+    
+    
+            var marker_bd7a46c94d30092c44f2fd8c542eac90 = L.marker(
+                [49.16758062564828, -123.13869022669485],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_ab537abbcb6986665bccdbfccf49f48a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_01a4aff81e9a413f6aca8a3306823802 = $(`<div id="html_01a4aff81e9a413f6aca8a3306823802" style="width: 100.0%; height: 100.0%;">Richmond City Centre</div>`)[0];
+                popup_ab537abbcb6986665bccdbfccf49f48a.setContent(html_01a4aff81e9a413f6aca8a3306823802);
+            
+        
+
+        marker_bd7a46c94d30092c44f2fd8c542eac90.bindPopup(popup_ab537abbcb6986665bccdbfccf49f48a)
+        ;
+
+        
+    
+    
+            var marker_a4faf1d100165e43fa7949014746cf2d = L.marker(
+                [49.20669153545028, -122.98466920786404],
+                {
+}
+            ).addTo(map_4a57802a8dbf968181b4ab99504c1599);
+        
+    
+        var popup_9c7c07b2d7f73b1d1e89c9d28dac897a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_72a05a33fbb416fa5d816c98d064a742 = $(`<div id="html_72a05a33fbb416fa5d816c98d064a742" style="width: 100.0%; height: 100.0%;">ISKON Vancouver</div>`)[0];
+                popup_9c7c07b2d7f73b1d1e89c9d28dac897a.setContent(html_72a05a33fbb416fa5d816c98d064a742);
+            
+        
+
+        marker_a4faf1d100165e43fa7949014746cf2d.bindPopup(popup_9c7c07b2d7f73b1d1e89c9d28dac897a)
+        ;
+
+        
+    
+</script>
+</html>
