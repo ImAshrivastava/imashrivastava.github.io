@@ -425,13 +425,17 @@
     document.getElementById('filterState')?.addEventListener('change', applyFilters);
     document.getElementById('filterIllness')?.addEventListener('change', applyFilters);
 
-    // Event listener for search button
-    document.getElementById('searchBtn')?.addEventListener('click', applyFilters);
-
-    // Event listener for search input 'Enter' key
-    document.getElementById('searchInput')?.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') applyFilters();
+    document.getElementById('searchBtn').addEventListener('click', () => {
+        const searchTerm = document.getElementById('searchInput').value;
+        loadAnimals(searchTerm); // now queries backend
     });
+
+    document.getElementById('searchInput').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            loadAnimals(e.target.value); // now queries backend
+        }
+    });
+
 
     // Load all animals on page load
     window.onload = () => loadAnimals();
