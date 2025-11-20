@@ -159,6 +159,35 @@
             background: white;
         }
 
+        #consoleOutput {
+            background: #000 !important;
+            color: #00ff00;
+            font-family: "Roboto Mono", monospace;
+            font-size: 0.95rem;
+
+            width: 95%;
+            margin: 1rem auto 1.2rem auto;
+            padding: 14px;
+
+            border-radius: 8px;
+            border: none !important;
+
+            min-height: 150px;          /* ⬅ NEW: minimum console height */
+            max-height: 350px;          /* optional: console scrolls beyond this */
+            overflow-y: auto;
+
+            box-shadow: none !important;
+        }
+
+        #consoleOutput,
+        #consoleOutput * {
+            background: #000 !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+
+
         /* Card Grid — 4 cards per row */
         .card-grid {
             display: grid;
@@ -313,6 +342,8 @@
         </select>
     </div>
 
+    <div id="consoleOutput"></div>
+
 
     <!-- Cards -->
     <div id="cardGrid" class="card-grid">
@@ -342,62 +373,88 @@
 <script>
     let allAnimals = []; // Store all fetched animals
 
-    // Load animals from API
+    /* --------------------------
+       TERMINAL LOG FUNCTION
+    ---------------------------*/
+    function logToConsole(msg) {
+        const consoleOutput = document.getElementById('consoleOutput');
+        consoleOutput.innerHTML += msg + "<br>";
+        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+    }
+
+    /* --------------------------
+       LOAD ANIMALS (API CALL)
+    ---------------------------*/
     async function loadAnimals(searchTerm = '') {
+        const apiURL = 'https://cpscdbms-f50436d7d43e.herokuapp.com/api/animals?search=' +
+            encodeURIComponent(searchTerm);
+
+        logToConsole(`> FETCH: ${apiURL}`);
+
         try {
-            const res = await fetch('https://cpscdbms-f50436d7d43e.herokuapp.com/api/animals?search=' + encodeURIComponent(searchTerm));
-            allAnimals = await res.json(); // store fetched animals
-            applyFilters(); // display filtered animals initially
-        } catch(err) {
+            const res = await fetch(apiURL);
+            logToConsole(`> SUCCESS: Response received`);
+
+            allAnimals = await res.json();
+            logToConsole(`> LOADED: ${allAnimals.length} animals`);
+
+            applyFilters(); // show cards
+
+        } catch (err) {
+            logToConsole(`> ERROR: ${err.message}`);
             console.error('Error loading animals:', err);
         }
     }
 
-    // Display given list of animals in cards
+    /* --------------------------
+       DISPLAY CARDS
+    ---------------------------*/
     function displayAnimals(animals) {
         const container = document.getElementById('cardGrid');
         container.innerHTML = ''; // clear previous cards
 
         animals.forEach(animal => {
-            // Build uses string
             let usesStr = 'None';
             if (animal.uses && animal.uses.length > 0) {
                 usesStr = animal.uses.map(u => `${u.stationID} (${u.subsystem})`).join(', ');
             }
 
-            // Build illness and treatment string
             let illnessStr = '';
             if (["ILL", "INJURED", "RABID"].includes(animal.health)) {
                 if (animal.illness) illnessStr += `<br>Illness: ${animal.illness}`;
                 if (animal.dateOfTreatment) {
                     let date = new Date(animal.dateOfTreatment);
-                    let formattedDate = date.toISOString().split('T')[0];
-                    illnessStr += `<br>Treatment Date: ${formattedDate}`;
+                    illnessStr += `<br>Treatment Date: ${date.toISOString().split('T')[0]}`;
                 }
             }
 
             const card = document.createElement('div');
             card.className = 'card';
+
             card.innerHTML = `
-            <img src="${animal.imagePath}" class="card-img">
-            <div class="card-body">
-                <h3 class="card-title">ID: ${animal.animalID}</h3>
-                <p class="card-text">
-                    Health: ${animal.health}<br>
-                    Address: ${animal.address}<br>
-                    City: ${animal.city}<br>
-                    State: ${animal.state}<br>
-                    Pincode: ${animal.pincode}<br>
-                    Uses: <br>${usesStr}<br>
-                    ${illnessStr}
-                </p>
-            </div>
-        `;
+                <img src="${animal.imagePath}" class="card-img">
+                <div class="card-body">
+                    <h3 class="card-title">ID: ${animal.animalID}</h3>
+                    <p class="card-text">
+                        Health: ${animal.health}<br>
+                        Address: ${animal.address}<br>
+                        City: ${animal.city}<br>
+                        State: ${animal.state}<br>
+                        Pincode: ${animal.pincode}<br>
+                        Uses: <br>${usesStr}<br>
+                        ${illnessStr}
+                    </p>
+                </div>
+            `;
             container.appendChild(card);
         });
+
+        logToConsole(`> DISPLAY: Showing ${animals.length} filtered animals`);
     }
 
-    // Apply filters based on dropdowns and search term
+    /* --------------------------
+       FILTERS
+    ---------------------------*/
     function applyFilters() {
         const healthFilter = document.getElementById('filterHealth')?.value;
         const cityFilter = document.getElementById('filterCity')?.value;
@@ -410,7 +467,8 @@
             const matchesHealth = !healthFilter || animal.health === healthFilter;
             const matchesCity = !cityFilter || animal.city === cityFilter;
             const matchesState = !stateFilter || animal.state === stateFilter;
-            const matchesIllness = !illnessFilter || (illnessFilter === "None" ? !animal.illness : animal.illness === illnessFilter);
+            const matchesIllness = !illnessFilter ||
+                (illnessFilter === "None" ? !animal.illness : animal.illness === illnessFilter);
 
             return matchesSearch && matchesHealth && matchesCity && matchesState && matchesIllness;
         });
@@ -418,14 +476,21 @@
         displayAnimals(filtered);
     }
 
+    /* --------------------------
+       EVENT LISTENERS
+    ---------------------------*/
     document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('searchBtn').addEventListener('click', () => {
             const searchTerm = document.getElementById('searchInput').value;
+            logToConsole(`> SEARCH triggered for: "${searchTerm}"`);
             loadAnimals(searchTerm);
         });
 
         document.getElementById('searchInput').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') loadAnimals(e.target.value);
+            if (e.key === 'Enter') {
+                logToConsole(`> SEARCH triggered for: "${e.target.value}"`);
+                loadAnimals(e.target.value);
+            }
         });
 
         document.getElementById('filterHealth').addEventListener('change', applyFilters);
@@ -436,12 +501,9 @@
         loadAnimals(); // initial load
     });
 
-
-
-    // Load all animals on page load
     window.onload = () => loadAnimals();
-
 </script>
+
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
