@@ -160,13 +160,13 @@
             background: white;
         }
 
-        /* Card Grid — ULTRA TIGHT SPACING */
+        /* Card Grid — 4 cards per row */
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 15px;                    /* ALMOST NO SPACE BETWEEN CARDS */
+            grid-template-columns: repeat(4, 1fr); /* exactly 4 columns */
+            gap: 20px; /* space between cards */
             padding: 0;
-            align-items: start;
+            align-items: stretch; /* all cards same height */
         }
 
         /* Cards */
@@ -175,50 +175,55 @@
             border: 2px solid black;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 1px 6px rgba(0,0,0,0.15);
-                        /* SMALLER NARROW CARD */
-            max-width: 250px;
-            margin: auto;
-            /* Fix for uneven card heights */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
             display: flex;
             flex-direction: column;
+            height: 500px; /* fixed height for uniform cards */
         }
 
         /* Image */
         .card-img {
             width: 100%;
-            height: 120px;
+            height: 250px; /* slightly taller image */
             object-fit: cover;
-            padding: 6px;
             border-bottom: 2px solid black;
         }
 
         /* Card Body */
         .card-body {
-            padding: 8px;
+            padding: 10px;
+            flex: 1; /* make body take remaining space */
+            overflow: auto; /* scroll if content overflows */
         }
 
+        /* Card Title & Text */
         .card-title {
-            font-size: 16px;
-            margin-bottom: 4px;
+            font-size: 12px;
+            margin-bottom: 6px;
             word-wrap: break-word;
             overflow-wrap: anywhere;
         }
 
         .card-text {
-            font-size: 13px;
-            line-height: 1.3;
+            font-size: 12px;
+            line-height: 1.4;
             word-wrap: break-word;
             overflow-wrap: anywhere;
         }
 
-        @media(max-width:768px) {
-            .pub-year{
-                position:static;
-                display:block;
-                margin-top:0.25rem;
+        /* Responsive — 2 cards per row on tablets, 1 on mobile */
+        @media(max-width:1024px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
+
+        @media(max-width:768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         #wikitext {
             margin-top:5px;
             line-height:1.33em;
@@ -373,8 +378,11 @@
                     <h3 class="card-title">ID: ${animal.animalID}</h3>
                     <p class="card-text">
                         Health: ${animal.health}<br>
-                        Address: ${animal.address}, ${animal.city}, ${animal.state} - ${animal.pincode}<br>
-                        Uses: ${usesStr}
+                        Address: ${animal.address}<br>
+                        City: ${animal.city}<br>
+                        State: ${animal.state}<br>
+                        Pincode: ${animal.pincode}<br>
+                        Uses: <br>${usesStr}<br>
                         ${illnessStr}
                     </p>
                 </div>
