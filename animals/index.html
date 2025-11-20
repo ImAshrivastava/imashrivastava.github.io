@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<!--
+  ██╗    ██╗    ██╗ █████╗ ███████╗    ███████╗██╗  ██╗██████╗ ███████╗ ██████╗████████╗██╗███╗   ██╗ ██████╗     ██╗   ██╗ ██████╗ ██╗   ██╗    ██╗
+  ██║    ██║    ██║██╔══██╗██╔════╝    ██╔════╝╚██╗██╔╝██╔══██╗██╔════╝██╔════╝╚══██╔══╝██║████╗  ██║██╔════╝     ╚██╗ ██╔╝██╔═══██╗██║   ██║    ██║
+  ██║    ██║ █╗ ██║███████║███████╗    █████╗   ╚███╔╝ ██████╔╝█████╗  ██║        ██║   ██║██╔██╗ ██║██║  ███╗     ╚████╔╝ ██║   ██║██║   ██║    ██║
+  ██║    ██║███╗██║██╔══██║╚════██║    ██╔══╝   ██╔██╗ ██╔═══╝ ██╔══╝  ██║        ██║   ██║██║╚██╗██║██║   ██║      ╚██╔╝  ██║   ██║██║   ██║    ╚═╝
+  ██║    ╚███╔███╔╝██║  ██║███████║    ███████╗██╔╝ ██╗██║     ███████╗╚██████╗   ██║   ██║██║ ╚████║╚██████╔╝       ██║   ╚██████╔╝╚██████╔╝    ██╗
+  ╚═╝     ╚══╝╚══╝ ╚═╝  ╚═╝╚══════╝    ╚══════╝╚═╝  ╚═╝╚═╝     ╚══════╝ ╚═════╝   ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝        ╚═╝    ╚═════╝  ╚═════╝     ╚═╝
+ -->
+<html lang="en-us">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P8JYGFF61H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-P8JYGFF61H');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="theme" content="hugo-academic"/>
+    <meta name="generator" content="Hugo 0.49"/>
+    <meta name="author" content="Aman Shrivastava"/>
+    <meta name="description" content="Explore the project portfolio of Aman Shrivastava, featuring a wide range of work from his high school and elementary school years to major projects and Government Funded Projects..">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.0/css/academicons.min.css" integrity="sha512-GGGNUPDhnG8LEAEDsjqYIQns+Gu8RBs4j5XGlxl7UfRaZBhCCm5jenJkeJL8uPuOXGqgl8/H1gjlWQDRjd3cUQ==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather%7CRoboto+Mono">
+    <link rel="stylesheet" href="/css/hugo-academic.css">
+    <link rel="stylesheet" href="/css/highlight.min.css">
+    <link rel="icon" type="image/jpeg" href="../img/ticon.jpg">
+    <link rel="apple-touch-icon" type="image/png" href="../img/apple-touch-icon.jpg">
+    <link rel="canonical" href="https://imashrivastava.github.io/projects">
+
+    <title>Projects | Aman Shrivastava</title>
+    <style>
+        h2 {
+            color: #000000;
+            border-bottom: 1px solid #000000;
+            padding-bottom: 0.5rem;
+            margin-top: 4rem;
+        }
+        .pub-card {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            border-radius: 12px;
+            padding: 1rem 1rem 0.5rem;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 24px rgba(0,0,0,0.6);
+            cursor: pointer;
+            transition: all 0.25s ease-in-out;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            overflow: hidden;
+        }
+        .pub-card:hover {
+            background: rgba(0, 0, 0, 0.92);
+            /*box-shadow: 0 4px 28px rgba(0,0,0,0.75);*/
+        }
+        .pub-title {
+            color: #ffffff;
+            font-size:1.05rem;
+            margin:0;
+        }
+        .pub-authors {
+            font-style:italic;
+            color:#cccccc;
+            margin:0.25rem 0 0;
+        }
+        .pub-venue {
+            font-weight:600;
+            color:#00c3ff;
+        }
+        .pub-year {
+            position:absolute;
+            right:20px;
+            top:1rem;
+            color:#00c3ff;
+            font-weight:bold;
+        }
+        .pub-links {
+            margin-top:0.5rem;
+        }
+        .pub-links a {
+            color:#00c3ff;
+            margin-right:0.75rem;
+            text-decoration:none;
+        }
+        .pub-abstract {
+            margin-top:0.75rem;
+            font-size:0.95rem;
+            line-height:1.5rem;
+            color:#d0d0d0;
+        }
+        .pub-card.expanded .pub-abstract {
+            display:block;
+        }
+
+        /* Search Bar */
+        .toolbar {
+            display: flex;
+            justify-content: center;   /* centers toolbar in page */
+            align-items: center;       /* vertically align button + input */
+            margin: 1.2rem 0 0.8rem 0;
+            gap: 0;                    /* remove spacing between input and button */
+        }
+
+        .search-box {
+            padding: 14px 22px;
+            font-size: 17px;
+            border: 2px solid black;
+            border-radius: 35px 0 0 35px; /* left pill corners rounded, right square */
+            outline: none;
+            width: 550px;              /* keeps original size */
+        }
+        .search-btn {
+            padding: 14px 28px;
+            font-size: 17px;
+            background: #0d6efd;
+            color: white;
+            border: 2px solid black;
+            border-left: none;         /* merge with search bar */
+            border-radius: 0 35px 35px 0; /* right pill corners rounded, left square */
+            cursor: pointer;
+            font-weight: 600;
+            width: auto;
+            flex-shrink: 0;
+        }
+
+        .search-btn:hover {
+            background: #0b5ed7;
+        }
+
+        .search-btn:hover {
+            background: #0b5ed7;
+        }
+
+
+        /* Filters */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 8px;                    /* SMALLER GAP */
+            margin-bottom: 1.6rem;
+        }
+
+        .filter-select {
+            padding: 8px 14px;
+            font-size: 15px;
+            border: 2px solid black;
+            border-radius: 10px;
+            background: white;
+        }
+
+        /* Card Grid — ULTRA TIGHT SPACING */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;                    /* ALMOST NO SPACE BETWEEN CARDS */
+            padding: 0;
+            align-items: start;
+        }
+
+        /* Cards */
+        .card {
+            background: #fff;
+            border: 2px solid black;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.15);
+                        /* SMALLER NARROW CARD */
+            max-width: 250px;
+            margin: auto;
+            /* Fix for uneven card heights */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Image */
+        .card-img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            padding: 6px;
+            border-bottom: 2px solid black;
+        }
+
+        /* Card Body */
+        .card-body {
+            padding: 8px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            margin-bottom: 4px;
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        .card-text {
+            font-size: 13px;
+            line-height: 1.3;
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        @media(max-width:768px) {
+            .pub-year{
+                position:static;
+                display:block;
+                margin-top:0.25rem;
+            }
+        }
+        #wikitext {
+            margin-top:5px;
+            line-height:1.33em;
+            font-family: 'Merriweather', serif;
+            color: #000000;
+            font-size: 1rem;
+        }
+    </style>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Animal Welfare Platform</a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item"><a href="https://imashrivastava.github.io/#about" data-target="#about"><span>Animals</span></a></li>
+                <li class="nav-item"><a href="https://imashrivastava.github.io/research"><span>Stations</span></a></li>
+                <li class="nav-item"><a href="https://imashrivastava.github.io/experience"><span>Team</span></a></li>
+                <li class="nav-item"><a href="https://imashrivastava.github.io/resources"><span>Volunteers</span></a></li>
+                <li class="nav-item"><a href="https://imashrivastava.github.io/awards"><span>Veterinary</span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <p style="padding-top: 20px; padding-bottom: 20px; line-height: 1.33em; font-size: 1rem; color: black;">
+        <em>Information: In case you landed on this webpage of my website,
+            please note this is my final project for database management system course.
+            Some of the information in this project is privileged and confidential. Please do not share it publicly and/or redistribute.
+        </em>
+    </p>
+
+    <!-- Search Bar -->
+    <div class="toolbar">
+        <input type="text" id="searchInput" placeholder="Search Animal ID" class="search-box">
+        <button class="search-btn">Search</button>
+    </div>
+
+    <!-- Filters -->
+    <!--<div class="filter-container">
+        <select class="filter-select">
+            <option value="">Health</option>
+            <option value="good">Good</option>
+            <option value="weak">Weak</option>
+            <option value="critical">Critical</option>
+        </select>
+
+        <select class="filter-select">
+            <option value="">Latitude</option>
+            <option value=">10">Greater than 10</option>
+            <option value="<10">Less than 10</option>
+        </select>
+
+        <select class="filter-select">
+            <option value="">Longitude</option>
+            <option value=">10">Greater than 10</option>
+            <option value="<10">Less than 10</option>
+        </select>
+
+        <select class="filter-select">
+            <option value="">Treatment No.</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3+">3+</option>
+        </select>
+
+        <select class="filter-select">
+            <option value="">Illness</option>
+            <option value="fever">Fever</option>
+            <option value="infection">Infection</option>
+            <option value="none">None</option>
+        </select>
+
+        <select class="filter-select">
+            <option value="">Treatment Date</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+        </select>
+    </div>-->
+
+    <!-- Cards -->
+    <div id="cardGrid" class="card-grid">
+        <!-- Cards will be populated dynamically here -->
+    </div>
+
+
+</div>
+
+
+
+<footer class="site-footer">
+    <div class="container">
+        <p class="powered-by">
+            &copy;  <script>document.write(new Date().getFullYear());</script> Aman Shrivastava
+            <span class="pull-right" aria-hidden="true">
+           <a href="#" id="back_to_top">
+             <span class="button_icon">
+               <i class="fa fa-chevron-up fa-2x"></i>
+             </span>
+           </a>
+         </span>
+        </p>
+    </div>
+</footer>
+
+<script>
+    async function loadAnimals(searchTerm = '') {
+        try {
+            const res = await fetch('https://cpscdbms-f50436d7d43e.herokuapp.com/api/animals?search=' + encodeURIComponent(searchTerm));
+            const animals = await res.json();
+
+            const container = document.getElementById('cardGrid');
+            container.innerHTML = ''; // Clear existing cards
+
+            animals.forEach(animal => {
+                // Build uses string
+                let usesStr = 'None';
+                if (animal.uses && animal.uses.length > 0) {
+                    usesStr = animal.uses.map(u => `${u.stationID} (${u.subsystem})`).join(', ');
+                }
+
+                // Build illness and treatment string
+                let illnessStr = '';
+                if (["ILL", "INJURED", "RABID"].includes(animal.health)) {
+                    if (animal.illness) {
+                        illnessStr += `<br>Illness: ${animal.illness}`;
+                    }
+                    if (animal.dateOfTreatment) {
+                        let date = new Date(animal.dateOfTreatment);
+                        let formattedDate = date.toISOString().split('T')[0];
+                        illnessStr += `<br>Treatment Date: ${formattedDate}`;
+                    }
+                }
+
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                <img src="${animal.image}" class="card-img">
+                <div class="card-body">
+                    <h3 class="card-title">ID: ${animal.animalID}</h3>
+                    <p class="card-text">
+                        Health: ${animal.health}<br>
+                        Address: ${animal.address}, ${animal.city}, ${animal.state} - ${animal.pincode}<br>
+                        Uses: ${usesStr}
+                        ${illnessStr}
+                    </p>
+                </div>
+            `;
+                container.appendChild(card);
+            });
+
+        } catch(err) {
+            console.error('Error loading animals:', err);
+        }
+    }
+
+    // Load all animals on page load
+    window.onload = () => loadAnimals();
+
+    // Search button click
+    document.getElementById('searchBtn').addEventListener('click', () => {
+        const searchTerm = document.getElementById('searchInput').value;
+        loadAnimals(searchTerm);
+    });
+
+    // Optional: search on enter key
+    document.getElementById('searchInput').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            loadAnimals(e.target.value);
+        }
+    });
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.2/imagesloaded.pkgd.min.js" integrity="sha512-iHzEu7GbSc705hE2skyH6/AlTpOfBmkx7nUqTLGzPYR+C1tRaItbRlJ7hT/D3YQ9SV0fqLKzp4XY9wKulTBGTw==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js" integrity="sha512-Z5heTz36xTemt1TbtbfXtTq5lMfYnOkXM2/eWcTTiLU01+Sw4ku1i7vScDc8fWhrP2abz9GQzgKH5NGBLoYlAw==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js" integrity="sha512-CDeU7pRtkPX6XJtF/gcFWlEwyaX7mcAp5sO3VIu/ylsdR74wEw4wmBpD5yYTrmMAiAboi9thyBUr1vXRPA7t0Q==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script src="/js/hugo-academic.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
