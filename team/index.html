@@ -320,10 +320,9 @@
         <button id="deleteBtn" class="search-btn" style="background:#dc3545;">Delete</button>
     </div>
 
-
-    <!--<div class="filter-container">
+    <div class="filter-container">
         <select id="filterCity" class="filter-select">
-            <option value="">City</option>
+            <option value="">City (All)</option>
             <option value="Delhi">Delhi</option>
             <option value="Mumbai">Mumbai</option>
             <option value="Pune">Pune</option>
@@ -332,37 +331,20 @@
         </select>
 
         <select id="filterState" class="filter-select">
-            <option value="">State</option>
+            <option value="">State (All)</option>
             <option value="Delhi">Delhi</option>
             <option value="Maharashtra">Maharashtra</option>
             <option value="Karnataka">Karnataka</option>
             <option value="Tamil Nadu">Tamil Nadu</option>
         </select>
 
-        <select id="filterSubsystem" class="filter-select">
-            <option value="">Subsystem</option>
-            <option value="Processing Unit">Processing Unit</option>
-            <option value="Visual Processor">Visual Processor</option>
-            <option value="Power Management">Power Management</option>
-            <option value="Food Dispenser">Food Dispenser</option>
-            <option value="Water Dispenser">Water Dispenser</option>
-            <option value="Purification System">Purification System</option>
-            <option value="Climate Indicator">Climate Indicator</option>
+        <select id="filterRole" class="filter-select">
+            <option value="">Role (All)</option>
+            <option value="A">Admin</option>
+            <option value="V">Volunteer</option>
+            <option value="M">Manager</option>
         </select>
-
-        <select id="filterActivity" class="filter-select">
-            <option value="">Status</option>
-        </select>
-
-        <select id="filterQty" class="filter-select">
-            <option value="">Quantity</option>
-            <option value="LOW">LOW</option>
-            <option value="ADEQUATE">ADEQUATE</option>
-            <option value="SUFFICIENT">SUFFICIENT</option>
-        </select>
-    </div>-->
-
-    <div id="consoleOutput"></div>
+    </div>
 
     <div id="popupForm" style="display:none; position:fixed; top:10%; left:50%; transform:translateX(-50%); background:white; padding:20px; border:2px solid black; border-radius:10px; z-index:1000;">
         <h3>Update Staff Info</h3>
@@ -384,6 +366,7 @@
         <button id="closeBtn">Close</button>
     </div>
 
+    <div id="consoleOutput"></div>
 
     <div id="cardGrid" class="card-grid">
     </div>
@@ -407,138 +390,227 @@
     </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.2/imagesloaded.pkgd.min.js" integrity="sha512-iHzEu7GbSc705hE2skyH6/AlTpOfBmkx7nUqTLGzPYR+C1tRaItbRlJ7hT/D3YQ9SV0fqLKzp4XY9wKulTBGTw==" crossorigin="anonymous"></script>
+
 <script>
-    const cardGrid = $("#cardGrid");
-    const consoleOutput = $("#consoleOutput");
+    $(document).ready(function() {
+        const BASE_URL = "https://cpscdbms-f50436d7d43e.herokuapp.com/api";
+        const cardGrid = $("#cardGrid");
+        const consoleOutput = $("#consoleOutput");
 
-    function logToConsole(msg) {
-        consoleOutput.append(msg + "<br>");
-        consoleOutput.scrollTop(consoleOutput[0].scrollHeight);
-    }
+        function logToConsole(msg) {
+            const c = document.getElementById("consoleOutput");
+            c.innerHTML += msg + "<br>";
+            c.scrollTop = c.scrollHeight;
+        }
 
-    // Fetch staff data
-    function fetchStaff(searchTerm = "") {
-        $.getJSON(`/api/team?search=${searchTerm}`, function(data) {
-            cardGrid.empty();
-            if (!data || data.length === 0) {
-                logToConsole("No staff found.");
-                return;
+        function loadDivisionQuery() {
+            const url = `${BASE_URL}/staff/all-maintainers`;
+            logToConsole(`> FETCH (DIVISION): ${url}`);
+
+            $.getJSON(url)
+                .done(function(data) {
+                    if (!data || data.length === 0) {
+                        logToConsole("> DIVISION RESULT: No staff found who maintain ALL stations.");
+                        return;
+                    }
+
+                    const names = data.map(staff => `${staff.F_name} ${staff.L_name} (${staff.staffID})`);
+                    logToConsole(`> DIVISION RESULT: Found ${data.length} staff member(s) who maintain ALL stations:`);
+                    names.forEach(name => logToConsole(`> \t- ${name}`));
+                })
+                .fail(err => {
+                    const errorMsg = err.responseText ? JSON.parse(err.responseText).error : err.statusText;
+                    logToConsole(`!! ERROR running Division Query: ${errorMsg || "Unknown error"}`);
+                });
+        }
+
+        function fetchStaff(searchTerm = "") {
+
+            const filterCity = $("#filterCity").val();
+            const filterState = $("#filterState").val();
+            const filterRole = $("#filterRole").val();
+
+            let queryParams = `search=${encodeURIComponent(searchTerm)}`;
+
+            if (filterCity) {
+                queryParams += `&city=${encodeURIComponent(filterCity)}`;
+            }
+            if (filterState) {
+                queryParams += `&state=${encodeURIComponent(filterState)}`;
+            }
+            if (filterRole) {
+                queryParams += `&role=${encodeURIComponent(filterRole)}`;
             }
 
-            data.forEach(staff => {
-                const card = $(`
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-title">${staff.F_name} ${staff.L_name} (${staff.role})</div>
-                        <div class="card-text">
-                            Staff ID: ${staff.staffID}<br>
-                            Hourly Wage: ${staff.hourlyWage}<br>
-                            Address: ${staff.address}, ${staff.city}, ${staff.state} - ${staff.pincode}<br>
-                            Stations: ${staff.stations.join(", ")}<br>
-                            Reports to: ${staff.manager || "N/A"}
+            const url = `${BASE_URL}/staff?${queryParams}`;
+
+            logToConsole(`> FETCH: ${url}`);
+
+            $.getJSON(url)
+                .done(function(data) {
+                    cardGrid.empty();
+                    if (!data || data.length === 0) {
+                        logToConsole("> LOADED: No staff found matching criteria.");
+                        loadDivisionQuery();
+                        return;
+                    }
+
+                    logToConsole(`> LOADED: ${data.length} staff records found.`);
+
+                    data.forEach(staff => {
+                        let stationsDisplay = staff.stations.join(", ");
+                        let reportsToDisplay = staff.reports_to || "N/A";
+
+                        // Admin/None Display Logic
+                        if (staff.role === 'A') {
+                            stationsDisplay = "None";
+                            reportsToDisplay = "None";
+                        } else if (staff.stations.length === 0) {
+                            stationsDisplay = "None";
+                        }
+
+                        const card = $(`
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title">${staff.F_name} ${staff.L_name} (${staff.role})</div>
+                            <div class="card-text">
+                                Staff ID: ${staff.staffID}<br>
+                                Hourly Wage: ${staff.hourlyWage}<br>
+                                Address: ${staff.address}, ${staff.city}, ${staff.state} - ${staff.pincode}<br>
+                                Stations: ${stationsDisplay}<br>
+                                Reports to: ${reportsToDisplay}
+                            </div>
                         </div>
                     </div>
-                </div>
-            `);
-                cardGrid.append(card);
+                `);
+                        cardGrid.append(card);
+                    });
+                    logToConsole(`> DISPLAY: Showing ${data.length} staff records`);
+
+                    loadDivisionQuery();
+                })
+                .fail(err => {
+                    logToConsole("!! ERROR fetching staff: " + (err.responseText || err.statusText));
+                    loadDivisionQuery();
+                });
+        }
+
+        $("#filterCity, #filterState, #filterRole").on('change', function() {
+            $("#searchInput").val('');
+            logToConsole(`> FETCH the FILTERED list of Staff.`);
+            fetchStaff();
+        });
+
+        $("#searchBtn").click(() => {
+            const searchTerm = $("#searchInput").val().trim();
+            $("#filterCity").val('');
+            $("#filterState").val('');
+            $("#filterRole").val('');
+
+            logToConsole(`> SEARCH triggered for Staff ID: "${searchTerm}"`);
+            fetchStaff(searchTerm);
+        });
+
+        $("#updateBtn").click(() => {
+            const staffID = $("#searchInput").val().trim();
+            if (!staffID) return alert("Enter Staff ID to update");
+
+            logToConsole(`> FETCH for UPDATE: Staff ID ${staffID}`);
+
+            $.getJSON(`${BASE_URL}/staff?search=${encodeURIComponent(staffID)}`)
+                .done(function(data) {
+                    if (!data || data.length === 0) {
+                        logToConsole(`!! ERROR: Staff ID ${staffID} not found for update.`);
+                        alert("Staff not found.");
+                        return;
+                    }
+                    const staff = data[0];
+                    logToConsole(`> LOADED: Info for ${staffID}. Opening form.`);
+
+                    $("#formFName").val(staff.F_name);
+                    $("#formLName").val(staff.L_name);
+                    $("#formRole").val(staff.role);
+                    $("#formWage").val(staff.hourlyWage);
+                    $("#formAddress").val(staff.address);
+                    $("#formCity").val(staff.city);
+                    $("#formState").val(staff.state);
+                    $("#formPincode").val(staff.pincode);
+                    $("#popupForm").data("staffID", staffID).show();
+                })
+                .fail(err => logToConsole("!! ERROR fetching staff for update: " + (err.responseText || err.statusText)));
+        });
+
+        $("#closeBtn").click(() => {
+            logToConsole("> UPDATE: Form closed.");
+            $("#popupForm").hide();
+        });
+
+        $("#saveBtn").click(() => {
+            const staffID = $("#popupForm").data("staffID");
+            const payload = {
+                staffID: staffID,
+                F_name: $("#formFName").val(),
+                L_name: $("#formLName").val(),
+                role: $("#formRole").val(),
+                hourlyWage: $("#formWage").val(),
+                address: $("#formAddress").val(),
+                city: $("#formCity").val(),
+                state: $("#formState").val(),
+                pincode: $("#formPincode").val()
+            };
+
+            logToConsole(`> POST: Updating staff ${staffID}...`);
+
+            $.ajax({
+                url: `${BASE_URL}/staff/update`,
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(payload),
+                success: function() {
+                    logToConsole(`> SUCCESS: Updated staff ${staffID} successfully.`);
+                    $("#popupForm").hide();
+                    fetchStaff(staffID);
+                },
+                error: function(err) {
+                    logToConsole(`!! ERROR updating staff ${staffID}: ${err.responseText || err.statusText}`);
+                }
             });
         });
-    }
 
-    // Search
-    $("#searchBtn").click(() => {
-        const searchTerm = $("#searchInput").val().trim();
-        logToConsole(`Searching for Staff ID: ${searchTerm}`);
-        fetchStaff(searchTerm);
-    });
+        $("#deleteBtn").click(() => {
+            const staffID = $("#searchInput").val().trim();
+            if (!staffID) return alert("Enter Staff ID to delete");
+            if (!confirm(`Delete staff ${staffID}? This will cascade delete associated data.`)) return;
 
-    // Open popup form for update
-    $("#updateBtn").click(() => {
-        const staffID = $("#searchInput").val().trim();
-        if (!staffID) return alert("Enter Staff ID to update");
-        logToConsole(`Fetching info for update: ${staffID}`);
+            logToConsole(`> POST: Attempting to delete staff ${staffID}...`);
 
-        $.getJSON(`/api/team?search=${staffID}`, function(data) {
-            if (!data || data.length === 0) {
-                alert("Staff not found.");
-                return;
-            }
-            const staff = data[0];
-            $("#formFName").val(staff.F_name);
-            $("#formLName").val(staff.L_name);
-            $("#formRole").val(staff.role_code);
-            $("#formWage").val(staff.hourlyWage);
-            $("#formAddress").val(staff.address);
-            $("#formCity").val(staff.city);
-            $("#formState").val(staff.state);
-            $("#formPincode").val(staff.pincode);
-            $("#popupForm").data("staffID", staffID).show();
+            $.ajax({
+                url: `${BASE_URL}/staff/delete`,
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({ staffID: staffID }),
+                success: function() {
+                    logToConsole(`> SUCCESS: Deleted staff ${staffID} successfully.`);
+                    fetchStaff(); // Reload all staff after deletion
+                },
+                error: function(err) {
+                    logToConsole(`!! ERROR deleting staff ${staffID}: ${err.responseText || err.statusText}`);
+                }
+            });
         });
+
+        logToConsole("> INITIALIZING: Starting data load.");
+        fetchStaff();
     });
-
-    // Close popup
-    $("#closeBtn").click(() => $("#popupForm").hide());
-
-    // Save update
-    $("#saveBtn").click(() => {
-        const staffID = $("#popupForm").data("staffID");
-        const payload = {
-            F_name: $("#formFName").val(),
-            L_name: $("#formLName").val(),
-            role: $("#formRole").val(),
-            hourlyWage: $("#formWage").val(),
-            address: $("#formAddress").val(),
-            city: $("#formCity").val(),
-            state: $("#formState").val(),
-            pincode: $("#formPincode").val()
-        };
-
-        $.ajax({
-            url: `/api/team/update/${staffID}`,
-            type: "PUT",
-            contentType: "application/json",
-            data: JSON.stringify(payload),
-            success: function(res) {
-                logToConsole(`Updated staff ${staffID} successfully.`);
-                $("#popupForm").hide();
-                fetchStaff(staffID);
-            },
-            error: function(err) {
-                logToConsole(`Error updating staff ${staffID}: ${err.responseText}`);
-            }
-        });
-    });
-
-    // Delete staff
-    $("#deleteBtn").click(() => {
-        const staffID = $("#searchInput").val().trim();
-        if (!staffID) return alert("Enter Staff ID to delete");
-        if (!confirm(`Delete staff ${staffID}? This will cascade delete associated data.`)) return;
-
-        $.ajax({
-            url: `/api/team/delete/${staffID}`,
-            type: "DELETE",
-            success: function(res) {
-                logToConsole(`Deleted staff ${staffID} successfully.`);
-                fetchStaff();
-            },
-            error: function(err) {
-                logToConsole(`Error deleting staff ${staffID}: ${err.responseText}`);
-            }
-        });
-    });
-
-    // Initial load
-    fetchStaff();
-
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.2/imagesloaded.pkgd.min.js" integrity="sha512-iHzEu7GbSc705hE2skyH6/AlTpOfBmkx7nUqTLGzPYR+C1tRaItbRlJ7hT/D3YQ9SV0fqLKzp4XY9wKulTBGTw==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js" integrity="sha512-Z5heTz36xTemt1TbtbfXtTq5lMfYnOkXM2/eWcTTiLU01+Sw4ku1i7vScDc8fWhrP2abz9GQzgKH5NGBLoYlAw==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js" integrity="sha512-CDeU7pRtkPX6XJtF/gcFWlEwyaX7mcAp5sO3VIu/ylsdR74wEw4wmBpD5yYTrmMAiAboi9thyBUr1vXRPA7t0Q==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
 <script src="/js/hugo-academic.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
