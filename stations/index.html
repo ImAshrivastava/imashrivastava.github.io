@@ -172,7 +172,7 @@
       border-radius: 8px;
       border: none !important;
 
-      min-height: 150px;          /* ⬅ NEW: minimum console height */
+      min-height: 150px;          /* NEW: minimum console height */
       max-height: 350px;          /* optional: console scrolls beyond this */
       overflow-y: auto;
 
@@ -281,7 +281,6 @@
 
 <div class="container">
 
-  <!-- Search Bar -->
   <div class="toolbar">
     <input type="text" id="searchInput" placeholder="Search Animal ID" class="search-box">
     <button id="searchBtn" class="search-btn">Search</button>
@@ -384,9 +383,6 @@
     c.scrollTop = c.scrollHeight;
   }
 
-  // ================================
-  // LOAD STATIONS (Normal Endpoint)
-  // ================================
   async function loadStations() {
     const url = `${API_BASE}/stations`;
     logToConsole(`> FETCH: ${url}`);
@@ -401,9 +397,6 @@
     }
   }
 
-  // ================================
-  // LOAD AGGREGATIONS
-  // ================================
   async function loadAggregations() {
     const url = `${API_BASE}/stations/aggregations`;
     logToConsole(`> FETCH (AGG): ${url}`);
@@ -442,9 +435,6 @@
     }
   }
 
-  // =======================================
-  // LOAD NESTED AGGREGATION (Highest Avg Qty)
-  // =======================================
   async function loadTopAvgResource() {
     const url = `${API_BASE}/stations/top-average-resource`;
     logToConsole(`> FETCH (TOP AVG RESOURCE): ${url}`);
@@ -463,9 +453,6 @@
     }
   }
 
-  // ================================
-  // DISPLAY STATIONS
-  // ================================
   function displayStations(stations) {
     const container = document.getElementById("cardGrid");
     container.innerHTML = "";
@@ -506,9 +493,6 @@
     logToConsole(`> DISPLAY: Showing ${stations.length} stations`);
   }
 
-  // ================================
-  // CLIENT-SIDE FILTERING
-  // ================================
   function applyFilters(searchTerm = "") {
     const city = document.getElementById("filterCity").value;
     const state = document.getElementById("filterState").value;
@@ -594,21 +578,12 @@
     }
   });
 
-  // ================================
-  // PAGE LOAD
-  // ================================
   document.addEventListener("DOMContentLoaded", async () => {
     await loadStations();
     await loadAggregations();
     await loadTopAvgResource();   // <-- NEW NESTED AGGREGATION CALL
   });
 </script>
-
-
-
-
-
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.2/imagesloaded.pkgd.min.js" integrity="sha512-iHzEu7GbSc705hE2skyH6/AlTpOfBmkx7nUqTLGzPYR+C1tRaItbRlJ7hT/D3YQ9SV0fqLKzp4XY9wKulTBGTw==" crossorigin="anonymous"></script>
