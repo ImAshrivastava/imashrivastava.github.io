@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="author" content="Aman Shrivastava">
+  <title>Stations | Animal Welfare Platform</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto+Mono">
+
+  <style>
+    body { font-family: 'Lato', sans-serif; background: #f5f5f5; color: #000; }
+
+    /* Toolbar & Search */
+    .toolbar {
+      display: flex;
+      justify-content: center;
+      margin: 1rem 0;
+    }
+    .search-box {
+      padding: 12px 20px;
+      border: 2px solid black;
+      border-radius: 35px 0 0 35px;
+      width: 500px;
+      outline: none;
+    }
+    .search-btn {
+      padding: 12px 25px;
+      border: 2px solid black;
+      border-left: none;
+      border-radius: 0 35px 35px 0;
+      background: #0d6efd;
+      color: #fff;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .search-btn:hover { background: #0b5ed7; }
+
+    /* Console */
+    #consoleOutput {
+      background: #000;
+      color: #00ff00;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.95rem;
+      width: 95%;
+      margin: 1rem auto;
+      padding: 12px;
+      border-radius: 8px;
+      min-height: 150px;
+      max-height: 350px;
+      overflow-y: auto;
+    }
+
+    /* Horizontal station cards */
+    .station-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 95%;
+      margin: 1rem auto;
+    }
+    .station-card {
+      display: flex;
+      flex-direction: row;
+      background: #fff;
+      border: 2px solid black;
+      border-radius: 10px;
+      padding: 12px;
+      gap: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+    .station-card-id {
+      font-weight: bold;
+      width: 120px;
+      flex-shrink: 0;
+    }
+    .station-card-content {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+    .subsystem { margin-left: 12px; }
+
+    nav.navbar { margin-bottom: 2rem; }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Animal Welfare Platform</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Animals</a></li>
+      <li><a href="#">Stations</a></li>
+      <li><a href="#">Team</a></li>
+      <li><a href="#">Volunteers</a></li>
+      <li><a href="#">Veterinary</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <p style="padding-top: 60px; line-height:1.33em;">
+    <em>Information: This is the Stations page for the Animal Welfare Platform project. Data may be confidential.</em>
+  </p>
+
+  <!-- Search -->
+  <div class="toolbar">
+    <input type="text" id="searchStation" placeholder="Search Station ID" class="search-box">
+    <button id="searchStationBtn" class="search-btn">Search</button>
+  </div>
+
+  <!-- Console -->
+  <div id="consoleOutput"></div>
+
+  <!-- Station cards container -->
+  <div id="stationGrid" class="station-grid"></div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <script>document.write(new Date().getFullYear());</script> Aman Shrivastava</p>
+  </div>
+</footer>
+
+<script>
+  let allStations = [];
+
+  function logToConsole(msg) {
+    const consoleOutput = document.getElementById('consoleOutput');
+    consoleOutput.innerHTML += msg + "<br>";
+    consoleOutput.scrollTop = consoleOutput.scrollHeight;
+  }
+
+  async function loadStations(searchTerm='') {
+    const apiURL = 'https://your-api/endpoint/stations?search=' + encodeURIComponent(searchTerm);
+    logToConsole(`> FETCH: ${apiURL}`);
+    try {
+      const res = await fetch(apiURL);
+      allStations = await res.json();
+      logToConsole(`> LOADED: ${allStations.length} stations`);
+      displayStations(allStations, searchTerm);
+    } catch(err) {
+      logToConsole(`> ERROR: ${err.message}`);
+    }
+  }
+
+  function displayStations(stations, searchTerm='') {
+    const container = document.getElementById('stationGrid');
+    container.innerHTML = '';
+
+    stations.filter(s => !searchTerm || s.stationID.toLowerCase().includes(searchTerm.toLowerCase()))
+            .forEach(station => {
+              let subsystemsStr = '';
+              if(station.subsystems && station.subsystems.length > 0) {
+                subsystemsStr = station.subsystems
+                        .filter(s => ['Food','Water','Purification'].includes(s.sysType))
+                        .map(s => `${s.sysType}: ${s.currentActivity}, Qty: ${s.resourceQty}`)
+                        .join('<br>');
+              }
+
+              let managerStr = station.manager ? `${station.manager.F_name} ${station.manager.L_name}` : 'N/A';
+
+              let staffStr = '';
+              if(station.staff && station.staff.length > 0) {
+                staffStr = station.staff.map(s => `${s.F_name} ${s.L_name} → ${s.sysType}`).join('<br>');
+              }
+
+              const card = document.createElement('div');
+              card.className = 'station-card';
+              card.innerHTML = `
+                    <div class="station-card-id">${station.stationID}</div>
+                    <div class="station-card-content">
+                        Lat: ${station.latitude}, Long: ${station.longitude}, Power: ${station.powerLevel}<br>
+                        Location: ${station.address}, ${station.city}, ${station.state}, ${station.pincode}<br>
+                        Subsystems:<br><div class="subsystem">${subsystemsStr}</div>
+                        Manager: ${managerStr}<br>
+                        Staff: <div class="subsystem">${staffStr}</div>
+                    </div>
+                `;
+              container.appendChild(card);
+            });
+
+    logToConsole(`> DISPLAY: Showing ${stations.length} stations`);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('searchStationBtn').addEventListener('click', () => {
+      const term = document.getElementById('searchStation').value;
+      logToConsole(`> SEARCH triggered for: "${term}"`);
+      displayStations(allStations, term);
+    });
+    document.getElementById('searchStation').addEventListener('keypress', e => {
+      if(e.key === 'Enter') {
+        const term = e.target.value;
+        logToConsole(`> SEARCH triggered for: "${term}"`);
+        displayStations(allStations, term);
+      }
+    });
+
+    loadStations(); // initial load
+  });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
