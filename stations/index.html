@@ -189,7 +189,7 @@
     /* Card Grid — 4 cards per row */
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 4 columns */
+      grid-template-columns: repeat(3, 1fr); /* 4 columns */
       gap: 20px; /* space between cards */
       padding: 0;
       align-items: stretch; /* all cards same height */
@@ -280,12 +280,6 @@
 </nav>
 
 <div class="container">
-  <p style="padding-top: 20px; padding-bottom: 20px; line-height: 1.33em; font-size: 1rem; color: black;">
-    <em>Information: In case you landed on this webpage of my website,
-      please note this is my final project for database management system course.
-      Some of the information in this project is privileged and confidential. Please do not share it publicly and/or redistribute.
-    </em>
-  </p>
 
   <!-- Search Bar -->
   <div class="toolbar">
@@ -387,14 +381,25 @@
     stations.filter(s => !searchTerm || s.stationID.toLowerCase().includes(searchTerm.toLowerCase()))
             .forEach(station => {
               // Build subsystems string
-              let subsystemsStr = 'N/A';
-              if(station.subsystems && station.subsystems.length > 0) {
+              let subsystemsStr = '';
+              if (station.subsystems && station.subsystems.length > 0) {
                 subsystemsStr = station.subsystems
-                        .filter(s => ['Food Dispenser', 'Water Dispenser', 'Purification System'].includes(s.sysType))
-                        .map(s => `${s.sysType}: ${s.currentActivity}, Qty: ${s.resourceQty}`)
+                        .map(s => {
+                          let displayQty = '';
+                          if (['Food Dispenser', 'Water Dispenser', 'Purification System'].includes(s.sysType)) {
+                            let unit = '';
+                            if (s.sysType === 'Food Dispenser') unit = 'Kg';
+                            else if (s.sysType === 'Water Dispenser') unit = 'Litre';
+                            else if (s.sysType === 'Purification System') unit = 'Litre';
+
+                            displayQty = `, Qty: ${s.resourceQty} ${unit}`;
+                          }
+
+                          // Always show full subsystem name and current activity
+                          return `${s.sysType}: ${s.currentActivity}${displayQty}`;
+                        })
                         .join('<br>');
               }
-
 
               // Manager string
               let managerStr = station.manager ? `${station.manager.F_name} ${station.manager.L_name}` : 'N/A';
@@ -411,11 +416,15 @@
               card.innerHTML = `
                   <div class="card-body">
                       <h4 class="card-title">${station.stationID}</h4>
-                      <p class="card-text"><strong>Lat:</strong> ${station.latitude}, <strong>Long:</strong> ${station.longitude}, <strong>Power:</strong> ${station.powerLevel}</p>
-                      <p class="card-text"><strong>Location:</strong> ${station.address}, ${station.city}, ${station.state}, ${station.pincode}</p>
-                      <p class="card-text"><strong>Subsystems:</strong><br>${subsystemsStr || 'N/A'}</p>
-                      <p class="card-text"><strong>Manager:</strong> ${managerStr}</p>
-                      <p class="card-text"><strong>Staff:</strong><br>${staffStr || 'N/A'}</p>
+                      <p class="card-text">Power: ${station.powerLevel} Volts</p>
+                      <p class="card-text">Lat: ${station.latitude} Long: ${station.longitude}<br>
+                      Location: ${station.address}<br>
+                      City: ${station.city}<br>
+                      State: ${station.state}<br>
+                      Pincode: ${station.pincode}</p>
+                      <p class="card-text">Subsystems:<br>${subsystemsStr || 'N/A'}</p>
+                      <p class="card-text">Manager: ${managerStr}<br>
+                      Staff:<br>${staffStr || 'N/A'}</p>
                   </div>
               `;
               container.appendChild(card);
