@@ -354,6 +354,9 @@
 
 <script>
   let allStations = [];
+  let aggregationData = null;
+
+  const API_BASE = "https://cpscdbms-f50436d7d43e.herokuapp.com/api";
 
   // Map subsystem types to their possible statuses
   const subsystemActivities = {
@@ -366,72 +369,106 @@
     "Climate Indicator": ["SUNNY", "RAIN", "CLEAR"]
   };
 
-  // Map resourceQty to levels
   function getQtyLevel(sys) {
-    if (!["Food Dispenser", "Water Dispenser", "Purification System"].includes(sys.sysType)) return null;
-    const qty = sys.resourceQty;
-    if (qty < 2) return "LOW";
-    if (qty >= 2 && qty < 3) return "ADEQUATE";
+    if (!["Food Dispenser", "Water Dispenser", "Purification System"].includes(sys.sysType))
+      return null;
+    const q = sys.resourceQty;
+    if (q < 2) return "LOW";
+    if (q >= 2 && q < 3) return "ADEQUATE";
     return "SUFFICIENT";
   }
 
   function logToConsole(msg) {
-    const consoleOutput = document.getElementById('consoleOutput');
-    consoleOutput.innerHTML += msg + "<br>";
-    consoleOutput.scrollTop = consoleOutput.scrollHeight;
+    const c = document.getElementById("consoleOutput");
+    c.innerHTML += msg + "<br>";
+    c.scrollTop = c.scrollHeight;
   }
 
+  // ================================
+  // LOAD STATIONS (Normal Endpoint)
+  // ================================
   async function loadStations() {
-    const apiURL = 'https://cpscdbms-f50436d7d43e.herokuapp.com/api/stations';
-    logToConsole(`> FETCH: ${apiURL}`);
+    const url = `${API_BASE}/stations`;
+    logToConsole(`> FETCH: ${url}`);
+
     try {
-      const res = await fetch(apiURL);
+      const res = await fetch(url);
       allStations = await res.json();
       logToConsole(`> LOADED: ${allStations.length} stations`);
-      applyFilters(); // Initial display
+      applyFilters();
     } catch (err) {
       logToConsole(`> ERROR: ${err.message}`);
     }
   }
 
+  // ================================
+  // LOAD AGGREGATIONS (New)
+  // ================================
+  async function loadAggregations() {
+    const url = `${API_BASE}/stations/aggregations`;
+    logToConsole(`> FETCH (AGG): ${url}`);
+
+    try {
+      const res = await fetch(url);
+      aggregationData = await res.json();
+
+      logToConsole(`> AGGREGATIONS LOADED`);
+      logToConsole(`> Total Stations: ${aggregationData.total_stations}`);
+
+      logToConsole(`> Cities: ${aggregationData.stations_per_city
+              .map(c => `${c.city}(${c.count})`).join(", ")}`);
+
+      logToConsole(`> States: ${aggregationData.stations_per_state
+              .map(s => `${s.state}(${s.count})`).join(", ")}`);
+
+      logToConsole(`> Avg Power: ${aggregationData.average_power}`);
+
+      logToConsole(`> Subsystems by Type: ${aggregationData.subsystems_by_type
+              .map(s => `${s.sysType}(${s.count})`).join(", ")}`);
+
+      logToConsole(`> Resource Levels: ${aggregationData.resource_levels
+              .map(r => `${r.level}(${r.count})`).join(", ")}`);
+
+    } catch (err) {
+      logToConsole(`> AGG ERROR: ${err.message}`);
+    }
+  }
+
+  // ================================
+  // DISPLAY STATIONS
+  // ================================
   function displayStations(stations) {
-    const container = document.getElementById('cardGrid');
-    container.innerHTML = '';
+    const container = document.getElementById("cardGrid");
+    container.innerHTML = "";
 
-    stations.forEach(station => {
-      let subsystemsStr = '';
-      if (station.subsystems && station.subsystems.length > 0) {
-        subsystemsStr = station.subsystems
-                .map(s => {
-                  let displayQty = '';
-                  if (["Food Dispenser", "Water Dispenser", "Purification System"].includes(s.sysType)) {
-                    let unit = s.sysType === 'Food Dispenser' ? 'Kg' : 'Litre';
-                    displayQty = `, Qty: ${s.resourceQty} ${unit}`;
-                  }
-                  return `${s.sysType}: ${s.currentActivity}${displayQty}`;
-                })
-                .join('<br>');
-      }
+    stations.forEach(st => {
+      const subsystems = (st.subsystems || []).map(s => {
+        let qty = "";
+        if (["Food Dispenser", "Water Dispenser", "Purification System"].includes(s.sysType)) {
+          qty = `, Qty: ${s.resourceQty} ${s.sysType === "Food Dispenser" ? "Kg" : "Litre"}`;
+        }
+        return `${s.sysType}: ${s.currentActivity}${qty}`;
+      }).join("<br>") || "N/A";
 
-      const managerStr = station.manager ? `${station.manager.F_name} ${station.manager.L_name}` : 'N/A';
-      const staffStr = station.staff && station.staff.length > 0
-              ? station.staff.map(s => `${s.F_name} ${s.L_name} → ${s.sysType}`).join('<br>')
-              : 'N/A';
+      const managerStr = st.manager ? `${st.manager.F_name} ${st.manager.L_name}` : "N/A";
+      const staffStr = (st.staff || [])
+              .map(s => `${s.F_name} ${s.L_name} → ${s.sysType}`)
+              .join("<br>") || "N/A";
 
-      const card = document.createElement('div');
-      card.className = 'card';
+      const card = document.createElement("div");
+      card.className = "card";
       card.innerHTML = `
         <div class="card-body">
-          <h4 class="card-title">${station.stationID}</h4>
-          <p class="card-text">Power: ${station.powerLevel} Volts</p>
-          <p class="card-text">Lat: ${station.latitude} Long: ${station.longitude}<br>
-          Location: ${station.address}<br>
-          City: ${station.city}<br>
-          State: ${station.state}<br>
-          Pincode: ${station.pincode}</p>
-          <p class="card-text">Subsystems:<br>${subsystemsStr || 'N/A'}</p>
-          <p class="card-text">Manager: ${managerStr}<br>
-          Staff:<br>${staffStr}</p>
+          <h4 class="card-title">${st.stationID}</h4>
+          <p class="card-text">Power: ${st.powerLevel} Volts</p>
+          <p class="card-text">Lat: ${st.latitude} Long: ${st.longitude}<br>
+            Location: ${st.address}<br>
+            City: ${st.city}<br>
+            State: ${st.state}<br>
+            Pincode: ${st.pincode}</p>
+
+          <p class="card-text">Subsystems:<br>${subsystems}</p>
+          <p class="card-text">Manager: ${managerStr}<br>Staff:<br>${staffStr}</p>
         </div>
       `;
       container.appendChild(card);
@@ -440,87 +477,100 @@
     logToConsole(`> DISPLAY: Showing ${stations.length} stations`);
   }
 
-  // Update Status dropdown
-  document.getElementById("filterSubsystem").addEventListener("change", function () {
-    const sub = this.value;
-    const statusSelect = document.getElementById("filterActivity");
-    statusSelect.innerHTML = '<option value="">Status</option>';
-    if (sub && subsystemActivities[sub]) {
-      subsystemActivities[sub].forEach(act => {
-        const opt = document.createElement("option");
-        opt.value = act;
-        opt.text = act;
-        statusSelect.appendChild(opt);
-      });
-    }
-    applyFilters(document.getElementById('searchInput').value);
-  });
-
-  function applyFilters(searchTerm = '') {
+  // ================================
+  // CLIENT-SIDE FILTERING
+  // ================================
+  function applyFilters(searchTerm = "") {
     const city = document.getElementById("filterCity").value;
     const state = document.getElementById("filterState").value;
     const subsystem = document.getElementById("filterSubsystem").value;
     const activity = document.getElementById("filterActivity").value;
-    const qtyLevel = document.getElementById("filterQty").value;
+    const qty = document.getElementById("filterQty").value;
 
-    const term = searchTerm.trim().toLowerCase();
+    const term = searchTerm.toLowerCase();
 
-    const filteredStations = allStations.filter(station => {
-      // Filters
+    const filtered = allStations.filter(station => {
       if (city && station.city !== city) return false;
       if (state && station.state !== state) return false;
-      if (subsystem || activity || qtyLevel) {
-        if (!station.subsystems || station.subsystems.length === 0) return false;
-        let match = station.subsystems.some(s => {
+
+      if (subsystem || activity || qty) {
+        if (!station.subsystems) return false;
+        const ok = station.subsystems.some(s => {
           if (subsystem && s.sysType !== subsystem) return false;
           if (activity && s.currentActivity !== activity) return false;
-          if (qtyLevel && getQtyLevel(s) !== qtyLevel) return false;
+          if (qty && getQtyLevel(s) !== qty) return false;
           return true;
         });
-        if (!match) return false;
+        if (!ok) return false;
       }
 
-      // Search term
       if (!term) return true;
-      if (station.stationID && station.stationID.toLowerCase().includes(term)) return true;
-      if (station.pincode && station.pincode.toString().includes(term)) return true;
+
+      if (station.stationID.toLowerCase().includes(term)) return true;
+      if (station.pincode?.toString().includes(term)) return true;
+
       if (station.manager) {
-        const managerName = (station.manager.F_name + ' ' + station.manager.L_name).toLowerCase();
-        if (managerName.includes(term)) return true;
+        const mn = (station.manager.F_name + " " + station.manager.L_name).toLowerCase();
+        if (mn.includes(term)) return true;
       }
-      if (station.staff && station.staff.length > 0) {
-        return station.staff.some(s => (s.F_name + ' ' + s.L_name).toLowerCase().includes(term));
+
+      if (station.staff) {
+        return station.staff.some(s =>
+                (s.F_name + " " + s.L_name).toLowerCase().includes(term));
       }
+
       return false;
     });
 
-    displayStations(filteredStations);
+    displayStations(filtered);
   }
 
-  ["filterCity", "filterState", "filterActivity", "filterQty"].forEach(id => {
-    document.getElementById(id).addEventListener("change", () => {
-      applyFilters(document.getElementById('searchInput').value);
-    });
+  // Update activity dropdown when subsystem changes
+  document.getElementById("filterSubsystem").addEventListener("change", function () {
+    const sub = this.value;
+    const statusSel = document.getElementById("filterActivity");
+    statusSel.innerHTML = '<option value="">Status</option>';
+
+    if (sub && subsystemActivities[sub]) {
+      subsystemActivities[sub].forEach(a => {
+        const opt = document.createElement("option");
+        opt.value = a;
+        opt.text = a;
+        statusSel.appendChild(opt);
+      });
+    }
+    applyFilters(document.getElementById("searchInput").value);
   });
 
-  document.getElementById('searchBtn').addEventListener('click', () => {
-    const term = document.getElementById('searchInput').value.trim();
-    if (term) logToConsole(`> SEARCH triggered for: "${term}"`);
-    else logToConsole('> SEARCH triggered: showing all stations');
+  ["filterCity", "filterState", "filterActivity", "filterQty"].forEach(id =>
+          document.getElementById(id).addEventListener("change", () =>
+                  applyFilters(document.getElementById("searchInput").value)
+          )
+  );
+
+  // Search button
+  document.getElementById("searchBtn").addEventListener("click", () => {
+    const term = document.getElementById("searchInput").value.trim();
+    logToConsole(`> SEARCH triggered for: "${term}"`);
     applyFilters(term);
   });
 
-  document.getElementById('searchInput').addEventListener('keypress', e => {
-    if (e.key === 'Enter') {
-      const term = document.getElementById('searchInput').value.trim();
-      if (term) logToConsole(`> SEARCH triggered for: "${term}"`);
-      else logToConsole('> SEARCH triggered: showing all stations');
+  // Enter key search
+  document.getElementById("searchInput").addEventListener("keypress", e => {
+    if (e.key === "Enter") {
+      const term = document.getElementById("searchInput").value.trim();
+      logToConsole(`> SEARCH triggered for: "${term}"`);
       applyFilters(term);
     }
   });
 
-  document.addEventListener('DOMContentLoaded', loadStations);
+  // Run on page load
+  document.addEventListener("DOMContentLoaded", async () => {
+    await loadStations();
+    await loadAggregations();
+  });
 </script>
+
 
 
 
