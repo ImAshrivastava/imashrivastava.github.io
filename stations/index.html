@@ -287,15 +287,7 @@
     <button id="searchBtn" class="search-btn">Search</button>
   </div>
 
-  <!--<div class="filter-container">
-    <select id="filterHealth" class="filter-select">
-      <option value="">Health</option>
-      <option value="OKAY">OKAY</option>
-      <option value="ILL">ILL</option>
-      <option value="INJURED">INJURED</option>
-      <option value="RABID">RABID</option>
-    </select>
-
+  <div class="filter-container">
     <select id="filterCity" class="filter-select">
       <option value="">City</option>
       <option value="Delhi">Delhi</option>
@@ -313,20 +305,28 @@
       <option value="Tamil Nadu">Tamil Nadu</option>
     </select>
 
-    <select id="filterIllness" class="filter-select">
-      <option value="">Illness</option>
-      <option value="None">None</option>
-      <option value="Dermatitis">Dermatitis</option>
-      <option value="Fungal Infections">Fungal Infections</option>
-      <option value="Hair Loss">Hair Loss</option>
-      <option value="Malnutrition">Malnutrition</option>
-      <option value="Rabies">Rabies</option>
-      <option value="Bruises">Bruises</option>
-      <option value="Fracture">Fracture</option>
-      <option value="Eye Puncture">Eye Puncture</option>
-      <option value="Paralytic">Paralytic</option>
+    <select id="filterSubsystem" class="filter-select">
+      <option value="">Subsystem</option>
+      <option value="Processing Unit">Processing Unit</option>
+      <option value="Visual Processor">Visual Processor</option>
+      <option value="Power Management">Power Management</option>
+      <option value="Food Dispenser">Food Dispenser</option>
+      <option value="Water Dispenser">Water Dispenser</option>
+      <option value="Purification System">Purification System</option>
+      <option value="Climate Indicator">Climate Indicator</option>
     </select>
-  </div>-->
+
+    <select id="filterActivity" class="filter-select">
+      <option value="">Status</option>
+    </select>
+
+    <select id="filterQty" class="filter-select">
+      <option value="">Quantity</option>
+      <option value="LOW">LOW</option>
+      <option value="ADEQUATE">ADEQUATE</option>
+      <option value="SUFFICIENT">SUFFICIENT</option>
+    </select>
+  </div>
 
   <div id="consoleOutput"></div>
 
@@ -355,26 +355,49 @@
 <script>
   let allStations = [];
 
+  // Map subsystem types to their possible statuses
+  const subsystemActivities = {
+    "Processing Unit": ["ACTIVE", "DATA UPLINK", "DATA DOWNLINK", "UNACTIVE"],
+    "Visual Processor": ["LIVE", "PAUSED"],
+    "Power Management": ["ON", "OFF", "SWITCHING"],
+    "Food Dispenser": ["ACTIVE", "PAUSED"],
+    "Water Dispenser": ["ACTIVE", "PAUSED"],
+    "Purification System": ["PURIFIED", "AWAITING"],
+    "Climate Indicator": ["SUNNY", "RAIN", "CLEAR"]
+  };
+
+  // Map resourceQty to levels
+  function getQtyLevel(sys) {
+    if (!["Food Dispenser", "Water Dispenser", "Purification System"].includes(sys.sysType)) return null;
+    const qty = sys.resourceQty;
+    if (qty < 2) return "LOW";
+    if (qty >= 2 && qty < 3) return "ADEQUATE";
+    return "SUFFICIENT";
+  }
+
+  // Utility to log messages
   function logToConsole(msg) {
     const consoleOutput = document.getElementById('consoleOutput');
     consoleOutput.innerHTML += msg + "<br>";
     consoleOutput.scrollTop = consoleOutput.scrollHeight;
   }
 
-  async function loadStations(searchTerm='') {
+  // Fetch station data from API
+  async function loadStations(searchTerm = '') {
     const apiURL = 'https://cpscdbms-f50436d7d43e.herokuapp.com/api/stations?search=' + encodeURIComponent(searchTerm);
     logToConsole(`> FETCH: ${apiURL}`);
     try {
       const res = await fetch(apiURL);
       allStations = await res.json();
       logToConsole(`> LOADED: ${allStations.length} stations`);
-      displayStations(allStations, searchTerm);
-    } catch(err) {
+      applyFilters(); // Apply initial filters after loading
+    } catch (err) {
       logToConsole(`> ERROR: ${err.message}`);
     }
   }
 
-  function displayStations(stations, searchTerm='') {
+  // Render stations in cards
+  function displayStations(stations, searchTerm = '') {
     const container = document.getElementById('cardGrid');
     container.innerHTML = '';
 
@@ -386,7 +409,7 @@
                 subsystemsStr = station.subsystems
                         .map(s => {
                           let displayQty = '';
-                          if (['Food Dispenser', 'Water Dispenser', 'Purification System'].includes(s.sysType)) {
+                          if (["Food Dispenser", "Water Dispenser", "Purification System"].includes(s.sysType)) {
                             let unit = '';
                             if (s.sysType === 'Food Dispenser') unit = 'Kg';
                             else if (s.sysType === 'Water Dispenser') unit = 'Litre';
@@ -394,19 +417,17 @@
 
                             displayQty = `, Qty: ${s.resourceQty} ${unit}`;
                           }
-
-                          // Always show full subsystem name and current activity
                           return `${s.sysType}: ${s.currentActivity}${displayQty}`;
                         })
                         .join('<br>');
               }
 
               // Manager string
-              let managerStr = station.manager ? `${station.manager.F_name} ${station.manager.L_name}` : 'N/A';
+              const managerStr = station.manager ? `${station.manager.F_name} ${station.manager.L_name}` : 'N/A';
 
               // Staff string
               let staffStr = '';
-              if(station.staff && station.staff.length > 0) {
+              if (station.staff && station.staff.length > 0) {
                 staffStr = station.staff.map(s => `${s.F_name} ${s.L_name} → ${s.sysType}`).join('<br>');
               }
 
@@ -414,26 +435,76 @@
               const card = document.createElement('div');
               card.className = 'card';
               card.innerHTML = `
-                  <div class="card-body">
-                      <h4 class="card-title">${station.stationID}</h4>
-                      <p class="card-text">Power: ${station.powerLevel} Volts</p>
-                      <p class="card-text">Lat: ${station.latitude} Long: ${station.longitude}<br>
-                      Location: ${station.address}<br>
-                      City: ${station.city}<br>
-                      State: ${station.state}<br>
-                      Pincode: ${station.pincode}</p>
-                      <p class="card-text">Subsystems:<br>${subsystemsStr || 'N/A'}</p>
-                      <p class="card-text">Manager: ${managerStr}<br>
-                      Staff:<br>${staffStr || 'N/A'}</p>
-                  </div>
-              `;
+        <div class="card-body">
+          <h4 class="card-title">${station.stationID}</h4>
+          <p class="card-text">Power: ${station.powerLevel} Volts</p>
+          <p class="card-text">Lat: ${station.latitude} Long: ${station.longitude}<br>
+          Location: ${station.address}<br>
+          City: ${station.city}<br>
+          State: ${station.state}<br>
+          Pincode: ${station.pincode}</p>
+          <p class="card-text">Subsystems:<br>${subsystemsStr || 'N/A'}</p>
+          <p class="card-text">Manager: ${managerStr}<br>
+          Staff:<br>${staffStr || 'N/A'}</p>
+        </div>
+      `;
               container.appendChild(card);
             });
 
     logToConsole(`> DISPLAY: Showing ${stations.length} stations`);
   }
 
-  // Event listeners for search
+  // Update Status dropdown based on selected subsystem
+  document.getElementById("filterSubsystem").addEventListener("change", function () {
+    const sub = this.value;
+    const statusSelect = document.getElementById("filterActivity");
+    statusSelect.innerHTML = '<option value="">Status</option>';
+    if (sub && subsystemActivities[sub]) {
+      subsystemActivities[sub].forEach(act => {
+        const opt = document.createElement("option");
+        opt.value = act;
+        opt.text = act;
+        statusSelect.appendChild(opt);
+      });
+    }
+    applyFilters();
+  });
+
+  // Apply all filters
+  function applyFilters() {
+    const city = document.getElementById("filterCity").value;
+    const state = document.getElementById("filterState").value;
+    const subsystem = document.getElementById("filterSubsystem").value;
+    const activity = document.getElementById("filterActivity").value;
+    const qtyLevel = document.getElementById("filterQty").value;
+
+    const filteredStations = allStations.filter(station => {
+      if (city && station.city !== city) return false;
+      if (state && station.state !== state) return false;
+
+      if (subsystem || activity || qtyLevel) {
+        if (!station.subsystems || station.subsystems.length === 0) return false;
+        let match = station.subsystems.some(s => {
+          if (subsystem && s.sysType !== subsystem) return false;
+          if (activity && s.currentActivity !== activity) return false;
+          if (qtyLevel && getQtyLevel(s) !== qtyLevel) return false;
+          return true;
+        });
+        if (!match) return false;
+      }
+
+      return true;
+    });
+
+    displayStations(filteredStations);
+  }
+
+  // Attach change events to all filters
+  ["filterCity", "filterState", "filterActivity", "filterQty"].forEach(id => {
+    document.getElementById(id).addEventListener("change", applyFilters);
+  });
+
+  // Search functionality
   document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     const searchBtn = document.getElementById('searchBtn');
@@ -441,14 +512,14 @@
     searchBtn.addEventListener('click', () => {
       const term = searchInput.value;
       logToConsole(`> SEARCH triggered for: "${term}"`);
-      displayStations(allStations, term);
+      applyFilters(); // Filters + search
     });
 
     searchInput.addEventListener('keypress', e => {
-      if(e.key === 'Enter') {
+      if (e.key === 'Enter') {
         const term = searchInput.value;
         logToConsole(`> SEARCH triggered for: "${term}"`);
-        displayStations(allStations, term);
+        applyFilters();
       }
     });
 
