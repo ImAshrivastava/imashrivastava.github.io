@@ -358,7 +358,7 @@
 
   const API_BASE = "https://cpscdbms-f50436d7d43e.herokuapp.com/api";
 
-  // Map subsystem types to their possible statuses
+  // Map subsystem types to possible statuses
   const subsystemActivities = {
     "Processing Unit": ["ACTIVE", "DATA UPLINK", "DATA DOWNLINK", "UNACTIVE"],
     "Visual Processor": ["LIVE", "PAUSED"],
@@ -402,7 +402,7 @@
   }
 
   // ================================
-  // LOAD AGGREGATIONS (New)
+  // LOAD AGGREGATIONS
   // ================================
   async function loadAggregations() {
     const url = `${API_BASE}/stations/aggregations`;
@@ -415,22 +415,51 @@
       logToConsole(`> AGGREGATIONS LOADED`);
       logToConsole(`> Total Stations: ${aggregationData.total_stations}`);
 
-      logToConsole(`> Cities: ${aggregationData.stations_per_city
-              .map(c => `${c.city}(${c.count})`).join(", ")}`);
+      logToConsole(
+              `> Cities: ${aggregationData.stations_per_city
+                      .map(c => `${c.city}(${c.count})`).join(", ")}`
+      );
 
-      logToConsole(`> States: ${aggregationData.stations_per_state
-              .map(s => `${s.state}(${s.count})`).join(", ")}`);
+      logToConsole(
+              `> States: ${aggregationData.stations_per_state
+                      .map(s => `${s.state}(${s.count})`).join(", ")}`
+      );
 
       logToConsole(`> Avg Power: ${aggregationData.average_power}`);
 
-      logToConsole(`> Subsystems by Type: ${aggregationData.subsystems_by_type
-              .map(s => `${s.sysType}(${s.count})`).join(", ")}`);
+      logToConsole(
+              `> Subsystems by Type: ${aggregationData.subsystems_by_type
+                      .map(s => `${s.sysType}(${s.count})`).join(", ")}`
+      );
 
-      logToConsole(`> Resource Levels: ${aggregationData.resource_levels
-              .map(r => `${r.level}(${r.count})`).join(", ")}`);
+      logToConsole(
+              `> Resource Levels: ${aggregationData.resource_levels
+                      .map(r => `${r.level}(${r.count})`).join(", ")}`
+      );
 
     } catch (err) {
       logToConsole(`> AGG ERROR: ${err.message}`);
+    }
+  }
+
+  // =======================================
+  // LOAD NESTED AGGREGATION (Highest Avg Qty)
+  // =======================================
+  async function loadTopAvgResource() {
+    const url = `${API_BASE}/stations/top-average-resource`;
+    logToConsole(`> FETCH (TOP AVG RESOURCE): ${url}`);
+
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+
+      logToConsole("> NESTED AGGREGATION RESULT");
+      logToConsole(`> Station With Highest Avg ResourceQty: ${data.stationid}`);
+      logToConsole(`> Average Resource Qty: ${data.avg_qty}`);
+
+      return data;
+    } catch (err) {
+      logToConsole(`> NESTED AGG ERROR: ${err.message}`);
     }
   }
 
@@ -516,7 +545,8 @@
 
       if (station.staff) {
         return station.staff.some(s =>
-                (s.F_name + " " + s.L_name).toLowerCase().includes(term));
+                (s.F_name + " " + s.L_name).toLowerCase().includes(term)
+        );
       }
 
       return false;
@@ -525,7 +555,7 @@
     displayStations(filtered);
   }
 
-  // Update activity dropdown when subsystem changes
+  // update activity dropdown
   document.getElementById("filterSubsystem").addEventListener("change", function () {
     const sub = this.value;
     const statusSel = document.getElementById("filterActivity");
@@ -564,12 +594,16 @@
     }
   });
 
-  // Run on page load
+  // ================================
+  // PAGE LOAD
+  // ================================
   document.addEventListener("DOMContentLoaded", async () => {
     await loadStations();
     await loadAggregations();
+    await loadTopAvgResource();   // <-- NEW NESTED AGGREGATION CALL
   });
 </script>
+
 
 
 
