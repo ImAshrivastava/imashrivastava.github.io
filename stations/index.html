@@ -375,66 +375,52 @@
     return "SUFFICIENT";
   }
 
-  // Utility to log messages
   function logToConsole(msg) {
     const consoleOutput = document.getElementById('consoleOutput');
     consoleOutput.innerHTML += msg + "<br>";
     consoleOutput.scrollTop = consoleOutput.scrollHeight;
   }
 
-  // Fetch station data from API
-  async function loadStations(searchTerm = '') {
-    const apiURL = 'https://cpscdbms-f50436d7d43e.herokuapp.com/api/stations?search=' + encodeURIComponent(searchTerm);
+  async function loadStations() {
+    const apiURL = 'https://cpscdbms-f50436d7d43e.herokuapp.com/api/stations';
     logToConsole(`> FETCH: ${apiURL}`);
     try {
       const res = await fetch(apiURL);
       allStations = await res.json();
       logToConsole(`> LOADED: ${allStations.length} stations`);
-      applyFilters(); // Apply initial filters after loading
+      applyFilters(); // Initial display
     } catch (err) {
       logToConsole(`> ERROR: ${err.message}`);
     }
   }
 
-  // Render stations in cards
-  function displayStations(stations, searchTerm = '') {
+  function displayStations(stations) {
     const container = document.getElementById('cardGrid');
     container.innerHTML = '';
 
-    stations.filter(s => !searchTerm || s.stationID.toLowerCase().includes(searchTerm.toLowerCase()))
-            .forEach(station => {
-              // Build subsystems string
-              let subsystemsStr = '';
-              if (station.subsystems && station.subsystems.length > 0) {
-                subsystemsStr = station.subsystems
-                        .map(s => {
-                          let displayQty = '';
-                          if (["Food Dispenser", "Water Dispenser", "Purification System"].includes(s.sysType)) {
-                            let unit = '';
-                            if (s.sysType === 'Food Dispenser') unit = 'Kg';
-                            else if (s.sysType === 'Water Dispenser') unit = 'Litre';
-                            else if (s.sysType === 'Purification System') unit = 'Litre';
+    stations.forEach(station => {
+      let subsystemsStr = '';
+      if (station.subsystems && station.subsystems.length > 0) {
+        subsystemsStr = station.subsystems
+                .map(s => {
+                  let displayQty = '';
+                  if (["Food Dispenser", "Water Dispenser", "Purification System"].includes(s.sysType)) {
+                    let unit = s.sysType === 'Food Dispenser' ? 'Kg' : 'Litre';
+                    displayQty = `, Qty: ${s.resourceQty} ${unit}`;
+                  }
+                  return `${s.sysType}: ${s.currentActivity}${displayQty}`;
+                })
+                .join('<br>');
+      }
 
-                            displayQty = `, Qty: ${s.resourceQty} ${unit}`;
-                          }
-                          return `${s.sysType}: ${s.currentActivity}${displayQty}`;
-                        })
-                        .join('<br>');
-              }
+      const managerStr = station.manager ? `${station.manager.F_name} ${station.manager.L_name}` : 'N/A';
+      const staffStr = station.staff && station.staff.length > 0
+              ? station.staff.map(s => `${s.F_name} ${s.L_name} → ${s.sysType}`).join('<br>')
+              : 'N/A';
 
-              // Manager string
-              const managerStr = station.manager ? `${station.manager.F_name} ${station.manager.L_name}` : 'N/A';
-
-              // Staff string
-              let staffStr = '';
-              if (station.staff && station.staff.length > 0) {
-                staffStr = station.staff.map(s => `${s.F_name} ${s.L_name} → ${s.sysType}`).join('<br>');
-              }
-
-              // Create card element
-              const card = document.createElement('div');
-              card.className = 'card';
-              card.innerHTML = `
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
         <div class="card-body">
           <h4 class="card-title">${station.stationID}</h4>
           <p class="card-text">Power: ${station.powerLevel} Volts</p>
@@ -445,16 +431,16 @@
           Pincode: ${station.pincode}</p>
           <p class="card-text">Subsystems:<br>${subsystemsStr || 'N/A'}</p>
           <p class="card-text">Manager: ${managerStr}<br>
-          Staff:<br>${staffStr || 'N/A'}</p>
+          Staff:<br>${staffStr}</p>
         </div>
       `;
-              container.appendChild(card);
-            });
+      container.appendChild(card);
+    });
 
     logToConsole(`> DISPLAY: Showing ${stations.length} stations`);
   }
 
-  // Update Status dropdown based on selected subsystem
+  // Update Status dropdown
   document.getElementById("filterSubsystem").addEventListener("change", function () {
     const sub = this.value;
     const statusSelect = document.getElementById("filterActivity");
@@ -467,21 +453,22 @@
         statusSelect.appendChild(opt);
       });
     }
-    applyFilters();
+    applyFilters(document.getElementById('searchInput').value);
   });
 
-  // Apply all filters
-  function applyFilters() {
+  function applyFilters(searchTerm = '') {
     const city = document.getElementById("filterCity").value;
     const state = document.getElementById("filterState").value;
     const subsystem = document.getElementById("filterSubsystem").value;
     const activity = document.getElementById("filterActivity").value;
     const qtyLevel = document.getElementById("filterQty").value;
 
+    const term = searchTerm.trim().toLowerCase();
+
     const filteredStations = allStations.filter(station => {
+      // Filters
       if (city && station.city !== city) return false;
       if (state && station.state !== state) return false;
-
       if (subsystem || activity || qtyLevel) {
         if (!station.subsystems || station.subsystems.length === 0) return false;
         let match = station.subsystems.some(s => {
@@ -493,41 +480,49 @@
         if (!match) return false;
       }
 
-      return true;
+      // Search term
+      if (!term) return true;
+      if (station.stationID && station.stationID.toLowerCase().includes(term)) return true;
+      if (station.pincode && station.pincode.toString().includes(term)) return true;
+      if (station.manager) {
+        const managerName = (station.manager.F_name + ' ' + station.manager.L_name).toLowerCase();
+        if (managerName.includes(term)) return true;
+      }
+      if (station.staff && station.staff.length > 0) {
+        return station.staff.some(s => (s.F_name + ' ' + s.L_name).toLowerCase().includes(term));
+      }
+      return false;
     });
 
     displayStations(filteredStations);
   }
 
-  // Attach change events to all filters
   ["filterCity", "filterState", "filterActivity", "filterQty"].forEach(id => {
-    document.getElementById(id).addEventListener("change", applyFilters);
+    document.getElementById(id).addEventListener("change", () => {
+      applyFilters(document.getElementById('searchInput').value);
+    });
   });
 
-  // Search functionality
-  document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('searchInput');
-    const searchBtn = document.getElementById('searchBtn');
-
-    searchBtn.addEventListener('click', () => {
-      const term = searchInput.value;
-      logToConsole(`> SEARCH triggered for: "${term}"`);
-      applyFilters(); // Filters + search
-    });
-
-    searchInput.addEventListener('keypress', e => {
-      if (e.key === 'Enter') {
-        const term = searchInput.value;
-        logToConsole(`> SEARCH triggered for: "${term}"`);
-        applyFilters();
-      }
-    });
-
-    // Initial load
-    loadStations();
+  document.getElementById('searchBtn').addEventListener('click', () => {
+    const term = document.getElementById('searchInput').value.trim();
+    if (term) logToConsole(`> SEARCH triggered for: "${term}"`);
+    else logToConsole('> SEARCH triggered: showing all stations');
+    applyFilters(term);
   });
 
+  document.getElementById('searchInput').addEventListener('keypress', e => {
+    if (e.key === 'Enter') {
+      const term = document.getElementById('searchInput').value.trim();
+      if (term) logToConsole(`> SEARCH triggered for: "${term}"`);
+      else logToConsole('> SEARCH triggered: showing all stations');
+      applyFilters(term);
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', loadStations);
 </script>
+
+
 
 
 
