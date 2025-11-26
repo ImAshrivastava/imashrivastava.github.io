@@ -418,7 +418,7 @@
 
                     const names = data.map(staff => `${staff.F_name} ${staff.L_name} (${staff.staffID})`);
                     logToConsole(`> DIVISION RESULT: Found ${data.length} staff member(s) who maintain ALL stations:`);
-                    names.forEach(name => logToConsole(`> \t- ${name}`));
+                    names.forEach(name => logToConsole(`> ${name}`));
                 })
                 .fail(err => {
                     const errorMsg = err.responseText ? JSON.parse(err.responseText).error : err.statusText;
