@@ -23,7 +23,7 @@
     <meta name="theme" content="hugo-academic"/>
     <meta name="generator" content="Hugo 0.49"/>
     <meta name="author" content="Aman Shrivastava"/>
-    <meta name="description" content="">
+    <meta name="description" content="Explore the diverse professional and entrepreneurial experience of Aman Shrivastava.">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.0/css/academicons.min.css" integrity="sha512-GGGNUPDhnG8LEAEDsjqYIQns+Gu8RBs4j5XGlxl7UfRaZBhCCm5jenJkeJL8uPuOXGqgl8/H1gjlWQDRjd3cUQ==" crossorigin="anonymous">
@@ -35,7 +35,7 @@
     <link rel="apple-touch-icon" type="image/png" href="../img/apple-touch-icon.jpg">
     <link rel="canonical" href="https://imashrivastava.github.io/supervision">
 
-    <title>Resources | Aman Shrivastava</title>
+    <title>Supervision | Aman Shrivastava</title>
     <style>
         h2 {
             color: #000000;
@@ -50,17 +50,23 @@
             border-radius: 12px;
             padding: 1rem 1rem 0.5rem;
             margin-bottom: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+            box-shadow: 0 2px 24px rgba(0,0,0,0.6);
             cursor: pointer;
             transition: all 0.25s ease-in-out;
             position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 12px
+            /*border: 1px solid rgba(255,255,255,0.05);*/
         }
         .pub-card:hover {
-            /*box-shadow: 0 4px 14px rgba(0,0,0,0.75);*/
             background: rgba(0, 0, 0, 0.92);
+            /*box-shadow: 0 12px 32px rgba(0,0,0,0.75);*/
         }
         .pub-title {
             color: #ffffff;
+            font-weight: bold;
             font-size:1.05rem;
             margin:0;
         }
@@ -93,7 +99,6 @@
             font-size:0.95rem;
             line-height:1.5rem;
             color:#d0d0d0;
-            display:none;
         }
         .pub-card.expanded .pub-abstract {
             display:block;
@@ -117,6 +122,9 @@
 </head>
 
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+<!--<div id="welcome-message" style="display: flex; background: #00c3ff; color: #FFFFFF; text-align: center; padding: 10px; font-weight: bold;">
+  Welcome to Aman Shrivastava's Website!
+</div>-->
 <nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
     <div class="container">
         <div class="navbar-header">
@@ -139,32 +147,16 @@
                 <li class="nav-item"><a href="https://imashrivastava.github.io/awards"><span>Awards</span></a></li>
                 <li class="nav-item"><a href="https://imashrivastava.github.io/projects"><span>Projects</span></a></li>
                 <li class="nav-item"><a href="https://imashrivastava.github.io/travel"><span>Travel</span></a></li>
-                <!--<li class="nav-item"><a href="https://imashrivastava.github.io/files/"><span>CV</span></a></li>-->
+                <!--<li class="nav-item"><a href="https://imashrivastava.github.io/files/Aman"><span>CV</span></a></li>-->
             </ul>
         </div>
     </div>
 </nav>
 
 <div class="container">
-    <!--<p style="padding-top: 20px; padding-bottom: 20px; line-height: 1.33em; font-size: 1rem; color: black;">
-      <em>Last update: February, 2026.</em>
+    <p style="padding-top: 20px; padding-bottom: 20px; line-height: 1.33em; font-size: 1rem; color: black;">
+        <em>Last update: February, 2026</em>
     </p>
-    <h2>Undergraduate Students Supervised</h2>
-    <div class="pub-card" style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px;">
-
-        <div style="flex: 1 1 0%; min-width: 200px;">
-            <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-                <div>
-                    <div class="pub-title" style="font-weight: bold; font-size: 1rem;">Three Recommendations</div>
-                </div>
-                <br>
-                <div ><a href="/resources/recommendations/files/Reference-I.pdf" target="_blank"><i class="fa fa-file-text-o"></i> Dr. Tim Personn</a></div>
-                <div ><a href="/resources/recommendations/files/Reference-II.pdf" target="_blank"><i class="fa fa-file-text-o"></i> Dr. Rakesh Jha (** need to add)</a></div>
-                <div ><a href="/resources/recommendations/files/Reference-III.pdf" target="_blank"><i class="fa fa-file-text-o"></i> Dr. Ashwin Kothari</a></div>
-            </div>
-        </div>
-
-    </div>-->
 
     <h2>School Students Supervised</h2>
     <div class="pub-card">
@@ -189,9 +181,6 @@
 
 </div>
 
-
-
-
 <footer class="site-footer">
     <div class="container">
         <p class="powered-by">
@@ -213,6 +202,30 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
 <script src="/js/hugo-academic.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
+<!--<script>
+  window.onload = function() {
+    var message = document.getElementById('welcome-message');
+    message.style.display = 'block';
+
+    // Optional: Hide the message after 5 seconds
+    setTimeout(function() {
+      message.style.display = 'none';
+    }, 5000);
+  };
+</script>-->
+
+<script>
+    window.onload = function () {
+        var popup = document.getElementById('popup');
+        popup.style.display = 'block';
+
+        // Hide after 5 seconds
+        setTimeout(function () {
+            popup.style.display = 'none';
+        }, 5000);
+    };
+</script>
 
 </body>
 </html>
